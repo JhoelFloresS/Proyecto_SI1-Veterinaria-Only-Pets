@@ -20,7 +20,7 @@ class CreatePersonasTable extends Migration
             $table->string('apellido_materno','20');
             $table->string('ci','10')->nullable();
             $table->string('direccion','254')->nullable();
-            $table->string('email','20');
+            $table->string('email','40');
             $table->date('fecha_de_nacimiento')->nullable();
             $table->enum('sexo', ['M', 'F'])->nullable();
             $table->timestamps();

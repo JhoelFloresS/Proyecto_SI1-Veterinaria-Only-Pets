@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TurnoVet extends Model
 {
     use HasFactory;
+    protected $table = 'turno_vets';
+
+    protected $fillable  = [ 
+        'id_veterinario', 
+        'id_turno', 
+    ];
 }

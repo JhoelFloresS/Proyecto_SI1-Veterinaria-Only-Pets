@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class SolicitudServicio extends Model
 {
     use HasFactory;
+    protected $table = 'solicitud_servicios';
+
+    protected $fillable  = [ 
+        'id_cliente', 
+        'id_servicio', 
+        'id_recibo', 
+    ];
 }

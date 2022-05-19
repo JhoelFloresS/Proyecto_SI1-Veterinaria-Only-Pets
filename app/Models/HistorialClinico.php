@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class HistorialClinico extends Model
 {
     use HasFactory;
+    protected $table = 'historiales_clinicos';
+
+    protected $fillable  = [ 
+        'id_mascota', 
+        'peso', 
+        'talla', 
+    ];
 }
