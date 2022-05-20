@@ -15,7 +15,7 @@ class CreateBitacorasTable extends Migration
     {
         Schema::create('bitacoras', function (Blueprint $table) {
             $table->id();
-            $table->string('descripción','300');
+            $table->string('descripcion','300');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('usuarios')->cascadeOnDelete()->onUpdate('cascade');
         });

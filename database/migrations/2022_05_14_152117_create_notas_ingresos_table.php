@@ -21,7 +21,7 @@ class CreateNotasIngresosTable extends Migration
 
             $table->integer('cantidad');
             $table->date('fecha');
-            $table->date('hora');
+            $table->time('hora');
             $table->integer('monto_total');
 
             $table->foreign('id_proveedor')->references('id')->on('proveedores')->onDelete('set null')->onUpdate('cascade');
