@@ -11,4 +11,10 @@ class Cliente extends Model
     protected $table = 'clientes';
 
     protected $fillable  = ['id'];
+
+
+    /*public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'id');
+    }*/
 }

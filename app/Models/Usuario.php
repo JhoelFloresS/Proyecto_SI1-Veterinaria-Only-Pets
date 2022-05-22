@@ -14,5 +14,17 @@ class Usuario extends Model
         'nombre_usuario', 
         'password', 
         'enable', 
+        'id_rol',
+        'id_persona'
     ];
+
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'id_persona');
+    }
+
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'id_rol');
+    }
 }
