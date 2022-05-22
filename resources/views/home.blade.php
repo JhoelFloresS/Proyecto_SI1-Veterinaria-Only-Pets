@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.master')
+@section('title', 'Home')
 
-<head>
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Home</title>
-</head>
+@section('css')
+    <link rel="stylesheet" href="./css/home.css">
+@endsection
 
-<body>
+@section('principal')
     <div class="encabezado">
-        <a class="cerrarSesion" href="/cerrar-sesion">Cerrar Sesion</a>
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button class="cerrarSesion" type="submit">Cerrar Sesión</button>
+            {{-- <a class="cerrarSesion" type ="submit">Cerrar Sesion</a> --}}
+        </form>
     </div>
 
     <div class="separacion">
@@ -34,6 +37,4 @@
         <div class="contenidoDerecha">
         </div>
     </div>
-</body>
-
-</html>
+@endsection
