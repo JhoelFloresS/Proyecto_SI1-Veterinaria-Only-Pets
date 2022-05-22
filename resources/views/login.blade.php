@@ -44,7 +44,7 @@
                             <header>¿Todavia no tienes una cuenta?</header>
                         </div>
                         <div class="texto1 text-center">
-                            <a class="texto_registro" href="/register">Registrate aqui</a>
+                            <a class="texto_registro" href="{{ route('usuarios.create') }}">Registrate aqui</a>
                         </div>
                     </div>
                 </div>
