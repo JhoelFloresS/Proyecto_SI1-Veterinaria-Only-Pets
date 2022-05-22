@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,100;1,600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.encabezado {
+    background-color: #2FE276;
+    background-image: url(/images/home/encabezado.png);
+    background-repeat: no-repeat;
+    height: 124px;
+    bottom: 0px;
+    width: 100%;
+    border-radius: 0px 0px 25px 25px;
+}
+
+.cerrarSesion {
+    /* color entorno*/
+    background: #F4F4F4;
+    /* tamaño*/
+    height: 60px;
+    width: 164px;
+    /* mover a la derecha */
+    float: right;
+    /* margen con el de arriba*/
+    margin-top: 50px;
+    /* margen con el de la derecha */
+    margin-right: 25px;
+    /*centrando*/
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /*color letra*/
+    color: #2FE276;
+    /*fuente letra*/
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 30px;
+}
+
+.separacion {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    margin-top: 0.5%;
+}
+
+.contenidoIzquierda {
+    background: linear-gradient(180deg, #46FD8F 1.08%, #17C65D 100%);
+    margin-top: 8px;
+    border-radius: 10px;
+    margin-right: 1%;
+    margin-left: 2%;
+    border-radius: 25px 25px 0px 0px;
+    height: 909px;
+}
+
+.contenidoDerecha {
+    background-color: #efefef;
+    margin-top: 8px;
+    border-radius: 10px;
+    margin-right: 1%;
+    margin-left: 0.5%;
+    border-radius: 25px 25px 0px 0px;
+    height: 909px;
+}
+
+.fotoPerfil {
+    height: 288px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.contenidoIzquierda a {
+    height: 60px;
+    /* margen con el de arriba*/
+    margin-top: 4px;
+    /*centrando*/
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /*color letra*/
+    color: #FFFFFF;
+    /*fuente letra*/
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.separacion {
+    margin-top: 0px;
+    height: 3.5px;
+    background-color: #FFFFFF;
+}
+
+header {
+    text-align: center;
+    font-weight: 700;
+    font-size: 100px;
+    text-decoration: none;
+    border-radius: 30px;
+}
