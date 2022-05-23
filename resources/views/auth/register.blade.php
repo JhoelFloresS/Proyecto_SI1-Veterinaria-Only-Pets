@@ -125,6 +125,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            cursor: pointer;
         }
         .buttonTengoCuenta{
             font-size: 20px;
@@ -203,10 +204,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="rectanguloIzquierdo">
+                        
                         <div class="textIniciarSesion text-center">
                             <header>Crear una cuenta</header>
                         </div>
-
+                        @section('formulario')
                         <form action="{{ route('usuarios.store') }}" method="POST">
                             @csrf
                             <div class="nombre">Nombre</div>
@@ -229,44 +231,12 @@
                                 <input class="myInput" placeholder="Ingresa tu Apellido Materno" type="text" id="apellido" required 
                                 name="apellido_materno" value="{{old('apellido_materno')}}">
                             </div>
-    
-                            <div class="apellido">Ci</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu Ci" type="text" id="apellido"
-                                name="ci" value="{{old('ci')}}">
-                            </div>
-    
-                            <div class="apellido">Direccion</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu direccion" type="text" id="apellido"
-                                name="direccion" value="{{old('direccion')}}">
-                            </div>
-    
+
                             <div class="email">email</div>
     
                             <div class="form-group">
                                 <input class="myInput" placeholder="Ingresa tu email" type="email" id="email" required 
                                 name="email" value="{{old('email')}}">
-                            </div>
-    
-                            <div class="apellido">Fecha de nacimiento</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" type="date" id="apellido" 
-                                name="fecha_de_nacimiento" value="{{old('fecha_de_nacimiento')}}">
-                            </div>
-    
-                            <div class="apellido">Sexo</div>
-    
-                            <div class="radio-inputs">
-                                <input type="radio" id="apellido" 
-                                name="sexo" value="{{'M'}}" checked>
-                                <label class="">Masculino</label>
-                                <input type="radio" id="apellido"
-                                name="sexo" value="{{'F'}}">
-                                <label class="">Femenino</label>
                             </div>
     
                             <div class="apellido">Usuario</div>
@@ -293,13 +263,14 @@
                             <div class="texto2 text-center">
                                 <header>Acepto los terminos y condiciones del servicio</header>
                             </div>
-    
+                            
                             <input type="submit" class="buttonRegistrame" value="Registrarme">
                         </form>
-
+                        @show
                         <a type='button'class="buttonTengoCuenta" href="{{route('login')}}">Ya tengo cuenta</a>                      
-
+                        
                     </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <div class="rectanguloDerecho">

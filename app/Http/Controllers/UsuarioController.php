@@ -20,6 +20,6 @@ class UsuarioController extends Controller
         //creacion de la persona y usuario
         StoreUsuarioAction::execute($request); 
 
-        return view('login');
+        return view('auth.login');
     }
 }
