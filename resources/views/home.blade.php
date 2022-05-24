@@ -1,8 +1,10 @@
+
 @extends('layouts.master')
 @section('title', 'Home')
 
 
 @section('head')
+
     <!-- CSS only -->
     <!-- Material CDN -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
@@ -21,7 +23,9 @@
                 <div class="logo">
                     <img src="/images/home/logo.png">
                     <h2>
-                        <div class="texto-black"> <div class="letra-veterinaria">VETERINARIA</div> </div><span class="danger"> ONLY PET'S</span>
+                        <div class="texto-black">
+                            <div class="letra-veterinaria">VETERINARIA</div>
+                        </div><span class="danger"> ONLY PET'S</span>
                     </h2>
                 </div>
                 <div class="close" id="close-btn">
@@ -89,7 +93,9 @@
                 </div>
             </div>
             <div class="contenido">
+
                 @section('contenido-derecha')
+
                 @show
             </div>
         </div>
