@@ -31,6 +31,17 @@ Route::get('/home', function () {
     return view('home');
 })->middleware('auth');
 
+Route::get('/veterinario', function() {
+    return view('veterinario.index');
+});
+
+Route::get('/veterinario/create', function() {
+    return view('veterinario.create');
+});
+
+Route::get('/veterinario/editar', function() {
+    return view('veterinario.edit');
+});
 
 Route::resource('usuarios', UsuarioController::class);
 Route::get('/administrativos', function() {

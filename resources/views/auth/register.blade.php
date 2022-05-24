@@ -2,281 +2,278 @@
 @section('title', 'Registro')
 @section('css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
-    
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,100;1,600&display=swap');
 
-        body {
-            background-image: url(/images/login/fondo.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-        }
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,100;1,600&display=swap');
 
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
+    body {
+        background-image: url(/images/login/fondo.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-        .encabezadoSombra {
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-        }
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
 
-        .textoEncabezado {
-            background-color: #2FE276;
-            font-size: 15px;
-            font-weight: 700;
-            color: #fff;
-            padding: 0.2rem 2rem;
-        }
+    .encabezadoSombra {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    }
 
-        .encabezado {
-            background-color: #2FE276;
-            background-image: url(/images/login/encabezado.png);
-            background-repeat: no-repeat;
-            height: 80px;
-            bottom: 0px;
-            width: 100%;
-        }
+    .textoEncabezado {
+        background-color: #2FE276;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        padding: 0.2rem 2rem;
+    }
 
-        /*funcion boostrap crea un cuadrado en medio de la pantalla dado parametros en css*/
-        .container {
-            position: absolute;
-            max-width: 1000px;
-            height: 500px;
-            margin: auto;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+    .encabezado {
+        background-color: #2FE276;
+        background-image: url(/images/login/encabezado.png);
+        background-repeat: no-repeat;
+        height: 80px;
+        bottom: 0px;
+        width: 100%;
+    }
 
-        .rectanguloDerecho {
-            position: relative;
-            background: #2FE276;
-            border-radius: 10px;
-            height: 100%;
-            padding: 25px;
-            font-size: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url(/images/login/welcome.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-        }
+    /*funcion boostrap crea un cuadrado en medio de la pantalla dado parametros en css*/
+    .container {
+        position: absolute;
+        max-width: 1000px;
+        height: 500px;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-        .rectanguloIzquierdo {
-            position: relative;
-            background: #fff;
-            border-radius: 10px;
-            height: 100%;
-            padding: 25px;
-            padding-left: 50px;
-        }
+    .rectanguloDerecho {
+        position: relative;
+        background: #2FE276;
+        border-radius: 10px;
+        height: 100%;
+        padding: 25px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(/images/login/welcome.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
 
-        .row {
-            height: 100%;
-        }
+    .rectanguloIzquierdo {
+        position: relative;
+        background: #fff;
+        border-radius: 10px;
+        height: 100%;
+        padding: 25px;
+        padding-left: 50px;
+    }
 
-        .rectanguloGrande {
-            position: relative;
-            background: #fff;
-            height: 100%;
-            border-radius: 25px;
+    .row {
+        height: 100%;
+    }
 
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-        }
+    .rectanguloGrande {
+        position: relative;
+        background: #fff;
+        height: 100%;
+        border-radius: 25px;
 
-        .textIniciarSesion {
-            position: absolute;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    }
 
-            color: #545454;
-            font-size: 24px;
-            font-weight: 700;
+    .textIniciarSesion {
+        position: absolute;
 
-            position: relative;
-            /* margen con el de arriba */
-            margin-top: 40px;
-        }
+        color: #545454;
+        font-size: 24px;
+        font-weight: 700;
 
-        .nombre,
-        .apellido,
-        .email,
-        .contraseña,
-        .texto2 {
-            color: black;
-            margin-top: 18px;
-            font-weight: 600;
-            font-size: 15px;
-        }
+        position: relative;
+        /* margen con el de arriba */
+        margin-top: 40px;
+    }
 
-        .buttonRegistrame {
-            font-size: 20px;
-            font-weight: 700;
+    .nombre,
+    .apellido,
+    .email,
+    .contraseña,
+    .texto2 {
+        color: black;
+        margin-top: 18px;
+        font-weight: 600;
+        font-size: 15px;
+    }
 
-            width: 250px;
-            padding: 13px;
+    .buttonRegistrame {
+        font-size: 20px;
+        font-weight: 700;
 
-            /* margen con el de arriba*/
-            margin-top: 40px;
+        width: 250px;
+        padding: 13px;
 
-            /* centrando el boton */
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            cursor: pointer;
-        }
-        .buttonTengoCuenta{
-            font-size: 20px;
-            font-weight: 700;
-            text-align: center;
+        /* margen con el de arriba*/
+        margin-top: 40px;
 
-            width: 250px;
-            padding: 13px;
+        /* centrando el boton */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
 
-             /* centrando el boton */
-             display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .buttonTengoCuenta {
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
 
-        /* sombreado de los botones , color de letra , borde y color del contorno*/
-        .buttonRegistrame {
-            /* color contorno*/
-            background: #2FE276;
-            /* color de la letra*/
-            color: #fff;
-            /* sombreado*/
-            box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
-            /*borde*/
-            border-radius: 10px;
-            border: none;
-        }
+        width: 250px;
+        padding: 13px;
 
-        .buttonTengoCuenta {
-            /* color contorno*/
-            background:#fff;
-            /* color de la letra*/
-            color:#2FE276;
-            /* sombreado*/
-            box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
-            /*borde*/
-            border-radius: 10px;
-            border: none;
+        /* centrando el boton */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-            margin-top: 20px;
-        }
+    /* sombreado de los botones , color de letra , borde y color del contorno*/
+    .buttonRegistrame {
+        /* color contorno*/
+        background: #2FE276;
+        /* color de la letra*/
+        color: #fff;
+        /* sombreado*/
+        box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
+        /*borde*/
+        border-radius: 10px;
+        border: none;
+    }
 
-        .myInput {
-            height: 100%;
-            width: 100%;
-            border: none;
-            font-size: 17px;
-            border-bottom: 3px solid #2FE276;
-            margin-top: 10px;
-            outline: 0px;
-        }
+    .buttonTengoCuenta {
+        /* color contorno*/
+        background: #fff;
+        /* color de la letra*/
+        color: #2FE276;
+        /* sombreado*/
+        box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
+        /*borde*/
+        border-radius: 10px;
+        border: none;
 
-        .texto {
-            margin-top: 25px;
-        }
+        margin-top: 20px;
+    }
 
-        .texto1 {
-            margin-top: 10px;
-        }
-    </style>
-    @endsection
+    .myInput {
+        height: 100%;
+        width: 100%;
+        border: none;
+        font-size: 17px;
+        border-bottom: 3px solid #2FE276;
+        margin-top: 10px;
+        outline: 0px;
+    }
+
+    .texto {
+        margin-top: 25px;
+    }
+
+    .texto1 {
+        margin-top: 10px;
+    }
+</style>
+@endsection
 
 
 @section('principal')
-    <div class="encabezadoSombra">
-        <div class="textoEncabezado">Clinica veterinaria Only Pet{{'\''}}s
-        </div>
-        <div class="encabezado">
-        </div>
+<div class="encabezadoSombra">
+    <div class="textoEncabezado">Clinica veterinaria Only Pet{{'\''}}s
     </div>
+    <div class="encabezado">
+    </div>
+</div>
 
 
-    <!-- funcion boostrap crea un cuadrado en medio de la pantalla dado parametros en css -->
-    <div class="container">
-        <div class="rectanguloGrande">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="rectanguloIzquierdo">
-                        
-                        <div class="textIniciarSesion text-center">
-                            <header>Crear una cuenta</header>
-                        </div>
-                        @section('formulario')
-                        <form action="{{ route('usuarios.store') }}" method="POST">
-                            @csrf
-                            <div class="nombre">Nombre</div>
+<!-- funcion boostrap crea un cuadrado en medio de la pantalla dado parametros en css -->
+<div class="container">
+    <div class="rectanguloGrande">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="rectanguloIzquierdo">
 
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu Nombre" type="text" id="nombre" required 
-                                name="nombre" value="{{old('nombre')}}">
-                            </div>
-    
-                            <div class="apellido">Apellido Paterno</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu Apellido Paterno" type="text" id="apellido" required 
-                                name="apellido_paterno" value="{{old('apellido_paterno')}}">
-                            </div>
-    
-                            <div class="apellido">Apellido Materno</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu Apellido Materno" type="text" id="apellido" required 
-                                name="apellido_materno" value="{{old('apellido_materno')}}">
-                            </div>
+                    <div class="textIniciarSesion text-center">
+                        @section('contenido')
 
-                            <div class="email">email</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu email" type="email" id="email" required 
-                                name="email" value="{{old('email')}}">
-                            </div>
-    
-                            <div class="apellido">Usuario</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu nombre de usuario" type="text" id="apellido" required 
-                                name="nombre_usuario" value="{{old('nombre_usuario')}}">
-                            </div>
-    
-                            <div class="contraseña">Contraseña</div>
-                            
-                            <div class="form-group">
-                                <input class="myInput" type="password" id="password" placeholder="Ingresa tu contraseña" required 
-                                name="password">
-                            </div>
-
-                            <div class="contraseña">Confirmar contraseña</div>
-    
-                            <div class="form-group">
-                                <input class="myInput" type="password" id="Conf_password" placeholder="Repite tu contraseña" required 
-                                name="password_confirmation">
-                            </div>
-    
-                            <div class="texto2 text-center">
-                                <header>Acepto los terminos y condiciones del servicio</header>
-                            </div>
-                            
-                            <input type="submit" class="buttonRegistrame" value="Registrarme">
-                        </form>
+                        <header>Crear una cuenta</header>
                         @show
-                        <a type='button'class="buttonTengoCuenta" href="{{route('login')}}">Ya tengo cuenta</a>                      
-                        
                     </div>
-                    
+                    @section('formulario')
+                    <form action="{{ route('usuarios.store') }}" method="POST">
+                        @csrf
+                        <div class="nombre">Nombre</div>
+
+                        <div class="form-group">
+                            <input class="myInput" placeholder="Ingresa tu Nombre" type="text" id="nombre" required name="nombre" value="{{old('nombre')}}">
+                        </div>
+
+                        <div class="apellido">Apellido Paterno</div>
+
+                        <div class="form-group">
+                            <input class="myInput" placeholder="Ingresa tu Apellido Paterno" type="text" id="apellido" required name="apellido_paterno" value="{{old('apellido_paterno')}}">
+                        </div>
+
+                        <div class="apellido">Apellido Materno</div>
+
+                        <div class="form-group">
+                            <input class="myInput" placeholder="Ingresa tu Apellido Materno" type="text" id="apellido" required name="apellido_materno" value="{{old('apellido_materno')}}">
+                        </div>
+
+                        <div class="email">email</div>
+
+                        <div class="form-group">
+                            <input class="myInput" placeholder="Ingresa tu email" type="email" id="email" required name="email" value="{{old('email')}}">
+                        </div>
+
+                        <div class="apellido">Usuario</div>
+
+                        <div class="form-group">
+                            <input class="myInput" placeholder="Ingresa tu nombre de usuario" type="text" id="apellido" required name="nombre_usuario" value="{{old('nombre_usuario')}}">
+                        </div>
+
+                        <div class="contraseña">Contraseña</div>
+
+                        <div class="form-group">
+                            <input class="myInput" type="password" id="password" placeholder="Ingresa tu contraseña" required name="password">
+                        </div>
+
+                        <div class="contraseña">Confirmar contraseña</div>
+
+                        <div class="form-group">
+                            <input class="myInput" type="password" id="Conf_password" placeholder="Repite tu contraseña" required name="password_confirmation">
+                        </div>
+
+                        <div class="texto2 text-center">
+                            <header>Acepto los terminos y condiciones del servicio</header>
+                        </div>
+
+                        <input type="submit" class="buttonRegistrame" value="Registrarme">
+                    </form>
+                    @show
+                    <a type='button' class="buttonTengoCuenta" href="{{route('login')}}">Ya tengo cuenta</a>
+
                 </div>
-                <div class="col-md-6">
-                    <div class="rectanguloDerecho">
-                    </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="rectanguloDerecho">
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
