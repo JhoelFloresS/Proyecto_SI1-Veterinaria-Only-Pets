@@ -16,14 +16,14 @@ class PersonaSeeder extends Seeder
     public function run()
     {
         /*Persona::create([
-            'nombre' => "Jose", 
-            'apellido_paterno' => "Torrez", 
-            'apellido_materno' => "Carvajal", 
-            'ci' => "13745010", 
-            'direccion' => "La Guardia", 
-            'email'=> "jose1394@gmail.com", 
-            'fecha_de_nacimiento' => "1991-10-23", 
-            'sexo' => "M",
+            'nombre' => 'Jose', 
+            'apellido_paterno' => 'Torrez', 
+            'apellido_materno' => 'Carvajal', 
+            'ci' => '13745010', 
+            'direccion' => 'La Guardia', 
+            'email'=> 'jose1394@gmail.com', 
+            'fecha_de_nacimiento' => '1999-10-10', 
+            'sexo' => 'M',
         ]);*/
         DB::insert(
             'insert into personas (nombre, apellido_paterno, apellido_materno, ci, direccion, email, fecha_de_nacimiento, sexo) values ("Juan", "Perez", "Perez", "13945614", "La Guardia", "torrez.juan@gmail.com", "1990-05-23", "M")'
@@ -89,7 +89,6 @@ class PersonaSeeder extends Seeder
         DB::insert(
             "insert into personas (nombre, apellido_paterno, apellido_materno, ci, direccion, email, fecha_de_nacimiento, sexo) values ('Crithian', 'Paredes', 'Paz', '1828737', 'Plan 3000', 'Crithian_Paz@gmail.com', '1990-05-22', 'M')"
         ); 
-        
     }
     
     /*function fecha_aleatoria($formato = "Y-m-d", $limiteInferior = "1980-01-01", $limiteSuperior = "2004-12-30"){

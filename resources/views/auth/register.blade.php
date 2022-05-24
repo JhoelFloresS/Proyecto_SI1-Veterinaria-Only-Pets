@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
-    <title>Registro</title>
+@extends('layouts.master')
+@section('title', 'Registro')
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,100;1,600&display=swap');
@@ -128,6 +125,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            cursor: pointer;
         }
         .buttonTengoCuenta{
             font-size: 20px;
@@ -188,11 +186,12 @@
             margin-top: 10px;
         }
     </style>
-</head>
+    @endsection
 
-<body>
+
+@section('principal')
     <div class="encabezadoSombra">
-        <div class="textoEncabezado">Clinica veterinaria Only Pet's
+        <div class="textoEncabezado">Clinica veterinaria Only Pet{{'\''}}s
         </div>
         <div class="encabezado">
         </div>
@@ -205,49 +204,73 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="rectanguloIzquierdo">
+                        
                         <div class="textIniciarSesion text-center">
                             <header>Crear una cuenta</header>
                         </div>
+                        @section('formulario')
+                        <form action="{{ route('usuarios.store') }}" method="POST">
+                            @csrf
+                            <div class="nombre">Nombre</div>
 
-                        <div class="nombre">Nombre</div>
+                            <div class="form-group">
+                                <input class="myInput" placeholder="Ingresa tu Nombre" type="text" id="nombre" required 
+                                name="nombre" value="{{old('nombre')}}">
+                            </div>
+    
+                            <div class="apellido">Apellido Paterno</div>
+    
+                            <div class="form-group">
+                                <input class="myInput" placeholder="Ingresa tu Apellido Paterno" type="text" id="apellido" required 
+                                name="apellido_paterno" value="{{old('apellido_paterno')}}">
+                            </div>
+    
+                            <div class="apellido">Apellido Materno</div>
+    
+                            <div class="form-group">
+                                <input class="myInput" placeholder="Ingresa tu Apellido Materno" type="text" id="apellido" required 
+                                name="apellido_materno" value="{{old('apellido_materno')}}">
+                            </div>
 
-                        <div class="form-group">
-                            <input class="myInput" placeholder="Ingresa tu Nombre" type="text" id="nombre" required>
-                        </div>
+                            <div class="email">email</div>
+    
+                            <div class="form-group">
+                                <input class="myInput" placeholder="Ingresa tu email" type="email" id="email" required 
+                                name="email" value="{{old('email')}}">
+                            </div>
+    
+                            <div class="apellido">Usuario</div>
+    
+                            <div class="form-group">
+                                <input class="myInput" placeholder="Ingresa tu nombre de usuario" type="text" id="apellido" required 
+                                name="nombre_usuario" value="{{old('nombre_usuario')}}">
+                            </div>
+    
+                            <div class="contraseña">Contraseña</div>
+                            
+                            <div class="form-group">
+                                <input class="myInput" type="password" id="password" placeholder="Ingresa tu contraseña" required 
+                                name="password">
+                            </div>
 
-                        <div class="apellido">Apellido</div>
-
-                        <div class="form-group">
-                            <input class="myInput" placeholder="Ingresa tu Apellido" type="text" id="apellido" required>
-                        </div>
-
-                        <div class="email">email</div>
-
-                        <div class="form-group">
-                            <input class="myInput" placeholder="Ingresa tu email" type="text" id="email" required>
-                        </div>
-
-                        <div class="contraseña">Contraseña</div>
+                            <div class="contraseña">Confirmar contraseña</div>
+    
+                            <div class="form-group">
+                                <input class="myInput" type="password" id="Conf_password" placeholder="Repite tu contraseña" required 
+                                name="password_confirmation">
+                            </div>
+    
+                            <div class="texto2 text-center">
+                                <header>Acepto los terminos y condiciones del servicio</header>
+                            </div>
+                            
+                            <input type="submit" class="buttonRegistrame" value="Registrarme">
+                        </form>
+                        @show
+                        <a type='button'class="buttonTengoCuenta" href="{{route('login')}}">Ya tengo cuenta</a>                      
                         
-                        <div class="form-group">
-                            <input class="myInput" type="password" id="password" placeholder="Ingresa tu contraseña" required>
-                        </div>
-
-                        <div class="contraseña">Confirmar contraseña</div>
-
-                        <div class="form-group">
-                            <input class="myInput" type="password" id="Conf_password" placeholder="Repite tu contraseña" required>
-                        </div>
-
-
-                        <div class="texto2 text-center">
-                            <header>Acepto los terminos y condiciones del servicio</header>
-                        </div>
-
-                        <input type="submit" class="buttonRegistrame" value="Registrarme">
-                        <a type='button'class="buttonTengoCuenta" href="http://127.0.0.1:8000/login">Ya tengo cuenta</a>                      
-
                     </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <div class="rectanguloDerecho">
@@ -256,8 +279,4 @@
             </div>
         </div>
     </div>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
-
-</html>
+@endsection

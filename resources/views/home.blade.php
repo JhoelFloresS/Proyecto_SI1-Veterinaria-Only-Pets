@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.master')
+@section('title', 'Home')
+
 
 <head>
     <!-- CSS only -->

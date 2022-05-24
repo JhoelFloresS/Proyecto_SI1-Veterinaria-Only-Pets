@@ -10,5 +10,12 @@ class Administrativo extends Model
     use HasFactory;
     protected $table = 'administrativos';
 
-    protected $fillable = ['profesion'];
+    protected $fillable = ['id', 'profesion'];
+
+
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'id');
+    }
+
 }

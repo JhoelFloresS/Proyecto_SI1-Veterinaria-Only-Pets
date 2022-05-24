@@ -20,4 +20,19 @@ class Persona extends Model
         'fecha_de_nacimiento', 
         'sexo',
     ];
+
+    public function usuario()
+    {
+        return $this->hasOne(Usuario::class, 'id_persona');
+    }
+
+    /*public function cliente()
+    {
+        return $this->hasOne(Cliente::class, 'id');
+    }*/
+
+    public function administrativo()
+    {
+        return $this->hasOne(Administrativo::class, 'id');
+    }
 }
