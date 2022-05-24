@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{asset('css/table-information.css')}}">
 @endsection
 
-@section('contenido-derecha')
+@section('contenido')
   <div class="registrar">
     <a href="{{'/administrativos/create'}}" class="buttonRegistrame">
       Registrar <br>Administrativo
