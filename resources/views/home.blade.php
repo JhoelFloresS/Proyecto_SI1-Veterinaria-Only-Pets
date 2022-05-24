@@ -3,6 +3,8 @@
 
 @section('css')
     <link rel="stylesheet" href="./css/home.css">
+    @section('css-derecha')
+    @show
 @endsection
 
 @section('principal')
@@ -35,6 +37,8 @@
             <div class="separacion"></div>
         </div>
         <div class="contenidoDerecha">
+            @section('contenido-derecha')
+            @show
         </div>
     </div>
 @endsection

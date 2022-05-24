@@ -14,7 +14,12 @@ class StoreUsuarioAction
 
     public static function execute(Request $request): void
     {
-        $persona = Persona::create($request->except('nombre_usuario', 'password', 'password_confirmation'));
+        $persona = Persona::create([
+            'nombre'           => $request->nombre,
+            'apellido_paterno' => $request->apellido_paterno,
+            'apellido_materno' => $request->apellido_materno,
+            'email'            => $request->email,
+        ]);
         Cliente::create(['id' => $persona->id]);
         Usuario::create([
             'nombre_usuario' => $request->nombre_usuario,

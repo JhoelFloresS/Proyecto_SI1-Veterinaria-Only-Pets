@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Auth;
@@ -32,3 +33,7 @@ Route::get('/home', function () {
 
 
 Route::resource('usuarios', UsuarioController::class);
+Route::get('/administrativos', function() {
+    return view('/administrativos.index');
+});
+Route::resource('administrativos', AdministrativoController::class);
