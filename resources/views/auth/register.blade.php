@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Registro')
-@section('css')
+@section('head')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
 
 

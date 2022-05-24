@@ -2,6 +2,7 @@
 
 
 @section('formulario')
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>
@@ -11,6 +12,7 @@
     </ul>
 </div>
 @endif
+
 <form action="{{route('administrativos.update', $administrativo)}}" method="POST">
     @csrf
     @method('PUT')
@@ -79,7 +81,8 @@
     <div class="texto2 text-center">
         <header>Acepto los terminos y condiciones del servicio</header>
     </div>
-
+    {{$administrativo}}
     <input type="submit" class="buttonRegistrame" value="Registrarme">
 </form>
+
 @endsection

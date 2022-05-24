@@ -1,12 +1,19 @@
-<head>
+
+@extends('layouts.master')
+@section('title', 'Home')
+
+
+@section('head')
+
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- Material CDN -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <title>Home</title>
-</head>
+    @section('css-derecha')
+    @show
+@endsection
 
 <body>
     <div class="container">
@@ -30,13 +37,13 @@
                     <span class="material-icons-sharp">home</span>
                     <h3>Inicio</h3>
                 </a>
-                <a href="#" class="active">
-                    <span class="material-icons-sharp">person</span>
+                <a href="#"  class = @yield('usuario','')>
+                    <span class="material-icons-sharp" >person</span>
                     <h3>Usuario</h3>
                 </a>
-                <a href="#">
+                <a href="{{route('datos')}}" class = @yield('registrar-datos','') >
                     <span class="material-icons-sharp">app_registration</span>
-                    <h3>Registar Datos</h3>
+                    <h3>Datos</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">description</span>
@@ -54,10 +61,16 @@
                     <span class="material-icons-sharp">file_download</span>
                     <h3>Exportar Datos</h3>
                 </a>
-                <a href="#">
-                    <span class="material-icons-sharp">logout</span>
-                    <h3>Cerrar Sesion</h3>
-                </a>
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button type="submit">
+                        <a>
+                            <span class="material-icons-sharp">logout</span>
+                            <h3>Cerrar Sesion</h3>
+                        </a>
+                    </button>   
+                    
+                </form>
             </div>
         </aside>
         <div class="derecha">
@@ -80,12 +93,15 @@
                 </div>
             </div>
             <div class="contenido">
-                @section('contenido')
+
+                @section('contenido-derecha')
+
                 @show
             </div>
         </div>
     </div>
     <script src="/js/home.js"></script>
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
