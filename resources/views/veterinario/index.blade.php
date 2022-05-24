@@ -1,7 +1,8 @@
-@section('title', 'Administrativos')
 @extends('home')
+@section('title', 'Administrativos')
 
-@section('contenido')
+@section('css-derecha')
+@endsection
 <style>
     /*.crud {
     margin: 0 auto;
@@ -90,6 +91,8 @@
         font-weight: bold;
     }
 </style>
+@section('contenido')
+
 <div class="crud">
     <div class="registrar">
         <a href="{{'/veterinario/create'}}" class="buttonRegistrame">

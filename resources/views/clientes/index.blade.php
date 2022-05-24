@@ -4,7 +4,7 @@
 @section('css-derecha')
 <link rel="stylesheet" href="{{asset('css/table-information.css')}}">
 @endsection
-@section('contenido-derecha')
+@section('contenido')
 
 <div class="crud">
   

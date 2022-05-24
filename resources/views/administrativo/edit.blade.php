@@ -81,7 +81,7 @@
     <div class="texto2 text-center">
         <header>Acepto los terminos y condiciones del servicio</header>
     </div>
-    {{$administrativo}}
+{{$administrativo}}
     <input type="submit" class="buttonRegistrame" value="Registrarme">
 </form>
 

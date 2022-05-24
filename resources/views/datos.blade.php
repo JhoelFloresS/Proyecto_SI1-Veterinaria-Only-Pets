@@ -4,9 +4,11 @@
 @section('css-derecha')
 <style>
  
-
+    .col{
+        height: 90%;
+    }
     .col .card{
-        height: 80%;
+        height: 100%;
     }
 
     .card > img {
@@ -22,7 +24,7 @@
     }
 </style>
 @endsection
-@section('contenido-derecha')
+@section('contenido')
 
 
     <div class="row d-flex align-items-center  ">
