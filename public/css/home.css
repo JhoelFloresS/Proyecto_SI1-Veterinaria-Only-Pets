@@ -12,7 +12,7 @@
     --color-light: rgba(56, 214, 0, 255);
     --color-primary-variant: #111e88;
     --color-dark-variant: #677483;
-    --color-background: rgba(72, 206, 24, 255);
+    --color-background: #1abc5b;
     --color-background-panel: #fff;
     --color-background-container: rgba(228, 247, 222, 255);
     --color-background-derecha: #f3fdf0;
@@ -195,7 +195,7 @@ aside .sidebar {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 3rem;
+
 }
 
 aside h3 {
@@ -315,6 +315,7 @@ aside .sidebar a.active:hover span {
 
 .contenido {
     padding: 2rem;
+    height: 90%;
 }
 
 /* Contenido Media */

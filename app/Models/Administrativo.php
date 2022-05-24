@@ -18,4 +18,5 @@ class Administrativo extends Model
         return $this->belongsTo(Persona::class, 'id');
     }
 
+    
 }

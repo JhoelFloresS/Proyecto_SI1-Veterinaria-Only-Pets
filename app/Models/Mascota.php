@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mascota extends Model
 {
     use HasFactory;
-    protected $table = 'macotas';
+    protected $table = 'mascotas';
 
     protected $fillable  = [ 
         'nombre', 
@@ -18,4 +18,10 @@ class Mascota extends Model
         'descripcion',
         'sexo',
     ];
+
+
+    public function propietario()
+    {
+        return $this->belongsToMany(Persona::class,'clientes_mascotas','id_mascota','id_cliente');
+    }
 }

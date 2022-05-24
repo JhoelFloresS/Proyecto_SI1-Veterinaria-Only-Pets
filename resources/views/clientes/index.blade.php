@@ -1,19 +1,19 @@
 @extends('home')
-@section('title', 'Administrativos')
-
+@section('title', 'clientes')
 @section('registrar-datos','active')
-
 @section('css-derecha')
 <link rel="stylesheet" href="{{asset('css/table-information.css')}}">
 @endsection
-
 @section('contenido-derecha')
+
+<div class="crud">
+  
   <div class="registrar">
     <a href="{{'/administrativos/create'}}" class="buttonRegistrame">
-      Registrar <br>Administrativo
+      Registrar <br>cliente
     </a>
   </div>
-
+  <div class="tabla-contenedor">
     <table class="tabla">
       <thead class="thead">
         <tr>
@@ -31,18 +31,18 @@
         </tr>
       </thead>
       <tbody class="tbody">
-        @foreach($admins as $admin)
+        @foreach($clientes as $cliente)
         <tr>
-          <td>{{$admin->id}}</td>
-          <td>{{$admin->persona->nombre}}</td>
-          <td>{{$admin->persona->apellido_paterno}}</td>
-          <td>{{$admin->persona->apellido_materno}}</td>
-          <td>{{$admin->persona->ci}}</td>
-          <td>{{$admin->persona->direccion}}</td>
-          <td>{{$admin->persona->email}}</td>
-          <td>{{$admin->persona->fecha_de_nacimiento}}</td>
-          <td>{{$admin->persona->sexo}}</td>
-          <td><a href="{{route('administrativos.edit', $admin)}}" class="button-edit">
+          <td>{{$cliente->id}}</td>
+          <td>{{$cliente->nombre}}</td>
+          <td>{{$cliente->apellido_paterno}}</td>
+          <td>{{$cliente->apellido_materno}}</td>
+          <td>{{$cliente->ci}}</td>
+          <td>{{$cliente->direccion}}</td>
+          <td>{{$cliente->email}}</td>
+          <td>{{$cliente->fecha_de_nacimiento}}</td>
+          <td>{{$cliente->sexo}}</td>
+          <td><a href="{{route('clientes.edit', $cliente)}}" class="button-edit">
               <span class="text">Editar</span>
             </a></td>
           <td><a href="#" class="button-edit" id="ver">
@@ -52,5 +52,6 @@
         @endforeach
       </tbody>
     </table>
-
+  </div>
+</div>
 @endsection
