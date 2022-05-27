@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
 
+    public function index(){
+        $usuarios = Usuario::get();
+        return view('usuarios.index',compact('usuarios'));
+    }
+
     public function create() {
         return view('register');
     }

@@ -1,6 +1,6 @@
 @extends('home')
 @section('title', 'Administrativos')
-
+@section('registrar-datos','active')
 @section('css-derecha')
 @endsection
 <style>
@@ -108,33 +108,33 @@
                     <th>Apellido Paterno</th>
                     <th>Apellido Materno</th>
                     <th>Ci</th>
-                    <th>Direccion</th>
                     <th>Email</th>
-                    <th>Fecha nacimiento</th>
-                    <th>Servicio</th>
                     <th>Sexo</th>
+                    <th>Servicio</th>
                     <th>Editar</th>
                     <th>Ver</th>
                 </tr>
             </thead>
             <tbody class="tbody">
+                @foreach($veterinarios as $veterinario)
                 <tr>
-                    <td>Hola</td>
-                    <td>Como</td>
-                    <td>Todo</td>
-                    <td>Bien</td>
-                    <td>Me</td>
-                    <td>Alegro</td>
-                    <td>Alegro</td>
-                    <td>Alegro</td>
-                    <td>Alegro</td>
-                    <td>Alegro</td>
+                    <td>{{$veterinario->id}}</td>
+                    <td>{{$veterinario->persona->nombre}}</td>
+                    <td>{{$veterinario->persona->apellido_paterno}}</td>
+                    <td>{{$veterinario->persona->apellido_materno}}</td>
+                    <td>{{$veterinario->persona->ci}}</td>
+                    <td>{{$veterinario->persona->email}}</td>
+                    <td>{{$veterinario->persona->sexo}}</td>
+                    <td>Servicio</td>
+       
                     <td><a href="/veterinario/editar" class="button-edit" id="editar">
                             <span class="text">Editar</span>
                         </a></td>
                     <td><a  class="button-edit" id="ver">
                             <span class="text">Ver</span>
                 </tr>
+                @endforeach
+               
             </tbody>
         </table>
     </div>
