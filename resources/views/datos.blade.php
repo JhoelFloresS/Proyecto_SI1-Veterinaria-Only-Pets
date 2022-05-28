@@ -4,7 +4,7 @@
 @section('css-derecha')
     <style>
         .col {
-        /*additive-symbols:     height: 90%;*/
+            /*additive-symbols:     height: 90%;*/
         }
 
         .col .card {
@@ -23,7 +23,7 @@
             width: 100%;
         }
 
-        #container-datos{
+        #container-datos {
             margin-top: 5%;
         }
 
@@ -39,7 +39,8 @@
                     <a href="{{ route('administrativos.index') }}">
                         <button type="button" class="btn btn-primary mb-3">Ver lista</button>
                     </a>
-                    <button type="button" id='abriModal' class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Crear
+                    <button type="button" id='abriModal' class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#AdministrativoFormInput">Crear
                         Administrativo</button>
                 </div>
             </div>
@@ -53,7 +54,8 @@
                         <button type="button" class="btn btn-primary mb-3">Ver lista
                         </button>
                     </a>
-                    <button type="button" class="btn btn-success">Crear Mascota</button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#VeterinarioFormInput">Crear Mascota</button>
                 </div>
             </div>
         </div>
@@ -68,7 +70,8 @@
                         <button type="button" class="btn btn-primary mb-3">Ver lista
                         </button>
                     </a>
-                    <button type="button" class="btn btn-success">Crear Cliente</button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#ClienteFormInput">Crear Cliente</button>
                 </div>
             </div>
 
@@ -81,47 +84,21 @@
                     <a href="{{ route('veterinarios.index') }}">
                         <button type="button" class="btn btn-primary mb-3">Ver lista</button>
                     </a>
-                    <button type="button" class="btn btn-success">Crear Veterinario</button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#VeterinarioFormInput">Crear Veterinario</button>
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- modal del administrativo create --}}
-  <!-- Button trigger modal -->
-
-
-
 
 
 @endsection
 @section('body-final')
-<div class="modal fade" id="exampleModal" tabindex="5" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label">Recipient:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
+    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
+    <x-forms.input-datos id="ClienteFormInput" type="cliente" />    
+   
 @endsection
 @section('jsH')
 

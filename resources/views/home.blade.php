@@ -83,7 +83,7 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>Usuario</p>
+                    <p>Nombre de usuario</p>
                     <small class="text-muted">Admin</small>
                 </div>
                 <div class="profile-photo">
