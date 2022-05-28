@@ -43,6 +43,6 @@ Route::resource('usuarios', UsuarioController::class);
 Route::resource('veterinarios',VeterinarioController::class);
 
 Route::resource('mascotas', MascotaController::class);
-
+Route::resource('veterinarios', VeterinarioController::class);
 Route::resource('administrativos', AdministrativoController::class);
 Route::resource('clientes',ClienteController::class);

@@ -98,7 +98,16 @@
         </div>
     </div>
 </div>
-<script src="/js/home.js"></script>
-
-<!-- JavaScript Bundle with Popper -->
+</div>
 @endsection
+@section('body-final')
+@show
+
+
+@section('js')
+<script src="{{ asset('js/home.js') }}"></script>
+
+@section('jsH')
+@show
+@endsection
+<!-- JavaScript Bundle with Popper -->

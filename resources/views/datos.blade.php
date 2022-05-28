@@ -1,6 +1,6 @@
 @extends('home')
 
-@section('registrar-datos','active')
+@section('registrar-datos', 'active')
 @section('css-derecha')
 <style>
     .col {
@@ -85,5 +85,15 @@
 </div>
 
 
+
+
+@endsection
+@section('body-final')
+    <x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
+    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
+    <x-forms.input-datos id="ClienteFormInput" type="cliente" />    
+   
+@endsection
+@section('jsH')
 
 @endsection

@@ -28,6 +28,7 @@
                     <th>Email</th>
                     <th>Servicio</th>
                     <th>Sexo</th>
+                    <th>Servicio</th>
                     <th>Editar</th>
                     <th>Ver</th>
                 </tr>

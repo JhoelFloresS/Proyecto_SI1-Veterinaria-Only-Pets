@@ -8,13 +8,10 @@ use Illuminate\Http\Request;
 
 class VeterinarioController extends Controller
 {
-    public function index() {
-        $admins = Veterinario::get();
-        $admins->load('persona');
-        return view('veterinario.index', compact('admins'));
-    }
+    public function index(){
+        $veterinarios = Veterinario::get();
+        $veterinarios->load('persona');
+        return view('veterinarios.index', compact('veterinarios'));
 
-    public function create() {
-        return view('veterinario.create');
     }
 }
