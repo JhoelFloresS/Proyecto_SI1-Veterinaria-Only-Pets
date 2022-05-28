@@ -4,12 +4,12 @@
 
 @section('head')
 
-    <!-- CSS only -->
-    <!-- Material CDN -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <title>Home</title>
+<!-- CSS only -->
+<!-- Material CDN -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<!-- Stylesheet -->
+<link rel="stylesheet" href="{{asset('css/home.css')}}">
+<title>Home</title>
 @section('css-derecha')
 @show
 @endsection
@@ -36,11 +36,11 @@
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
-            <a href="#" class=@yield('usuario', '')>
+            <a href="#" class=@yield('usuario','')>
                 <span class="material-icons-sharp">person</span>
                 <h3>Usuario</h3>
             </a>
-            <a href="{{ route('datos') }}" class=@yield('registrar-datos', '')>
+            <a href="{{route('datos')}}" class=@yield('registrar-datos','')>
                 <span class="material-icons-sharp">app_registration</span>
                 <h3>Datos</h3>
             </a>
@@ -60,7 +60,7 @@
                 <span class="material-icons-sharp">file_download</span>
                 <h3>Exportar Datos</h3>
             </a>
-            <form action="{{ route('logout') }}" method="post">
+            <form action="{{route('logout')}}" method="post">
                 @csrf
                 <button type="submit">
                     <a>
@@ -68,7 +68,6 @@
                         <h3>Cerrar Sesion</h3>
                     </a>
                 </button>
-
             </form>
         </div>
     </aside>
@@ -83,15 +82,16 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>Nombre de usuario</p>
+                    <p>Usuario</p>
                     <small class="text-muted">Admin</small>
                 </div>
                 <div class="profile-photo">
-                    <img src="/images/home/logo.png">
+                    <img src="/images/home/profile-1.jpg">
                 </div>
             </div>
         </div>
-        <div class="container-xl">
+        <div class="contenido">
+
             @section('contenido')
 
             @show

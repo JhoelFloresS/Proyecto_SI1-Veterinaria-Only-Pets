@@ -7,7 +7,7 @@
 @section('contenido')
 
 <div class="crud">
-  
+
   <div class="registrar">
     <a href="{{'/administrativos/create'}}" class="buttonRegistrame">
       Registrar <br>cliente
@@ -43,11 +43,15 @@
           <td>{{$cliente->fecha_de_nacimiento}}</td>
           <td>{{$cliente->sexo}}</td>
           <td><a href="{{route('clientes.edit', $cliente)}}" class="button-edit">
-              <span class="text">Editar</span>
+              <span class="material-icons-sharp">
+                edit
+              </span>
             </a></td>
           <td><a href="#" class="button-edit" id="ver">
-            <span class="text">Ver</span>
-          </a></td>
+              <span class="material-icons-sharp">
+                visibility
+              </span>
+            </a></td>
         </tr>
         @endforeach
       </tbody>

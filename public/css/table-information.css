@@ -1,89 +1,88 @@
+* {
+  font-size: 0.88rem;
+}
+
+.buttonRegistrame {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  width: 140px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 17px 2px var(--color-background-active);
+  background-color: var(--color-background-active);
+  text-align: center;
+  color: white;
+}
+
+th,
+td {
+  padding: 0.3rem;
+}
+
+.registrar a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.buttonRegistrame a:hover {
+  cursor: pointer;
+}
+
+table {
+  text-align: left;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table th {
+  color: var(--color-letra-contenido);
+}
+
+.tabla {
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.5);
+  background-color: var(--color-background-panel);
+}
+
+.crud a {
+  color: var(--color-primary);
+}
+
+.crud a:hover {
+  color: var(--color-primary);
+}
 
 
- 
-  .buttonRegistrame {
-    display: block;
-    margin: 15px 15px;
-    font-size: 0.9em;
-    width: 140px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.5);
-    background-color: #2FD276;
-    text-align: center;
-    color: white;
-  }     
+.tbody {
+  font-size: 17px;
+  font-weight: bold 1px;
+}
 
-  .registrar a {
-    text-decoration: none;
-    font-weight: bold;
-  }
+.thead {
+  /*background-color: #1A1A1A;*/
+  color: #363949;
+}
 
-  .buttonRegistrame a:hover {
-    cursor: pointer;
-  }
+.button-edit {
+  display: block;
+  font-size: 0.7em;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.5);
+  background-color: var(--color-background-active);
+  text-align: center;
+  color: white;
+}
 
-  .tabla-contenedor{
-      width: fit-content;
-  }
+.button-edit a:hover {
+  cursor: pointer;
+}
 
-  .tabla-contenedor .tabla {
-    display: block;
-    margin: 15px 15px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.5);
-    text-align: center;
-    justify-content: center;
-  }
-
-  .tabla-contenedor th, td {
-    border: solid 1px #1A1A1A;
-  }
-
-  .tbody {
-    font-size: 17px;
-    font-weight: bold 1px;
-  }
-
-  .thead {
-    /*background-color: #1A1A1A;*/
-    background-color: rgb(11, 136, 116);
-
-    font-size: 18px;
-    color: white;
-    font-weight: normal;
-    border-top-left-radius: 25px;
-  }
-
-  .button-edit {
-    display: block;
-    font-size: 0.7em;
-    width: 50px;
-    margin: 0 auto;
-    padding: 1px 10px;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.5);
-    background-color:  blueviolet;
-    text-align: center;
-    color: white;
-  }
-
-  .button-edit a:hover {
-    cursor: pointer;
-  }
-
-  .tbody a {
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-
-    thead th:nth-child(0){
-        border-top-left-radius: 25px;
-        background-color: #2FD276;
-    }
+.tbody a {
+  text-decoration: none;
+  font-weight: bold;
+}

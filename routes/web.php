@@ -34,15 +34,13 @@ Route::get('/home', function () {
     return view('home');
 })->middleware('auth');
 
-
-
-
 Route::get('/datos',function (){
     return view('datos');
 })->name('datos');
 
 
 Route::resource('usuarios', UsuarioController::class);
+Route::resource('veterinarios',VeterinarioController::class);
 
 Route::resource('mascotas', MascotaController::class);
 Route::resource('veterinarios', VeterinarioController::class);

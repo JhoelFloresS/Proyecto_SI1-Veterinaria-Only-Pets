@@ -23,7 +23,7 @@
     }
 
     .textoEncabezado {
-        background-color: #2FE276;
+        background-color: #48ce18;
         font-size: 15px;
         font-weight: 700;
         color: #fff;
@@ -31,7 +31,7 @@
     }
 
     .encabezado {
-        background-color: #2FE276;
+        background-color: #48ce18;
         background-image: url(/images/login/encabezado.png);
         background-repeat: no-repeat;
         height: 80px;
@@ -52,7 +52,7 @@
 
     .rectanguloDerecho {
         position: relative;
-        background: #2FE276;
+        background: #48ce18;
         border-radius: 10px;
         height: 100%;
         padding: 25px;
@@ -72,7 +72,8 @@
         border-radius: 10px;
         height: 100%;
         padding: 25px;
-        padding-left: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     .row {
@@ -84,20 +85,23 @@
         background: #fff;
         height: 100%;
         border-radius: 25px;
-
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .col-md-6 {
+        padding: 0;
     }
 
     .textIniciarSesion {
         position: absolute;
 
-        color: #545454;
-        font-size: 24px;
+        color: #48ce18;
+        font-size: 20px;
         font-weight: 700;
 
         position: relative;
         /* margen con el de arriba */
-        margin-top: 40px;
+        margin-top: 0;
     }
 
     .nombre,
@@ -106,20 +110,20 @@
     .contraseña,
     .texto2 {
         color: black;
-        margin-top: 18px;
+        margin-top: 12px;
         font-weight: 600;
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .buttonRegistrame {
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 700;
 
         width: 250px;
         padding: 13px;
 
         /* margen con el de arriba*/
-        margin-top: 40px;
+        margin-top: 10px;
 
         /* centrando el boton */
         display: block;
@@ -129,7 +133,7 @@
     }
 
     .buttonTengoCuenta {
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 700;
         text-align: center;
 
@@ -145,7 +149,7 @@
     /* sombreado de los botones , color de letra , borde y color del contorno*/
     .buttonRegistrame {
         /* color contorno*/
-        background: #2FE276;
+        background: #48ce18;
         /* color de la letra*/
         color: #fff;
         /* sombreado*/
@@ -159,7 +163,7 @@
         /* color contorno*/
         background: #fff;
         /* color de la letra*/
-        color: #2FE276;
+        color: #48ce18;
         /* sombreado*/
         box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
         /*borde*/
@@ -173,9 +177,9 @@
         height: 100%;
         width: 100%;
         border: none;
-        font-size: 17px;
-        border-bottom: 3px solid #2FE276;
-        margin-top: 10px;
+        font-size: 13px;
+        border-bottom: 3px solid #48ce18;
+        margin-top: 0;
         outline: 0px;
     }
 
@@ -233,7 +237,7 @@
                             <input class="myInput" placeholder="Ingresa tu Apellido Materno" type="text" id="apellido" required name="apellido_materno" value="{{old('apellido_materno')}}">
                         </div>
 
-                        <div class="email">email</div>
+                        <div class="email">Email</div>
 
                         <div class="form-group">
                             <input class="myInput" placeholder="Ingresa tu email" type="email" id="email" required name="email" value="{{old('email')}}">
