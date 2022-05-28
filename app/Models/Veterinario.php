@@ -16,4 +16,11 @@ class Veterinario extends Model
         'cantidad', 
         'precio_total',
     ];
+
+
+
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'id');
+    }
 }

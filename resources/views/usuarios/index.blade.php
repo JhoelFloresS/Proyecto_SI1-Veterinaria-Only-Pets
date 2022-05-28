@@ -6,7 +6,6 @@
 @endsection
 @section('contenido')
 
-<div class="crud">
   
   <div class="registrar">
     <a href="{{'/administrativos/create'}}" class="buttonRegistrame">
@@ -19,43 +18,31 @@
         <tr>
           <th>Id</th>
           <th>Usuare Name</th>
-          <th>PassWrod</th>
           <th>Estado</th>
-
-          <th>Nombre</th>
-          <th>Apellido Paterno</th>
-          <th>Apellido Materno</th>
-          <th>Email</th>
-
           <th>Editar</th>
           <th>Ver</th>
-          
         </tr>
       </thead>
       <tbody class="tbody">
         @foreach($usuarios as $usuario)
         <tr>
-          <td>{{$usuario->id}}<td>
-          <td>{{$usuario->nombre_usuario}}<td>
-          <td>{{$usuario->password}}<td>
-          <td>{{$usuario->enable}}<td>
-
+          <td>{{$usuario->id}}</td>
+          <td>{{$usuario->nombre_usuario}}</td>
+          <td>{{$usuario->enable}}</td>
           <td>
             <a href="{{route('usuarios.edit', $usuario)}}" class="button-edit">
               <span class="text">Editar</span>
             </a>
           </td>
-
-          <td>
+        <td>
             <a href="#" class="button-edit" id="ver">
             <span class="text">Ver</span>
             </a>
           </td>
-
         </tr>
         @endforeach
       </tbody>
     </table>
   </div>
-</div>
+
 @endsection
