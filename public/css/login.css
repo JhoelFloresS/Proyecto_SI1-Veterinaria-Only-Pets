@@ -16,7 +16,7 @@ body {
 }
 
 .textoEncabezado {
-    background-color: #2FE276;
+    background-color: #48ce18;
     font-size: 15px;
     font-weight: 700;
     color: #fff;
@@ -24,7 +24,7 @@ body {
 }
 
 .encabezado {
-    background-color: #2FE276;
+    background-color: #48ce18;
     background-image: url(/images/login/encabezado.png);
     background-repeat: no-repeat;
     height: 80px;
@@ -45,7 +45,7 @@ body {
 
 .rectanguloDerecho {
     position: relative;
-    background: #2FE276;
+    background: #48ce18;
     border-radius: 10px;
     height: 100%;
     padding: 25px;
@@ -119,11 +119,11 @@ body {
 /* sombreado de los botones , color de letra , borde y color del contorno*/
 .buttonIniciarSesion {
     /* color contorno*/
-    background: #2FE276;
+    background: #48ce18;
     /* color de la letra*/
     color: #fff;
     /* sombreado*/
-    box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
+    box-shadow: 0px 10px 20px #48ce18;
     /*borde*/
     border-radius: 10px;
     border: none;

@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\VeterinarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,25 +34,13 @@ Route::get('/home', function () {
     return view('home');
 })->middleware('auth');
 
-
-Route::get('/veterinario', function() {
-    return view('veterinario.index');
-});
-
-Route::get('/veterinario/create', function() {
-    return view('veterinario.create');
-});
-
-Route::get('/veterinario/editar', function() {
-    return view('veterinario.edit');
-});
-
 Route::get('/datos',function (){
     return view('datos');
 })->name('datos');
 
 
 Route::resource('usuarios', UsuarioController::class);
+Route::resource('veterinarios',VeterinarioController::class);
 
 Route::resource('mascotas', MascotaController::class);
 

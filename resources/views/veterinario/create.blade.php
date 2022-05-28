@@ -51,7 +51,7 @@
     <div class="apellido">Servicio</div>
 
     <div class="form-group">
-        <input class="myInput" placeholder="Ingresa el servicio" type="text" id="servicio" required name="nombre_usuario" value="{{old('nombre_usuario')}}">
+        <input class="myInput" placeholder="Ingresa el servicio" type="text" id="servicio" required name="nombre_usuario" value="{{old('servicio')}}">
     </div>
     <div class="contraseña">Contraseña</div>
 
