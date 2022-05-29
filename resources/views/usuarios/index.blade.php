@@ -1,6 +1,6 @@
 @extends('home')
 @section('title', 'Usuarios')
-@section('registrar-datos','active')
+@section('usuario','active')
 @section('css-derecha')
 <link rel="stylesheet" href="{{asset('css/table-information.css')}}">
 @endsection

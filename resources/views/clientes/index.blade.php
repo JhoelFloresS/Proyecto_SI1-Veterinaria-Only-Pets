@@ -9,9 +9,10 @@
 <div class="crud">
 
   <div class="registrar">
-    <a href="{{'/administrativos/create'}}" class="buttonRegistrame">
+    <button class="buttonRegistrame"   data-bs-toggle="modal"
+    data-bs-target="#ClienteFormInput">
       Registrar <br>cliente
-    </a>
+    </button>
   </div>
   <div class="tabla-contenedor">
     <table class="tabla">
@@ -58,4 +59,9 @@
     </table>
   </div>
 </div>
+@endsection
+
+@section('body-final')
+
+<x-forms.input-datos id="ClienteFormInput" type="cliente" />    
 @endsection

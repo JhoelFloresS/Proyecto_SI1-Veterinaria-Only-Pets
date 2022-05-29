@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Login')
 @section('head')
-<link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
 @endsection
 @section('principal')
     <div class="encabezadoSombra">

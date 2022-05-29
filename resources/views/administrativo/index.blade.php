@@ -9,9 +9,10 @@
 
 @section('contenido')
 <div class="registrar">
-  <a href="{{'/administrativos/create'}}" class="buttonRegistrame">
+  <button class="buttonRegistrame" data-bs-toggle="modal"
+  data-bs-target="#AdministrativoFormInput">
     Registrar <br>Administrativo
-  </a>
+</button>
 </div>
 
 <table class="tabla">
@@ -55,4 +56,9 @@
   </tbody>
 </table>
 
+@endsection
+
+@section('body-final')
+<x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
+<x-forms.update-datos id="AdministrativoFormUpdate" type="administrativo" />
 @endsection

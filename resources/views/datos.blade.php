@@ -3,10 +3,6 @@
 @section('registrar-datos', 'active')
 @section('css-derecha')
 <style>
-    .col {
-        height: 90%;
-    }
-
     .col .card {
         height: 100%;
         background: var(--color-background-panel);
@@ -28,7 +24,7 @@
 @section('contenido')
 
 
-<div class="row d-flex align-items-center  ">
+<div class="row d-flex align-items-stretch pt-5  ">
     <div class="col">
         <div class="card">
             <img src="{{asset('images/datos/administrativos.jpg')}}" class="card-img-top" alt="...">
@@ -37,7 +33,8 @@
                 <a href="{{route('administrativos.index')}}">
                     <button type="button" class="btn btn-primary mb-3">Ver lista</button>
                 </a>
-                <button type="button" class="btn btn-success">Crear Administrativo</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                 data-bs-target="#AdministrativoFormInput">Crear Administrativo</button>
             </div>
         </div>
     </div>
@@ -65,7 +62,8 @@
                     <button type="button" class="btn btn-primary mb-3">Ver lista
                     </button>
                 </a>
-                <button type="button" class="btn btn-success">Crear Administrativo</button>
+                <button type="button" class="btn btn-success"  data-bs-toggle="modal"
+                data-bs-target="#ClienteFormInput">Crear Cliente</button>
             </div>
         </div>
 
@@ -78,7 +76,9 @@
                 <a href="{{route('veterinarios.index')}}">
                     <button type="button" class="btn btn-primary mb-3">Ver lista</button>
                 </a>
-                <button type="button" class="btn btn-success">Crear Administrativo</button>
+                <button type="button" class="btn btn-success" 
+                data-bs-toggle="modal"
+                 data-bs-target="#VeterinarioFormInput">Crear Veterinario</button>
             </div>
         </div>
     </div>
@@ -92,7 +92,6 @@
     <x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
     <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
     <x-forms.input-datos id="ClienteFormInput" type="cliente" />    
-   
 @endsection
 @section('jsH')
 

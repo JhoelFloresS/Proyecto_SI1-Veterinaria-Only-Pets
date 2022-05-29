@@ -24,6 +24,7 @@ class AdministrativoController extends Controller
     }
 
     public function store(StoreAdministrativoRequest $request) {
+
         //creacion de persona, administrativo y usuario
         AdministrativoAction::executeStore($request);
         //$admins = Administrativo::get();

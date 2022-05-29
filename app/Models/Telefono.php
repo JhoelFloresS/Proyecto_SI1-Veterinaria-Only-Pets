@@ -9,6 +9,8 @@ class Telefono extends Model
 {
     use HasFactory;
     protected $table = 'telefonos';
+    
+    public $timestamps = false;
 
     protected $fillable  = [ 
         'numero', 
