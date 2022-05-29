@@ -11,9 +11,10 @@
 @section('contenido')
 <div class="crud">
     <div class="registrar">
-        <a href="{{'/veterinarios/create'}}" class="buttonRegistrame">
+        <button class="buttonRegistrame"   data-bs-toggle="modal"
+        data-bs-target="#VeterinarioFormInput">
             Registrar <br>Veterinario
-        </a>
+        </button>
     </div>
     <div class="tabla-contenedor">
         <table class="tabla">
@@ -34,17 +35,17 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                @foreach($admins as $admin)
+                @foreach($veterinarios as $veterinario)
                 <tr>
-                    <td>{{$admin->id}}</td>
-                    <td>{{$admin->persona->nombre}}</td>
-                    <td>{{$admin->persona->apellido_paterno}}</td>
-                    <td>{{$admin->persona->apellido_materno}}</td>
-                    <td>{{$admin->persona->ci}}</td>
-                    <td>{{$admin->profesion}}</td>
-                    <td>{{$admin->persona->email}}</td>
-                    <td>{{$admin->servicio->nombre}}</td>
-                    <td>{{$admin->persona->sexo}}</td>
+                    <td>{{$veterinario->id}}</td>
+                    <td>{{$veterinario->persona->nombre}}</td>
+                    <td>{{$veterinario->persona->apellido_paterno}}</td>
+                    <td>{{$veterinario->persona->apellido_materno}}</td>
+                    <td>{{$veterinario->persona->ci}}</td>
+                    <td>{{$veterinario->profesion}}</td>
+                    <td>{{$veterinario->persona->email}}</td>
+                    <td>{{$veterinario->servicio->nombre??''}}</td>
+                    <td>{{$veterinario->persona->sexo}}</td>
                     <td><a href="/veterinario/editar" class="button-edit" id="editar">
                             <span class="material-icons-sharp">
                                 edit
@@ -60,4 +61,8 @@
         </table>
     </div>
 </div>
+@endsection
+
+@section('body-final')
+<x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
 @endsection

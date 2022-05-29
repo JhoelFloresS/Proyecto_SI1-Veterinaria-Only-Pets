@@ -3,16 +3,15 @@
 
 
 @section('head')
-
-<!-- CSS only -->
-<!-- Material CDN -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-<!-- Stylesheet -->
-<link rel="stylesheet" href="{{asset('css/home.css')}}">
-<title>Home</title>
-@section('css-derecha')
-@show
+    <!-- Material CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    @section('css-derecha')
+    @show
 @endsection
+
+
 @section('principal')
 
 <div class="container">
@@ -24,7 +23,7 @@
                 <h2>
                     <div class="texto-black">
                         <div class="letra-veterinaria">VETERINARIA</div>
-                    </div><span class="danger"> ONLY PET'S</span>
+                    </div><span class="danger"> ONLY PET{{ '\'' }}S</span>
                 </h2>
             </div>
             <div class="close" id="close-btn">
@@ -36,11 +35,11 @@
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
-            <a href="#" class=@yield('usuario','')>
+            <a href="{{route('usuarios.index')}}" class=@yield('usuario', '')>
                 <span class="material-icons-sharp">person</span>
                 <h3>Usuario</h3>
             </a>
-            <a href="{{route('datos')}}" class=@yield('registrar-datos','')>
+            <a href="{{ route('datos') }}" class=@yield('registrar-datos', '')>
                 <span class="material-icons-sharp">app_registration</span>
                 <h3>Datos</h3>
             </a>
@@ -60,7 +59,7 @@
                 <span class="material-icons-sharp">file_download</span>
                 <h3>Exportar Datos</h3>
             </a>
-            <form action="{{route('logout')}}" method="post">
+            <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit">
                     <a>
@@ -91,23 +90,23 @@
             </div>
         </div>
         <div class="contenido">
-
             @section('contenido')
 
             @show
         </div>
     </div>
 </div>
-</div>
+    @section('body-final')
+    @show
+
 @endsection
-@section('body-final')
-@show
+
 
 
 @section('js')
-<script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/home.js') }}"></script>
 
-@section('jsH')
-@show
+    @section('jsH')
+    @show
 @endsection
 <!-- JavaScript Bundle with Popper -->
