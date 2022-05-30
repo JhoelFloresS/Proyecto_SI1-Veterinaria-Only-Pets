@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Administrativo extends Model
 {
@@ -18,5 +19,9 @@ class Administrativo extends Model
         return $this->belongsTo(Persona::class, 'id');
     }
 
+    public function turno_admin()
+    {
+        return $this->belongsToMany(Turno::class, 'turno_admins', 'id_administrativo', 'id_turno');
+    }
     
 }

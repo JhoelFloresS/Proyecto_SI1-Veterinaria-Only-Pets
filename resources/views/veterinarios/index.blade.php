@@ -51,7 +51,7 @@
                                 edit
                             </span>
                         </a></td>
-                    <td><a class="button-edit" id="ver">
+                    <td><a href="{{route('veterinarios.show', $veterinario)}}" class="button-edit" id="ver">
                             <span class="material-icons-sharp">
                                 visibility
                             </span>

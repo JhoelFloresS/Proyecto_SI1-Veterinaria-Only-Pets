@@ -63,4 +63,9 @@ class VeterinarioController extends Controller
 
         return redirect()->route('veterinarios.index');
     }
+
+    public function show(Veterinario $veterinario) {
+        $telefonos = Telefono::whereid_persona($veterinario->id)->get();
+        return view('veterinarios.show', compact('veterinario', 'telefonos'));
+    }
 }
