@@ -9,6 +9,9 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use App\Actions\AdministrativoAction;
 use App\Http\Requests\UpdateAdministrativoRequest;
+use App\Models\Telefono;
+use App\Models\Turno;
+use Illuminate\Support\Facades\DB;
 
 class AdministrativoController extends Controller
 {
@@ -38,9 +41,13 @@ class AdministrativoController extends Controller
     }
 
     public function update(UpdateAdministrativoRequest $request, $id) {
-        //return $request;
         AdministrativoAction::executeUpdate($request, $id);
         return redirect()->route('administrativos.index');
+    }
+
+    public function show(Administrativo $administrativo) {
+        $telefonos = Telefono::whereid_persona($administrativo->id)->get();
+        return view('administrativo.show', compact('administrativo', 'telefonos'));
     }
 
 
