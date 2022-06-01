@@ -11,8 +11,7 @@
 @section('contenido')
 <div class="crud">
     <div class="registrar">
-        <button class="buttonRegistrame"   data-bs-toggle="modal"
-        data-bs-target="#VeterinarioFormInput">
+        <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#VeterinarioFormInput">
             Registrar <br>Veterinario
         </button>
     </div>
@@ -29,7 +28,6 @@
                     <th>Email</th>
                     <th>Servicio</th>
                     <th>Sexo</th>
-                    <th>Servicio</th>
                     <th>Editar</th>
                     <th>Ver</th>
                 </tr>
@@ -55,6 +53,8 @@
                             <span class="material-icons-sharp">
                                 visibility
                             </span>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
