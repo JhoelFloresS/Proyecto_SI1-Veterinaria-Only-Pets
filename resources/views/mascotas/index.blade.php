@@ -44,7 +44,7 @@
                 edit
               </span>
             </a></td>
-          <td><a href="#" class="button-edit" id="ver">
+          <td><a href="{{route('mascotas.show', $mascota)}}" class="button-edit" id="ver">
               <span class="material-icons-sharp">
                 visibility
               </span>
