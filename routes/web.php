@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CirugiaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +40,10 @@ Route::get('/datos',function (){
     return view('datos');
 })->name('datos');
 
+Route::get('/historialClinico',function (){
+    return view('historialClinico');
+})->name('historialClinico');
+
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('mascotas', MascotaController::class);
@@ -51,3 +57,6 @@ Route::resource('administrativos', AdministrativoController::class);
 
 Route::get('clientes/datas/{id}', [ClienteController::class, 'datas']);
 Route::resource('clientes',ClienteController::class);
+
+Route::resource('vacunas', VacunaController::class);
+Route::resource('cirugias', CirugiaController::class);

@@ -49,7 +49,7 @@
                 <span class="material-icons-sharp">app_registration</span>
                 <h3>Datos</h3>
             </a>
-            <a href="#">
+            <a href="{{ route('historialClinico') }}" class=@yield('historial-clinico', '')>
                 <span class="material-icons-sharp">description</span>
                 <h3>Historial Clinico</h3>
             </a>
