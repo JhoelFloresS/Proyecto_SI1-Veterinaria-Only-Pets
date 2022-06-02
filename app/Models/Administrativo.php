@@ -19,9 +19,16 @@ class Administrativo extends Model
         return $this->belongsTo(Persona::class, 'id');
     }
 
+
+    public function turno()
+    {
+        return $this->hasMany(TurnoAdmin::class, 'id_administrativo');
+    }
+
     public function turno_admin()
     {
         return $this->belongsToMany(Turno::class, 'turno_admins', 'id_administrativo', 'id_turno');
     }
     
+
 }

@@ -31,13 +31,12 @@ class UpdateAdministrativoRequest extends FormRequest
             'apellido_paterno' => 'string|required|max:20|min:3',
             'apellido_materno' => 'string|required|max:20|min:3',
             'email' => 'email|required|max:40',
-            'ci' => 'max:10|min:8|nullable',
+            'ci' => 'max:9|min:7|nullable',
             'direccion' => 'max:240|min:3|nullable|sometimes',
             'fecha_de_nacimiento' => 'date|nullable',
             'sexo' => 'max:1|nullable',
 
             'profesion' => 'string|min:3|required',
-            'id_rol' => '',
         ];
     }
 }

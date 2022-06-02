@@ -13,8 +13,12 @@ class Cliente extends Model
     protected $fillable  = ['id'];
 
 
-    /*public function persona()
+    public function persona()
     {
         return $this->belongsTo(Persona::class, 'id');
-    }*/
+    }
+
+    public function telefonos(){
+        return $this->hasMany(Telefono::class, 'id_persona');
+    }
 }

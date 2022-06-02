@@ -41,6 +41,13 @@ Route::get('/datos',function (){
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('mascotas', MascotaController::class);
+
+Route::get('veterinarios/datas/{id}', [VeterinarioController::class, 'datas']);
 Route::resource('veterinarios', VeterinarioController::class);
+
+Route::get('administrativos/datas/{id}', [AdministrativoController::class, 'datas']);
 Route::resource('administrativos', AdministrativoController::class);
+
+
+Route::get('clientes/datas/{id}', [ClienteController::class, 'datas']);
 Route::resource('clientes',ClienteController::class);

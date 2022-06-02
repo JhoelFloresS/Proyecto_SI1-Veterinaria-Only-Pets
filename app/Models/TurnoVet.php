@@ -10,6 +10,7 @@ class TurnoVet extends Model
     use HasFactory;
     protected $table = 'turno_vets';
 
+    public $timestamps = false;
     protected $fillable  = [ 
         'id_veterinario', 
         'id_turno', 

@@ -11,8 +11,11 @@ use App\Models\Telefono;
 use App\Models\Turno;
 use App\Models\TurnoAdmin;
 use App\Models\Usuario;
+use Mockery\Undefined;
 
-class AdministrativoAction 
+use function PHPUnit\Framework\isNull;
+
+class AdministrativoAction
 {
     //use DispatchesJobs;
 
@@ -28,26 +31,26 @@ class AdministrativoAction
             'sexo'             => $request->sexo,
             'ci'               => $request->ci,
         ]);
-        if($request->telefono){
+        foreach ($request->telefonos as $telefono) {
             Telefono::create([
-                'numero' => $request->telefono,
+                'numero' => $telefono,
                 'id_persona' => $persona->id,
             ]);
         }
 
         Administrativo::create([
             'id'        => $persona->id,
-            'profesion' => $request->profesion, 
+            'profesion' => $request->profesion,
         ]);
 
-        
-        if($request->turno){
+
+        if ($request->turno) {
             TurnoAdmin::create([
                 'id_administrativo' => $persona->id,
                 'id_turno' => $request->turno,
             ]);
         }
-            
+
         Usuario::create([
             'nombre_usuario' => $request->email,
             'password'       => bcrypt($request->ci),
@@ -57,10 +60,12 @@ class AdministrativoAction
         ]);
     }
 
-    public static function executeUpdate(Request $request, $id): void
+    public static function executeUpdate(Request $request, $id):void
     {
         $persona = Persona::findOrFail($id);
         $administrativo = Administrativo::findOrFail($id);
+        $administrativo->load('turno');
+        $persona->load('telefonos');
 
         $administrativo->profesion = $request->profesion;
         $data = ([
@@ -73,10 +78,44 @@ class AdministrativoAction
             'fecha_de_nacimiento' => $request->fecha_de_nacimiento,
             'sexo'                => $request->sexo,
         ]);
-        
+
+        //ACTUALIZANDO TELEFONOS
+        $telefonos_nuevos = $request->telefonos;
+        foreach ($persona->telefonos as $telefono) {
+            if (!in_array($telefono->numero, $request->telefonos)) {
+                $telefono->delete();
+            } else {
+                unset($telefonos_nuevos[array_search($telefono->numero, $request->telefonos)]);
+            }
+        }
+        foreach ($telefonos_nuevos as $numero) {
+            Telefono::create([
+                'numero' => $numero,
+                'id_persona' => $persona->id,
+            ]);
+        }
+
+        //ACTUALIzANDO TURNOS
+        if ($request->turno!="Ninguno") {
+            if (isset($administrativo->turno[0])) {
+                $administrativo->turno[0]->id_turno = $request->turno;
+                $administrativo->turno[0]->save();
+            } else {
+                TurnoAdmin::create([
+                    'id_administrativo' => $persona->id,
+                    'id_turno' => $request->turno,
+                ]);
+            }
+        } else {
+            if (!empty($administrativo->turno)) {
+                $id_A = $administrativo->turno[0]->id_administrativo;
+                $id_T = $administrativo->turno[0]->id_turno;
+                TurnoAdmin::where('id_administrativo', $id_A)->where('id_turno', $id_T)->delete();
+            }
+        }
+
+
         $persona->update($data);
         $administrativo->update();
-        
     }
-
 }

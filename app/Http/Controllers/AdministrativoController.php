@@ -27,7 +27,7 @@ class AdministrativoController extends Controller
     }
 
     public function store(StoreAdministrativoRequest $request) {
-
+        
         //creacion de persona, administrativo y usuario
         AdministrativoAction::executeStore($request);
         //$admins = Administrativo::get();
@@ -45,9 +45,18 @@ class AdministrativoController extends Controller
         return redirect()->route('administrativos.index');
     }
 
+
+    public function datas($id){
+        $admin = Administrativo::find($id);
+        $admin->load('turno');
+        $admin->load('persona');
+        $admin->persona->load('telefonos');
+        return $admin;
+
     public function show(Administrativo $administrativo) {
         $telefonos = Telefono::whereid_persona($administrativo->id)->get();
         return view('administrativo.show', compact('administrativo', 'telefonos'));
+
     }
 
 

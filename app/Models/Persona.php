@@ -25,7 +25,6 @@ class Persona extends Model
     {
         return $this->hasOne(Usuario::class, 'id_persona');
     }
-
     /*public function cliente()
     {
         return $this->hasOne(Cliente::class, 'id');
@@ -36,8 +35,14 @@ class Persona extends Model
         return $this->hasOne(Administrativo::class, 'id');
     }
 
+
+    public function telefonos(){
+        return $this->hasMany(Telefono::class, 'id_persona');
+    }
+  
     public function veterinario()
     {
         return $this->hasOne(Veterinario::class, 'id');
+
     }
 }
