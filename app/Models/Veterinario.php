@@ -26,7 +26,8 @@ class Veterinario extends Model
 
     public function turno(){
         return $this->hasMany(TurnoVet::class, 'id_veterinario');
-
+    }
+    
     public function turno_vets()
     {
         return $this->belongsToMany(Turno::class, 'turno_vets', 'id_veterinario', 'id_turno');
