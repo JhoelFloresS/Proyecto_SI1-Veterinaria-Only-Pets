@@ -12,6 +12,14 @@
     Registrar <br>Usuario
   </a>
 </div>
+<div class="d-md-flex justify-content-md-end" style="margin-bottom: 1rem;">
+  <form action="{{ route('usuarios.index')}}" method="GET">
+    <div class="btn-group">
+      <input type=" text" name="busqueda" class="form-control">
+      <input type="submit" value="Buscar" class="btn btn-primary">
+    </div>
+  </form>
+</div>
 <div class="tabla-contenedor">
   <table class="tabla">
     <thead class="thead">
@@ -30,7 +38,7 @@
         <td>{{$usuario->nombre_usuario}}</td>
         <td>{{$usuario->enable}}</td>
         <td>
-          <a href="{{route('usuarios.edit', $usuario)}}" class="button-edit">
+          <a href=" {{route('usuarios.edit', $usuario)}}" class="button-edit">
             <span class="material-icons-sharp">
               edit
             </span>
@@ -48,5 +56,9 @@
     </tbody>
   </table>
 </div>
+<div class="pagination" style="margin-top: 1rem;">
+  {{$usuarios->appends('busqueda=>$busqueda')}}
+</div>
+
 
 @endsection

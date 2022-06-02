@@ -16,6 +16,14 @@
       Registrar <br>Mascota
     </a>
   </div>
+  <div class="d-md-flex justify-content-md-end" style="margin-bottom: 1rem;">
+    <form action="{{ route('mascotas.index')}}" method="GET">
+      <div class="btn-group">
+        <input type=" text" name="busqueda" class="form-control">
+        <input type="submit" value="Buscar" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
   <div class="tabla-contenedor">
     <table class="tabla">
       <thead class="thead">
@@ -53,6 +61,9 @@
         @endforeach
       </tbody>
     </table>
+  </div>
+  <div class="pagination" style="margin-top: 1rem;">
+    {{$mascotas->appends('busqueda=>$busqueda')}}
   </div>
 </div>
 @endsection
