@@ -17,8 +17,10 @@
 @section('contenido')
 <div class="crud">
     <div class="registrar">
+
         <button class="buttonRegistrame"   data-bs-toggle="modal"
         data-bs-target="#VeterinarioFormInput" onclick="createSelector('veterinario','input')">
+
             Registrar <br>Veterinario
         </button>
     </div>
@@ -35,7 +37,6 @@
                     <th>Email</th>
                     <th>Servicio</th>
                     <th>Sexo</th>
-                    <th>Servicio</th>
                     <th>Editar</th>
                     <th>Ver</th>
                 </tr>
@@ -60,12 +61,17 @@
                             <span class="material-icons-sharp">
                                 edit
                             </span>
+
                         </button>
                     </td>
-                    <td><a class="button-edit" id="ver">
+  
+                    <td><a href="{{route('veterinarios.show', $veterinario)}}" class="button-edit" id="ver">
+
                             <span class="material-icons-sharp">
                                 visibility
                             </span>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

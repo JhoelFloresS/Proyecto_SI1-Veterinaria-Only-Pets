@@ -67,6 +67,7 @@ class VeterinarioController extends Controller
     }
 
 
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -144,5 +145,10 @@ class VeterinarioController extends Controller
         $veterinario->load('persona');
         $veterinario->persona->load('telefonos');
         return $veterinario;
+
+    public function show(Veterinario $veterinario) {
+        $telefonos = Telefono::whereid_persona($veterinario->id)->get();
+        return view('veterinarios.show', compact('veterinario', 'telefonos'));
+
     }
 }

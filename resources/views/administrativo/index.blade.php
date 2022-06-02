@@ -15,6 +15,7 @@
 @endsection
 
 @section('contenido')
+
     <div class="registrar">
         <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#AdministrativoFormInput"
             onclick="createSelector('administrativo','input')">
@@ -55,15 +56,16 @@
                                 edit
                             </span>
                         </button></td>
-                    <td><a href="#" class="button-edit" id="ver">
-                            <span class="material-icons-sharp">
-                                visibility
-                            </span>
-                        </a></td>
+                   <td><a href="{{route('administrativos.show', $admin)}}" class="button-edit" id="ver">
+          <span class="material-icons-sharp">
+            visibility
+          </span>
+        </a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
 
 @endsection
 

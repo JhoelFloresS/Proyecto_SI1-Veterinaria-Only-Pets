@@ -35,7 +35,14 @@ class Persona extends Model
         return $this->hasOne(Administrativo::class, 'id');
     }
 
+
     public function telefonos(){
         return $this->hasMany(Telefono::class, 'id_persona');
+    }
+  
+    public function veterinario()
+    {
+        return $this->hasOne(Veterinario::class, 'id');
+
     }
 }
