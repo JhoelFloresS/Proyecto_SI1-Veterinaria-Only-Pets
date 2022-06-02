@@ -52,7 +52,8 @@ class AdministrativoController extends Controller
         $admin->load('persona');
         $admin->persona->load('telefonos');
         return $admin;
-
+    }
+    
     public function show(Administrativo $administrativo) {
         $telefonos = Telefono::whereid_persona($administrativo->id)->get();
         return view('administrativo.show', compact('administrativo', 'telefonos'));

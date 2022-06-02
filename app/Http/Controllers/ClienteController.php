@@ -29,12 +29,14 @@ class ClienteController extends Controller
             'sexo'=>$request->sexo,
             'ci'=>$request->ci,
         ]);
-        if($request->telefono){
+        
+        foreach ($request->telefonos as $telefono) {
             Telefono::create([
-                'numero'=>$request->telefono,
-                'id_persona'=>$persona->id,
+                'numero' => $telefono,
+                'id_persona' => $persona->id,
             ]);
         }
+
         Cliente::create([
             'id'=>$persona->id,
         ]);
@@ -52,6 +54,54 @@ class ClienteController extends Controller
         return redirect()->route('clientes.index');
     }
 
+    public function update(Request $request, $id){
+        $request->validate([
+            'nombre' => 'string|required|max:20|min:3',
+            'apellido_paterno' => 'string|required|max:20|min:3',
+            'apellido_materno' => 'string|required|max:20|min:3',
+            'email' => 'email|max:40'
+        ]);
+
+        $persona = Persona::findOrFail($id);
+        $cliente = Cliente::findOrFail($id);
+
+        $persona->load('telefonos');
+
+        $data = ([
+            'nombre'              => $request->nombre,
+            'apellido_paterno'    => $request->apellido_paterno,
+            'apellido_materno'    => $request->apellido_materno,
+            'email'               => $request->email,
+            'ci'                  => $request->ci,
+            'direccion'           => $request->direccion,
+            'fecha_de_nacimiento' => $request->fecha_de_nacimiento,
+            'sexo'                => $request->sexo,
+        ]);
+
+        //ACTUALIZANDO TELEFONOS
+        $telefonos_nuevos = $request->telefonos;
+        foreach ($persona->telefonos as $telefono) {
+            if (!in_array($telefono->numero, $request->telefonos)) {
+                $telefono->delete();
+            } else {
+                unset($telefonos_nuevos[array_search($telefono->numero, $request->telefonos)]);
+            }
+        }
+        foreach ($telefonos_nuevos as $numero) {
+            Telefono::create([
+                'numero' => $numero,
+                'id_persona' => $persona->id,
+            ]);
+        }
+
+
+        $persona->update($data);
+        $cliente->update();
+
+        return redirect()->route('clientes.index');
+
+
+    }
 
     public function datas($id)
     {

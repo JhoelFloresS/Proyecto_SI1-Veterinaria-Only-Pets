@@ -145,7 +145,7 @@
 
             let action = "/clientes/" + datos.id
 
-            $('#ClientesFormUpdate form').attr('action', action)
+            $('#ClienteFormUpdate form').attr('action', action)
 
 
         }
