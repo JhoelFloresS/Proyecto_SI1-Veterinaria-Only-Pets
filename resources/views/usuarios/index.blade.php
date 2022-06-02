@@ -37,7 +37,7 @@
           </a>
         </td>
         <td>
-          <a href="#" class="button-edit" id="ver">
+          <a href="{{route('usuarios.show', $usuario)}}" class="button-edit" id="ver">
             <span class="material-icons-sharp">
               visibility
             </span>

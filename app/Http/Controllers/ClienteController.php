@@ -110,4 +110,9 @@ class ClienteController extends Controller
         $cliente->persona->load('telefonos');
         return $cliente;
     }
+
+    public function show(Cliente $cliente) {
+        $telefonos = Telefono::whereid_persona($cliente->id)->get();
+        return view('clientes.show', compact('cliente', 'telefonos'));
+    }
 }

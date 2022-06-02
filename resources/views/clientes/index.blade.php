@@ -60,7 +60,7 @@
                                     </span>
                                 </button>
                             </td>
-                            <td><a href="#" class="button-edit" id="ver">
+                            <td><a href="{{route('clientes.show', $cliente)}}" class="button-edit" id="ver">
                                     <span class="material-icons-sharp">
                                         visibility
                                     </span>
