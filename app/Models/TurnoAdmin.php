@@ -10,6 +10,10 @@ class TurnoAdmin extends Model
     use HasFactory;
     protected $table = 'turno_admins';
 
+    public $timestamps = false;
+
+    public $incrementing = false;
+    
     protected $fillable  = [ 
         'id_administrativo', 
         'id_turno', 

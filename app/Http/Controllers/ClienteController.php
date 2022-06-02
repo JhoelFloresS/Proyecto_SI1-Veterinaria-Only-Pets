@@ -51,4 +51,13 @@ class ClienteController extends Controller
 
         return redirect()->route('clientes.index');
     }
+
+
+    public function datas($id)
+    {
+        $cliente = Cliente::find($id);
+        $cliente->load('persona');
+        $cliente->persona->load('telefonos');
+        return $cliente;
+    }
 }

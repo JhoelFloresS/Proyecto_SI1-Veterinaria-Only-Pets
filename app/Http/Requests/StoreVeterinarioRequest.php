@@ -28,10 +28,7 @@ class StoreVeterinarioRequest extends FormRequest
             'apellido_paterno' => 'string|required|max:20|min:3',
             'apellido_materno' => 'string|required|max:20|min:3',
             'email' => 'email|max:40|unique:personas,email',
-            'telefono' => 'numeric|min:7',
             'profesion' => 'string|required|min:7',
-
-            'id_rol' => '',
         ];
     }
 }

@@ -16,7 +16,7 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_usuario','20');
-            $table->string('password','100');
+            $table->string('password');
             $table->boolean('enable');
             //token para mantener session iniciada
             $table->rememberToken();

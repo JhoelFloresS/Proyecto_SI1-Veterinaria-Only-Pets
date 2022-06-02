@@ -7,8 +7,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    @section('css-derecha')
-    @show
+    <!-- Libreria select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
+
+
+@section('css-derecha')
+@show
 @endsection
 
 
@@ -35,7 +41,7 @@
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
-            <a href="{{route('usuarios.index')}}" class=@yield('usuario', '')>
+            <a href="{{ route('usuarios.index') }}" class=@yield('usuario', '')>
                 <span class="material-icons-sharp">person</span>
                 <h3>Usuario</h3>
             </a>
@@ -96,8 +102,8 @@
         </div>
     </div>
 </div>
-    @section('body-final')
-    @show
+@section('body-final')
+@show
 
 @endsection
 
@@ -105,8 +111,12 @@
 
 @section('js')
     <script src="{{ asset('js/home.js') }}"></script>
+    <!-- Libreria jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    @section('jsH')
+
+    @section('js-home')
     @show
 @endsection
-<!-- JavaScript Bundle with Popper -->

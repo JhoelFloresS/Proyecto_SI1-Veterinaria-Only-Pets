@@ -14,8 +14,8 @@
 @endif
 
 <form action="{{route('administrativos.update', $administrativo)}}" method="POST">
-    @csrf
     @method('PUT')
+    @csrf
     <div class="nombre">Nombre</div>
 
     <div class="form-group">
