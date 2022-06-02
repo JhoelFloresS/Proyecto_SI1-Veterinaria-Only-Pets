@@ -17,6 +17,10 @@ class MascotaController extends Controller
         return view('mascotas.index',compact('mascotas'));
     }
 
+    public function show(Mascota $mascota) {
+        return view('mascotas.show', compact('mascota'));
+    }
+
 
   
 }
