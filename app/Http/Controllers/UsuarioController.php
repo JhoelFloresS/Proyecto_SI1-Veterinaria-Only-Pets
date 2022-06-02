@@ -7,6 +7,7 @@ use App\Models\Cliente;
 use App\Models\Persona;
 use App\Models\Usuario;
 use App\Actions\StoreUsuarioAction;
+use App\Models\Telefono;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -37,5 +38,10 @@ class UsuarioController extends Controller
         StoreUsuarioAction::execute($request);
 
         return view('auth.login');
+    }
+
+    public function show(Usuario $usuario) {
+        $telefonos = Telefono::whereid_persona($usuario->id)->get();
+        return view('usuarios.show', compact('usuario', 'telefonos'));
     }
 }
