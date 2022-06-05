@@ -6,6 +6,7 @@ use App\Http\Controllers\CirugiaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
@@ -65,4 +66,10 @@ Route::resource('enfermedades', EnfermedadController::class);
 
 Route::get('', function () {
     return view('inicio');
+});
+
+Route::resource('servicios',ServicioController::class);
+
+Route::get('/login2', function () {
+    return view('login');
 });

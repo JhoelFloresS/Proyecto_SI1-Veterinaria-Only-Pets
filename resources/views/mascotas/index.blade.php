@@ -20,7 +20,7 @@
     <form action="{{ route('mascotas.index')}}" method="GET">
       <div class="btn-group">
         <input type=" text" name="busqueda" class="form-control">
-        <input type="submit" value="Buscar" class="btn btn-primary">
+        <input type="submit" value="Buscar" class="btn btn-primary" style="background-color: var(--color-danger);">
       </div>
     </form>
   </div>

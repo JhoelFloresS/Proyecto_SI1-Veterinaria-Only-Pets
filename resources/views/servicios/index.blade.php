@@ -1,6 +1,6 @@
 @extends('home')
-@section('title', 'Usuarios')
-@section('usuario','active')
+@section('title', 'Servicios')
+@section('servicio','active')
 @section('css-derecha')
 <link rel="stylesheet" href="{{asset('css/table-information.css')}}">
 @endsection
@@ -8,12 +8,12 @@
 
 
 <div class="registrar">
-  <a href="{{'/administrativos/create'}}" class="buttonRegistrame">
+  <a href="" class="buttonRegistrame">
     Registrar <br>Usuario
   </a>
 </div>
 <div class="d-md-flex justify-content-md-end" style="margin-bottom: 1rem;">
-  <form action="{{ route('usuarios.index')}}" method="GET">
+  <form action="{{ route('servicios.index')}}" method="GET">
     <div class="btn-group">
       <input type=" text" name="busqueda" class="form-control">
       <input type="submit" value="Buscar" class="btn btn-primary" style="background-color: var(--color-danger);">
@@ -25,27 +25,27 @@
     <thead class="thead">
       <tr>
         <th>Id</th>
-        <th>Usuare Name</th>
-        <th>Estado</th>
+        <th>Nombre</th>
+        <th>Precio</th>
         <th>Editar</th>
         <th>Ver</th>
       </tr>
     </thead>
     <tbody class="tbody">
-      @foreach($usuarios as $usuario)
+      @foreach($servicios as $servicio)
       <tr>
-        <td>{{$usuario->id}}</td>
-        <td>{{$usuario->nombre_usuario}}</td>
-        <td>{{$usuario->enable}}</td>
+        <td>{{$servicio->id}}</td>
+        <td>{{$servicio->nombre}}</td>
+        <td>{{$servicio->precio}}</td>
         <td>
-          <a href=" {{route('usuarios.edit', $usuario)}}" class="button-edit">
+          <a href=" " class="button-edit">
             <span class="material-icons-sharp">
               edit
             </span>
           </a>
         </td>
         <td>
-          <a href="{{route('usuarios.show', $usuario)}}" class="button-edit" id="ver">
+          <a href="{{route('servicios.show', $servicio)}}" class="button-edit" id="ver">
             <span class="material-icons-sharp">
               visibility
             </span>
@@ -57,7 +57,7 @@
   </table>
 </div>
 <div class="pagination" style="margin-top: 1rem;">
-  {{$usuarios->appends('busqueda=>$busqueda')}}
+  {{$servicios->appends('busqueda=>$busqueda')}}
 </div>
 
 
