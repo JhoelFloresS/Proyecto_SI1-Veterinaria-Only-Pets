@@ -23,7 +23,7 @@
     }
 
     .textoEncabezado {
-        background-color: #48ce18;
+        background-color: #ff8882;
         font-size: 15px;
         font-weight: 700;
         color: #fff;
@@ -31,7 +31,7 @@
     }
 
     .encabezado {
-        background-color: #48ce18;
+        background-color: #ff8882;
         background-image: url(/images/login/encabezado.png);
         background-repeat: no-repeat;
         height: 80px;
@@ -52,7 +52,7 @@
 
     .rectanguloDerecho {
         position: relative;
-        background: #48ce18;
+        background: #ff8882;
         border-radius: 10px;
         height: 100%;
         padding: 25px;
@@ -95,7 +95,7 @@
     .textIniciarSesion {
         position: absolute;
 
-        color: #48ce18;
+        color: #ff8882;
         font-size: 20px;
         font-weight: 700;
 
@@ -149,11 +149,11 @@
     /* sombreado de los botones , color de letra , borde y color del contorno*/
     .buttonRegistrame {
         /* color contorno*/
-        background: #48ce18;
+        background: #ff8882;
         /* color de la letra*/
         color: #fff;
         /* sombreado*/
-        box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
+        box-shadow: 0px 10px 20px #ff8882;
         /*borde*/
         border-radius: 10px;
         border: none;
@@ -163,9 +163,9 @@
         /* color contorno*/
         background: #fff;
         /* color de la letra*/
-        color: #48ce18;
+        color: #ff8882;
         /* sombreado*/
-        box-shadow: 0px 10px 20px rgba(47, 226, 118, 0.41);
+        box-shadow: 0px 10px 20px #ff8882;
         /*borde*/
         border-radius: 10px;
         border: none;
@@ -178,7 +178,7 @@
         width: 100%;
         border: none;
         font-size: 13px;
-        border-bottom: 3px solid #48ce18;
+        border-bottom: 3px solid #ff8882;
         margin-top: 0;
         outline: 0px;
     }

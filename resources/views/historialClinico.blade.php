@@ -43,7 +43,7 @@
                 <img src="{{ asset('images/historial-clinico/enfermedad.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title fs-4">Enfermedades</h5>
-                    <a href="#">
+                    <a href="{{ route('enfermedades.index') }}">
                         <button type="button" class="btn btn-primary mb-3">Ver lista
                         </button>
                     </a>
