@@ -9,14 +9,14 @@
     --color-info-dark: #b8b9c1;
     --color-info-light: #dce1eb;
     --color-dark: #363949;
-    --color-light: rgba(56, 214, 0, 255);
+    --color-light: #ff8882;
     --color-primary-variant: #111e88;
     --color-dark-variant: #677483;
-    --color-background: #48ce18;
+    --color-background: #ff8882;
     --color-background-panel: #fff;
-    --color-background-container: rgba(228, 247, 222, 255);
-    --color-background-derecha: #f3fdf0;
-    --color-background-active: #48ce18;
+    --color-background-container: #FFD6E1;
+    --color-background-derecha: #fff;
+    --color-background-active: #ff8882;
     --color-theme-button-letter: black;
     --color-theme-toggler: black;
     --color-black: #111;
@@ -236,7 +236,6 @@ aside .sidebar a.active {
     background: var(--color-background-active);
     color: var(--color-primary);
     border-radius: 15px;
-    box-shadow: 0px 0px 17px 2px var(--color-background-active);
 }
 
 aside .sidebar a.active:before {
