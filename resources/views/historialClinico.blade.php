@@ -72,7 +72,7 @@
                 <img src="{{ asset('images/historial-clinico/historialclinico.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title fs-4">Historial Clinico</h5>
-                    <a href="#">
+                    <a href="{{ route('historiales.index') }}">
                         <button type="button" class="btn btn-primary mb-3">Ver lista</button>
                     </a>
                     <button type="button" class="btn btn-success">Crear Historial clinico</button>

@@ -16,4 +16,8 @@ class DetalleHistorial extends Model
         'fecha_prox_consulta',
         'id_historial',
     ];
+
+    public function historial() {
+        return $this->belongsTo(HistorialClinico::class, 'id_historial');
+    }
 }

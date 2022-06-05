@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CirugiaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EnfermedadController;
+use App\Http\Controllers\HistorialClinicoController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\UsuarioController;
@@ -63,6 +64,7 @@ Route::resource('clientes',ClienteController::class);
 Route::resource('vacunas', VacunaController::class);
 Route::resource('cirugias', CirugiaController::class);
 Route::resource('enfermedades', EnfermedadController::class);
+Route::resource('historiales', HistorialClinicoController::class);
 
 Route::get('', function () {
     return view('inicio');

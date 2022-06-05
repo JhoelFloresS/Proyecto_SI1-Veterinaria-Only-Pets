@@ -24,4 +24,9 @@ class Mascota extends Model
     {
         return $this->belongsToMany(Persona::class,'clientes_mascotas','id_mascota','id_cliente');
     }
+
+    public function historial()
+    {
+        return $this->hasOne(HistorialClinico::class, 'id_mascota');
+    }
 }
