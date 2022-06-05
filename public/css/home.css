@@ -12,7 +12,7 @@
     --color-light: #ff8882;
     --color-primary-variant: #111e88;
     --color-dark-variant: #677483;
-    --color-background: #ff8882;
+    --color-background: linear-gradient(#fff, #ff8882);
     --color-background-panel: #fff;
     --color-background-container: #FFD6E1;
     --color-background-derecha: #fff;

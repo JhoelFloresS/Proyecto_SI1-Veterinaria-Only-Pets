@@ -29,6 +29,7 @@
                 <li><a href="#staff">Staff</a></li>
                 <li><a href="#historia">Historia</a></li>
                 <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#ubicacion">Ubicacion</a></li>
                 <li><a href="#contacto">Contactanos</a></li>
                 <li><a href="#">Tienda</a></li>
                 <li><a href="{{ route('login') }}" target="_blank">Ingresar</a></li>
@@ -275,8 +276,8 @@
             </div>
         </div>
     </div>
+    <iframe id="ubicacion" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.0439201516865!2d-63.166152666994!3d-17.742569610458716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e7b050db32db%3A0x916b20fc264aef9e!2sAv.%20Beni%2C%20Santa%20Cruz%20de%20la%20Sierra!5e0!3m2!1sen!2sbo!4v1654407733981!5m2!1sen!2sbo" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <div class="sect-t-footer" id="contacto"></div>
-
     <footer class="footer">
         <div class="footer__half footer__half-1">
             <h2 class="footer__big-title">¡VEN YA!</h2>

@@ -53,7 +53,7 @@
                 <span class="material-icons-sharp">description</span>
                 <h3>Historial Clinico</h3>
             </a>
-            <a href="#">
+            <a href="{{ route('servicios.index') }}" class=@yield('servicio', '')>
                 <span class="material-icons-sharp">control_point</span>
                 <h3>Servicio</h3>
             </a>
