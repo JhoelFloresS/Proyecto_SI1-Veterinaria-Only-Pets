@@ -17,6 +17,7 @@ class CreateCirugiasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('tipo');
+            $table->timestamps();
         });
     }
 

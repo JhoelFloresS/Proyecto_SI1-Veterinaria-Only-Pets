@@ -6,9 +6,9 @@
 @section('css-derecha')
     <link rel="stylesheet" href="{{ asset('css/table-information.css') }}">
     <style>
-        #AdministrativoFormUpdate .form-control,
-        #AdministrativoFormUpdate .form-select,
-        #AdministrativoFormUpdate .select2-selection{
+        #VacunaFormUpdate .form-control,
+        #VacunaFormUpdate .form-select,
+        #VacunaFormUpdate .select2-selection{
             background-color: khaki !important;
         }
     </style>
@@ -16,11 +16,12 @@
 
 @section('contenido')
 
-    <div class="registrar">
-        <button class="buttonRegistrame" data-bs-toggle="modal">
-            Registrar <br>Vacuna
-        </button>
-    </div>
+<div class="registrar">
+    <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#VacunaFormInput"
+        onclick="createSelector('vacuna','input')">
+        Registrar <br>Vacuna
+    </button>
+</div>
 
     <table class="tabla">
         <thead class="thead">
@@ -37,10 +38,12 @@
                     <td>{{ $vacuna->id }}</td>
                     <td>{{ $vacuna->nombre }}</td>
                     <td><button class="button-edit">
-                            <span class="material-icons-sharp">
-                                edit
-                            </span>
-                        </button></td>
+                        <span class="material-icons-sharp" onclick=@php
+                        echo "\"imprimir(" . json_encode($vacuna->id) . ")\""; @endphp data-bs-toggle="modal"
+                            data-bs-target="#VacunaFormUpdate">
+                            edit
+                        </span>
+                    </button></td>
                    <td><a href="#" class="button-edit" id="ver">
           <span class="material-icons-sharp">
             visibility
@@ -55,6 +58,32 @@
 @endsection
 
 @section('body-final')
-    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
-    <x-forms.update-datos id="AdministrativoFormUpdate" type="administrativo" />
+    <x-forms.input-datos-historial id="VacunaFormInput" type="vacuna" />
+    <x-forms.update-datos-historial id="VacunaFormUpdate" type="vacuna" />
+@endsection
+
+
+@section('js-home')
+
+    <script>
+        //EVENTO ONCLICK PARA EL BOTON DE EDITAR
+        function imprimir(id) {
+            var vacuna = new XMLHttpRequest()
+            vacuna.open("GET","/vacunas/datas/" + id.toString(), true)
+            vacuna.addEventListener("load", cargarDatos)
+            vacuna.send()
+        }
+
+        function cargarDatos(e) {
+            const datos = JSON.parse(this.responseText)
+           // console.log(datos)
+            $("#VacunaFormUpdate #nombre").attr("value", datos.nombre)
+            $("#VacunaFormUpdate #tipo").attr("value", datos.tipo)
+
+            let action = "/vacunas/" + datos.id
+
+            $('#VacunaFormUpdate form').attr('action', action)
+        }   
+        
+    </script>
 @endsection

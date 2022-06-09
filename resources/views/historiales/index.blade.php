@@ -6,9 +6,9 @@
 @section('css-derecha')
     <link rel="stylesheet" href="{{ asset('css/table-information.css') }}">
     <style>
-        #AdministrativoFormUpdate .form-control,
-        #AdministrativoFormUpdate .form-select,
-        #AdministrativoFormUpdate .select2-selection{
+        #HistorialFormUpdate .form-control,
+        #HistorialFormUpdate .form-select,
+        #HistorialFormUpdate .select2-selection{
             background-color: khaki !important;
         }
     </style>
@@ -16,11 +16,12 @@
 
 @section('contenido')
 
-    <div class="registrar">
-        <button class="buttonRegistrame" data-bs-toggle="modal">
-            Registrar <br>Historial Clinico
-        </button>
-    </div>
+<div class="registrar">
+    <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#HistorialFormInput"
+        onclick="createSelector('historial','input')">
+        Registrar <br>Historial Clinico
+    </button>
+</div>
 
     <table class="tabla">
         <thead class="thead">
@@ -59,6 +60,6 @@
 @endsection
 
 @section('body-final')
-    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
-    <x-forms.update-datos id="AdministrativoFormUpdate" type="administrativo" />
+    <x-forms.input-datos-historial id="HistorialFormInput" type="historial" />
+    <x-forms.update-datos-historial id="HistorialFormUpdate" type="historial" />
 @endsection

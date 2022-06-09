@@ -28,4 +28,27 @@ class EnfermedadController extends Controller
         $enfermedad = Enfermedad::findOrFail($id);
         return view('enfermedades.show', compact('enfermedad'));
     }
+
+    public function store(Request $request){
+        Enfermedad::create([
+            'nombre' => $request->nombre,
+            'tipo' => $request->tipo
+        ]);
+        return redirect(route('enfermedades.index'));
+    }
+
+    public function datas($id){
+        $enfermedad = Enfermedad::find($id);
+        return $enfermedad;
+    }
+
+    public function update(Request $request, $id) {
+        $enfermedad = Enfermedad::findOrFail($id);
+        $data = ([
+            'nombre' => $request->nombre,
+            'tipo' => $request->tipo,
+        ]);
+        $enfermedad->update($data);
+        return redirect()->route('enfermedades.index');
+    }
 }

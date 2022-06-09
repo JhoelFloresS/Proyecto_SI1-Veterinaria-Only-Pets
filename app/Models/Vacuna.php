@@ -12,8 +12,6 @@ class Vacuna extends Model
 
     protected $fillable  = [ 
         'id',
-        'profesion',
-        'id_servicio',
-         
+        'nombre',
     ];
 }
