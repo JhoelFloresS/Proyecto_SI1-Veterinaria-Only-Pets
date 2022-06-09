@@ -58,6 +58,7 @@ class AdministrativoAction
             'id_rol'         => '3',
             'id_persona'     => $persona->id,
         ]);
+        
     }
 
     public static function executeUpdate(Request $request, $id):void

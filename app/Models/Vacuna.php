@@ -10,10 +10,11 @@ class Vacuna extends Model
     use HasFactory;
     protected $table = 'vacunas';
 
+    public $timestamps = false;
+    
     protected $fillable  = [ 
         'id',
-        'profesion',
-        'id_servicio',
+        'nombre',
          
     ];
 }
