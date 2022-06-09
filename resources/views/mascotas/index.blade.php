@@ -125,10 +125,11 @@
 
       //PARA LOS TELEFONOS
       createSelector('Update')
-      $('#mascotasFormUpdate #duenhos').empty()
-      const duenhos = datos.propietario.map((propietario) => propietario.id)
-
-      datos.propietario.forEach((propietario) => {
+      $("mascotasFormUpdate #duenhos").val(null).trigger('change')
+     // $('#mascotasFormUpdate #duenhos').empty()
+    const duenhos = datos.propietario.map((propietario) => propietario.id)
+  /* 
+     datos.propietario.forEach((propietario) => {
           let data = {
               id: propietario.id,
               text: String(propietario.nombre + ' ' + propietario.apellido_paterno + ' ' + propietario.apellido_materno),
@@ -137,7 +138,7 @@
           $("#mascotasFormUpdate #duenhos").append(new Option(data.text, data.id, false, false))
               .trigger('change')
        })
-
+*/
       $("#mascotasFormUpdate #duenhos").val(duenhos)
       $("#mascotasFormUpdate #duenhos").trigger('change')
 

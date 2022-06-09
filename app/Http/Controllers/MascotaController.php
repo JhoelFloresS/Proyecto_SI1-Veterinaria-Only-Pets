@@ -52,7 +52,7 @@ class MascotaController extends Controller
 
 
     public function update(Request $request, $id){
-       // return $request;
+      //  return $request;
         $mascota = Mascota::findOrFail($id);
         $mascota->update([
             'nombre' => $request->nombre,
@@ -76,7 +76,7 @@ class MascotaController extends Controller
 
         foreach ($propietariosN as $propietario) {
             clienteMascota::create([
-                'id_cliente' => $propietario->id,
+                'id_cliente' => $propietario,
                 'id_mascota' => $mascota->id,
             ]);
         }

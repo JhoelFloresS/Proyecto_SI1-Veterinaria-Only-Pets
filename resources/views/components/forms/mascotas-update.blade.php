@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-12 mt-3">
                                         <label for="raza" class="form-label fs-5">raza</label>
@@ -67,14 +67,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 ">
+                            <div class="col-md-6 ">
                                 <div class="row h-100">
                                     <div class="col-12 mt-3">
                                         <label for="duenho" class="form-label fs-5">Dueños</label>
                                         <select class=" form-control" id="duenhos" name="duenhos[]"
                                             name="duenho" multiple="multiple">
                                             @foreach ($clientes() as $cliente)
-                                                <option value="{{ $cliente->id }}">
+                                                <option value={{ $cliente->id }}>
                                                     {{ $cliente->persona->nombre .
                                                         ' ' .
                                                         $cliente->persona->apellido_paterno .

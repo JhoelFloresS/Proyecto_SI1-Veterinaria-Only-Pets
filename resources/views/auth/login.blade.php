@@ -1,62 +1,124 @@
-@extends('layouts.master')
-@section('title', 'Login')
-@section('head')
-    <link rel="stylesheet" href="{{asset('css/login.css')}}">
-@endsection
-@section('principal')
-    <div class="encabezadoSombra">
-        <div class="textoEncabezado">Clinica veterinaria Only Pet{{ '\'' }}s
-        </div>
-        <div class="encabezado">
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- funcion boostrap crea un cuadrado en medio de la pantalla dado parametros en css -->
-    <div class="container">
-        <div class="rectanguloGrande">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="rectanguloIzquierdo">
-                        <div class="textIniciarSesion text-center">
-                            <header>Iniciar Sesion</header>
-                        </div>
-                        <form action="{{route('login')}}" method="post">
-                            @csrf
-                            <div class="email">Email</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1402/1402219.png" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/login2.css')}}">
+    <title>Ingresar</title>
+</head>
 
-                            <div class="form-group">
-                                <input class="myInput" placeholder="Ingresa tu email" type="text" id="nombre_usuario"
-                                    name="nombre_usuario" value="{{old('nombre_usuario')}}"
-                                    required>
-                            </div>
-
-                            <div class="contraseña">Contraseña</div>
-
-                            <div class="form-group">
-                                <input class="myInput" type="password" id="password" name="password"
-                                    placeholder="Ingresa tu contraseña" required>
-                            </div>
-
-                            <input type="submit" class="buttonIniciarSesion" value="Iniciar Sesión">
-                            @error('nombre_usuario')
-                                <div class="alert alert-danger mt-1 text-center">
-                                    {{$message}}
-                                </div>
-                                @enderror
-                        </form>
-                        <div class="texto text-center">
-                            <header>¿Todavia no tienes una cuenta?</header>
-                        </div>
-                        <div class="texto1 text-center">
-                            <a class="texto_registro" href="{{ route('register') }}">Registrate aqui</a>
-                        </div>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crear Cuenta</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>o usa tu correo electronico para registrarte</span>
+                <div class="contenedor">
+                    <div class="user-box">
+                        <input type="text" name="" required="">
+                        <label>Nombre</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" name="" required="">
+                        <label>Username</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" name="" required="">
+                        <label>Apellido Paterno</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" name="" required="">
+                        <label>Apellido Materno</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" name="" required="">
+                        <label>Email</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="password" name="" required="">
+                        <label>Password</label>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="rectanguloDerecho">
+                <div class="iniciar">
+                    <a href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Registar
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id=Loginaction="{{route('login')}}" method="POST">
+                @csrf
+                <h1>Ingresa con</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>o usa tu cuenta</span>
+                <div class="contenedor">
+                    <div class="user-box">
+                        <input type="text" name="nombre_usuario" required>
+                        <label>Username</label>
                     </div>
+                    <div class="user-box">
+                        <input type="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+                    @error('nombre_usuario')
+                    <div class="" style="color: red">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+                <button id="buttonFormLogin" type="submit" style="visibility: hidden; display: none;"></button>
+                <a  href="">¿Olvidaste tu contraseña?</a>
+                <div class="iniciar">
+                    <a href="" id="linkSubmitLogin">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Ingresar
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenido</h1>
+                    <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
+                    <button class="ghost" id="signIn">Ingresar</button>
+                    <img style="height: 270px; margin-top: 10%;" src="/images/login/perrito.png">
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hola, Amigo!</h1>
+                    <p>Ingresa tus datos personales</p>
+                    <button class="ghost" id="signUp">Registrar</button>
+                    <img style="height: 270px;" src="/images/login/gato.png">
                 </div>
             </div>
         </div>
     </div>
-@endsection
+     <script src="{{ asset('js/login2.js') }}"></script>  
+  
+    <script>
+
+    </script>
+</body>
+
+</html>
