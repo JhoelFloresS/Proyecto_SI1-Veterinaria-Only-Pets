@@ -62,7 +62,8 @@
                         <button type="button" class="btn btn-primary mb-3">Ver lista
                         </button>
                     </a>
-                    <button type="button" class="btn btn-success">Crear Vacuna</button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"data-bs-target="#input-vacuna"
+                    >Crear Vacuna</button>
                 </div>
             </div>
 
@@ -86,27 +87,8 @@
 
 @endsection
 @section('body-final')
-    <x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
-    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
-    <x-forms.input-datos id="ClienteFormInput" type="cliente" />
+    <x-forms.input-vacunas/>       
 @endsection
 
 @section('js-home')
-    <script>
-
-        const createSelector = (type) =>{
-            let selector = '.input-datos-telefono-'+type;
-            $(selector).select2({
-                theme: 'bootstrap-5',
-                tags: true,
-                placeholder: 'Inserte los telefonos',
-                maximumSelectionLength: 3,
-                 maximumInputLength: 9,
-                 minimumInputLength: 8,
-                tokenSeparators: [',', ' '],
-                width: '100%'
-            })
-        }
-
-    </script>
 @endsection

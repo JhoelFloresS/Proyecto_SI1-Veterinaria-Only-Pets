@@ -61,8 +61,9 @@ Route::resource('administrativos', AdministrativoController::class);
 Route::get('clientes/datas/{id}', [ClienteController::class, 'datas']);
 Route::resource('clientes',ClienteController::class);
 
-Route::resource('vacunas', VacunaController::class);
-Route::resource('cirugias', CirugiaController::class);
+Route::resource('vacunas', VacunaController::class);    
+
+Route::resource('cirugias', CirugiaController::class); 
 Route::resource('enfermedades', EnfermedadController::class);
 Route::resource('historiales', HistorialClinicoController::class);
 

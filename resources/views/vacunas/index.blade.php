@@ -17,7 +17,7 @@
 @section('contenido')
 
     <div class="registrar">
-        <button class="buttonRegistrame" data-bs-toggle="modal">
+        <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-toggle="modal"data-bs-target="#input-vacuna" >
             Registrar <br>Vacuna
         </button>
     </div>
@@ -55,6 +55,5 @@
 @endsection
 
 @section('body-final')
-    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
-    <x-forms.update-datos id="AdministrativoFormUpdate" type="administrativo" />
+<x-forms.input-vacunas/> 
 @endsection
