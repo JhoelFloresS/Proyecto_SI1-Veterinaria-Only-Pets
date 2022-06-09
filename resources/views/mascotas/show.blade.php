@@ -51,8 +51,10 @@
             </p>
             <hr>
             <p>
-                <strong>Dueño</strong>: |
-                {{$mascota->propietario[0]->nombre.' '.$mascota->propietario[0]->apellido_paterno.' '.$mascota->propietario[0]->apellido_materno}}
+                <strong>Dueños</strong>: @foreach ($mascota->propietario as $propietario)
+                | {{$propietario->nombre.' '.$propietario->apellido_paterno.' '.$propietario->apellido_materno}}
+                @endforeach|
+   
             </p>
             <hr>
             
