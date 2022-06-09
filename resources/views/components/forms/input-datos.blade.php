@@ -136,7 +136,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submmit" form="{{ 'formInputDatos' . $type }}"
-                    class="btn btn-primary btn-lg">Añadir</button>
+                    class="btn btn-danger btn-lg">Añadir</button>
             </div>
         </div>
     </div>

@@ -2,26 +2,21 @@
 
 namespace App\View\Components\Forms;
 
-use App\Models\Servicio;
-use App\Models\Turno;
 use Illuminate\View\Component;
 
-class updateDatos extends Component
-{   
+class mascotasUpdate extends Component
+{
 
-    public $id;
 
-    public $type;
+    public $id;    
     /**
-    
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($id, $type)
+    public function __construct($id)
     {
         $this->id = $id;
-        $this->type = $type;
     }
 
     /**
@@ -31,14 +26,10 @@ class updateDatos extends Component
      */
     public function render()
     {
-        return view('components.forms.update-datos');
+        return view('components.forms.mascotas-update');
     }
 
-    public function getTurnos(){
-        return Turno::get();
+    public function clientes(){
+        return \App\Models\Cliente::get()->load('persona');
     }
-
-    public function getServicios(){
-        return Servicio::get();
-    }	
 }

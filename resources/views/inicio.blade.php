@@ -46,7 +46,7 @@
     <div class="banner">
         <div class="banner__overlay">
             <div class="banner__container">
-                <p class="banner__text">Bienvenido a Clinica Veterinaria Only Pet's</p>
+                <p class="banner__text">Bienvenido a Clinica Veterinaria Only Pet''\''s</p>
                 <h1 class="banner__title">Trabajamos contigo por la salud de tu mascota</h1>
             </div>
             <a href="#servicios">
@@ -66,7 +66,7 @@
                     <img src="/images/inicio/medicos-servicios.jpg" class="coffee__img">
                     <h2 class="coffee__name">Servicios Medicos</h2>
                     <p class="coffee__descr">
-                        En ONLY PET'S ofrecemos servicios médicos veterinarios integrales. Contamos con el personal idóneo y las herramientas necesarias para dar la mejor atención a sus mascotas.
+                        En ONLY PET'\''S ofrecemos servicios médicos veterinarios integrales. Contamos con el personal idóneo y las herramientas necesarias para dar la mejor atención a sus mascotas.
                     </p>
                     <p>Consulta:</p>
                     <ul>
@@ -84,7 +84,7 @@
                     <img src="/images/inicio/estetica-servicios.jpg" class="coffee__img">
                     <h2 class="coffee__name">Estetica</h2>
                     <p class="coffee__descr">
-                        En ONLY PET'S trabajamos en la prestación de servicios estéticos para mascotas. La calidad de nuestra labor profesional se encuentra avalada por la recomendación de nuestros clientes.
+                        En ONLY PET'\''S trabajamos en la prestación de servicios estéticos para mascotas. La calidad de nuestra labor profesional se encuentra avalada por la recomendación de nuestros clientes.
                     </p>
                     <p>Baños estéticos y medicados:</p>
                     <ul>
@@ -102,7 +102,7 @@
                     <img src="/images/inicio/otros-servicios.jpg" class="coffee__img">
                     <h2 class="coffee__name">Otros Servicios</h2>
                     <p class="coffee__descr">
-                        En ONLY PET'S ofrecemos productos farmacéuticos y artículos para mascotas. Somos una empresa sólida que cuenta con profesionales con una profunda sensibilidad hacia los animales.
+                        En ONLY PETS ofrecemos productos farmacéuticos y artículos para mascotas. Somos una empresa sólida que cuenta con profesionales con una profunda sensibilidad hacia los animales.
                     </p>
                     <p>Pet shop:</p>
                     <ul>
