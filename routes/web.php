@@ -63,10 +63,16 @@ Route::resource('administrativos', AdministrativoController::class);
 Route::get('clientes/datas/{id}', [ClienteController::class, 'datas']);
 Route::resource('clientes',ClienteController::class);
 
-Route::resource('vacunas', VacunaController::class);    
+Route::get('vacunas/datas/{id}', [VacunaController::class, 'datas']);
+Route::resource('vacunas', VacunaController::class);
 
-Route::resource('cirugias', CirugiaController::class); 
+Route::get('cirugias/datas/{id}', [CirugiaController::class, 'datas']);
+Route::resource('cirugias', CirugiaController::class);
+
+Route::get('enfermedades/datas/{id}', [EnfermedadController::class, 'datas']);
 Route::resource('enfermedades', EnfermedadController::class);
+
+Route::get('historiales/datas/{id}', [HistorialClinicoController::class, 'datas']);
 Route::resource('historiales', HistorialClinicoController::class);
 
 Route::get('', function () {

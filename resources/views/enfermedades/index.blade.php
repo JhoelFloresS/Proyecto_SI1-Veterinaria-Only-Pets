@@ -6,9 +6,9 @@
 @section('css-derecha')
 <link rel="stylesheet" href="{{ asset('css/table-information.css') }}">
 <style>
-    #AdministrativoFormUpdate .form-control,
-    #AdministrativoFormUpdate .form-select,
-    #AdministrativoFormUpdate .select2-selection {
+    #EnfermedadFormUpdate .form-control,
+    #EnfermedadFormUpdate .form-select,
+    #EnfermedadFormUpdate .select2-selection {
         background-color: khaki !important;
     }
 </style>
@@ -17,10 +17,12 @@
 @section('contenido')
 
 <div class="registrar">
-    <button class="buttonRegistrame" data-bs-toggle="modal">
+    <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#EnfermedadFormInput"
+        onclick="createSelector('enfermedad','input')">
         Registrar <br>Enfermedad
     </button>
 </div>
+
 <div class="d-md-flex justify-content-md-end" style="margin-bottom: 1rem;">
     <form action="{{ route('enfermedades.index')}}" method="GET">
         <div class="btn-group">
@@ -44,10 +46,12 @@
             <td>{{ $enfermedad->id }}</td>
             <td>{{ $enfermedad->nombre }}</td>
             <td><button class="button-edit">
-                    <span class="material-icons-sharp">
-                        edit
-                    </span>
-                </button></td>
+                <span class="material-icons-sharp" onclick=@php
+                echo "\"imprimir(" . json_encode($enfermedad->id) . ")\""; @endphp data-bs-toggle="modal"
+                    data-bs-target="#EnfermedadFormUpdate">
+                    edit
+                </span>
+            </button></td>
             <td><a href="{{route('enfermedades.show',$enfermedad->id)}}" class="button-edit" id="ver">
                     <span class="material-icons-sharp">
                         visibility
@@ -65,6 +69,31 @@
 @endsection
 
 @section('body-final')
-<x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
-<x-forms.update-datos id="AdministrativoFormUpdate" type="administrativo" />
+<x-forms.input-datos-historial id="EnfermedadFormInput" type="enfermedad" />
+<x-forms.update-datos-historial id="EnfermedadFormUpdate" type="enfermedad" />
+@endsection
+
+@section('js-home')
+
+    <script>
+        //EVENTO ONCLICK PARA EL BOTON DE EDITAR
+        function imprimir(id) {
+            var enfermedad = new XMLHttpRequest()
+            enfermedad.open("GET","/enfermedades/datas/" + id.toString(), true)
+            enfermedad.addEventListener("load", cargarDatos)
+            enfermedad.send()
+        }
+
+        function cargarDatos(e) {
+            const datos = JSON.parse(this.responseText)
+           // console.log(datos)
+            $("#EnfermedadFormUpdate #nombre").attr("value", datos.nombre)
+            $("#EnfermedadFormUpdate #tipo").attr("value", datos.tipo)
+
+            let action = "/enfermedades/" + datos.id
+
+            $('#EnfermedadFormUpdate form').attr('action', action)
+        }   
+        
+    </script>
 @endsection
