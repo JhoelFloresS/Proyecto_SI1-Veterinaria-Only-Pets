@@ -46,10 +46,11 @@
                 <div class="card-body">
                     <h5 class="card-title fs-4">Mascotas</h5>
                     <a href="{{ route('mascotas.index') }}">
-                        <button type="button" class="btn btn-primary mb-3">Ver lista
+                        <button type="button" class="btn btn-primary mb-3" >Ver lista
                         </button>
                     </a>
-                    <button type="button" class="btn btn-success">Crear Administrativo</button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#mascotasFormInput">Crear Mascotas</button>
                 </div>
             </div>
         </div>
@@ -93,17 +94,18 @@
     <x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
     <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
     <x-forms.input-datos id="ClienteFormInput" type="cliente" />
+    <x-forms.mascotas-input id="mascotasFormInput"/>
 @endsection
 
 @section('js-home')
     <script>
-
         const createSelector = (type) =>{
             let selector = '.input-datos-telefono-'+type;
             $(selector).select2({
-                theme: 'bootstrap-5',
+              //  theme: 'bootstrap-5',
                 tags: true,
                 placeholder: 'Inserte los telefonos',
+            //    dropdownParent: $('#'+type+'FormInput'),
                 maximumSelectionLength: 3,
                  maximumInputLength: 9,
                  minimumInputLength: 8,
@@ -112,5 +114,16 @@
             })
         }
 
+        $(document).ready(function () {
+            $("#formMascotasInput #duenhos").select2({
+                theme: 'bootstrap-5',
+               // tags: true,
+               // dropdownParent: $('#mascotasFormInput'),
+                placeholder: 'Seleccione los dueños',
+                maximumSelectionLength: 5,
+                width: '100%'
+            })
+        });
+      
     </script>
 @endsection

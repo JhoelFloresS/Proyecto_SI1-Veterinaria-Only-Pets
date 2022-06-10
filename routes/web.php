@@ -49,6 +49,8 @@ Route::get('/historialClinico',function (){
 
 
 Route::resource('usuarios', UsuarioController::class);
+
+Route::get('mascotas/datas/{id}', [MascotaController::class, 'datas'])->name('mascotas.datas');
 Route::resource('mascotas', MascotaController::class);
 
 Route::get('veterinarios/datas/{id}', [VeterinarioController::class, 'datas']);
@@ -81,4 +83,8 @@ Route::resource('servicios',ServicioController::class);
 
 Route::get('/login2', function () {
     return view('login');
+});
+
+Route::get('/shop', function () {
+    return view('shop.index');
 });

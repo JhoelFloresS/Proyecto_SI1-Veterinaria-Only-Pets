@@ -16,12 +16,12 @@
 
 @section('contenido')
 
-<div class="registrar">
-    <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#VacunaFormInput"
-        onclick="createSelector('vacuna','input')">
-        Registrar <br>Vacuna
-    </button>
-</div>
+
+    <div class="registrar">
+        <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-toggle="modal"data-bs-target="#input-vacuna" >
+            Registrar <br>Vacuna
+        </button>
+    </div>
 
     <table class="tabla">
         <thead class="thead">
@@ -58,8 +58,7 @@
 @endsection
 
 @section('body-final')
-    <x-forms.input-datos-historial id="VacunaFormInput" type="vacuna" />
-    <x-forms.update-datos-historial id="VacunaFormUpdate" type="vacuna" />
+<x-forms.input-vacunas/> 
 @endsection
 
 

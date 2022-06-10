@@ -133,7 +133,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submmit" form="{{ 'formUpdateDatos'.$type }}"
-                    class="btn btn-primary btn-lg">Guardar Datos</button>
+                    class="btn btn-danger btn-lg">Guardar Datos</button>
             </div>
         </div>
     </div>

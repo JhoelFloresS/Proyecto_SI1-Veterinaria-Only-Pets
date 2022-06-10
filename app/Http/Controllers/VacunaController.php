@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Vacuna;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorevacunasRequest;
+use App\Actions\VacunaAction;
 
 class VacunaController extends Controller
 {
@@ -12,26 +14,15 @@ class VacunaController extends Controller
         $vacunas = Vacuna::get();
         return view('vacunas.index', compact('vacunas'));
     }
-
-    public function store(Request $request){
-        Vacuna::create([
-            'nombre' => $request->nombre,
-        ]);
-        return redirect(route('vacunas.index'));
+    
+    public function create() {
+        return view('vacunas.create');
     }
 
-    public function datas($id){
-        $vacuna = Vacuna::find($id);
-        return $vacuna;
-    }
+    public function store(StorevacunasRequest $request) {
+        
+        VacunaAction::executeStore($request);
 
-    public function update(Request $request, $id) {
-        $vacuna = Vacuna::findOrFail($id);
-        $data = ([
-            'nombre' => $request->nombre,
-        ]);
-        $vacuna->update($data);
         return redirect()->route('vacunas.index');
     }
-
 }
