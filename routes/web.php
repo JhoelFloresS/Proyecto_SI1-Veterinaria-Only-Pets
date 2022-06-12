@@ -24,10 +24,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 
-Route::get('/', [LoginController::class,'showLoginForm']);
+Route::get('/', [LoginController::class, 'showLoginForm']);
 
 
 
@@ -39,11 +40,11 @@ Route::get('/home', function () {
     return view('home');
 })->middleware('auth');
 
-Route::get('/datos',function (){
+Route::get('/datos', function () {
     return view('datos');
 })->name('datos');
 
-Route::get('/historialClinico',function (){
+Route::get('/historialClinico', function () {
     return view('historialClinico');
 })->name('historialClinico');
 
@@ -61,7 +62,7 @@ Route::resource('administrativos', AdministrativoController::class);
 
 
 Route::get('clientes/datas/{id}', [ClienteController::class, 'datas']);
-Route::resource('clientes',ClienteController::class);
+Route::resource('clientes', ClienteController::class);
 
 Route::get('vacunas/datas/{id}', [VacunaController::class, 'datas']);
 Route::resource('vacunas', VacunaController::class);
@@ -79,7 +80,8 @@ Route::get('', function () {
     return view('inicio');
 });
 
-Route::resource('servicios',ServicioController::class);
+Route::get('servicios/datas/{id}', [ServicioController::class, 'datas']);
+Route::resource('servicios', ServicioController::class);
 
 Route::get('/login2', function () {
     return view('login');

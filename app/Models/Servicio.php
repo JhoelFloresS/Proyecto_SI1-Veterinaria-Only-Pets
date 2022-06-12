@@ -10,9 +10,14 @@ class Servicio extends Model
     use HasFactory;
     protected $table = 'servicios';
 
-    protected $fillable  = [ 
-        'nombre', 
-        'descripcion', 
-        'precio', 
+    protected $fillable  = [
+        'nombre',
+        'descripcion',
+        'precio',
     ];
+
+    public function plan_de_pagos()
+    {
+        return $this->hasOne(PlanDePago::class,'id_servicio');
+    }
 }

@@ -3,13 +3,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-start fs-4" id="exampleModalLabel">
-                    Añadir Servicio
+                    Actualizar datos de Servicio
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="container-fluid bd-example-row">
-                    <form class="row g-3" id="{{ 'formInputDatos' . $type }}" action="{{ route($type . 's.store') }}" method="post">
+                    <form class="row g-3" id="{{ 'formUpdateDatos'.$type }}" action="" method="post">
+                        @method('PUT')
                         @csrf
 
                         <div class="col-md-4">
@@ -51,7 +52,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submmit" form="{{ 'formInputDatos' . $type }}" class="btn btn-primary btn-lg">Añadir</button>
+                <button type="submmit" form="{{ 'formUpdateDatos' . $type }}" class="btn btn-primary btn-lg">Guardar Datos</button>
             </div>
         </div>
     </div>

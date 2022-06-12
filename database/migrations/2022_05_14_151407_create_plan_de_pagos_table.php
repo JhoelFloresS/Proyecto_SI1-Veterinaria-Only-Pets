@@ -20,8 +20,8 @@ class CreatePlanDePagosTable extends Migration
             $table->unsignedBigInteger('id_servicio');
 
             $table->foreign('id_servicio')->references('id')->on('servicios')->onDelete('cascade')->onUpdate('cascade');
-            
 
+            $table->timestamps();
         });
     }
 
