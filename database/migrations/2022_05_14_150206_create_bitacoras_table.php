@@ -18,6 +18,7 @@ class CreateBitacorasTable extends Migration
             $table->string('descripcion','300');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('usuarios')->cascadeOnDelete()->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 

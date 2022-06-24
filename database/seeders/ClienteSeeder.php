@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cliente;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,10 +15,20 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into clientes (id) values ('8')");
-        DB::insert("insert into clientes (id) values ('9')");
-        DB::insert("insert into clientes (id) values ('10')");
-        DB::insert("insert into clientes (id) values ('11')");
-        DB::insert("insert into clientes (id) values ('12')");
+        Cliente::create([
+            'id' => '8', 
+        ]);
+        Cliente::create([
+            'id' => '9', 
+        ]);
+        Cliente::create([
+            'id' => '10', 
+        ]);
+        Cliente::create([
+            'id' => '11', 
+        ]);
+        Cliente::create([
+            'id' => '12', 
+        ]);
     }
 }

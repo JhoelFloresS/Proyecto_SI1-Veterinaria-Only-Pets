@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DetalleEnfermedad;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,39 +16,83 @@ class DetalleEnfermedadSeeder extends Seeder
     public function run()
     {
         //para los de cirugia 
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (18, 1, '2022-03-15', '2022-03-15', null)");
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (18, 1, '2022-03-15', '2022-03-15', null)");
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (18, 1, '2022-03-15', '2022-03-15', '2022-04-30')");
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '18', 
+            'id_historial' => '1', 
+            'fecha_deteccion' => '2022-03-15', 
+            'inicio_tratamiento' => '2022-03-15', 
+            'fin_tratamiento' => null, 
+        ]);
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '18', 
+            'id_historial' => '1', 
+            'fecha_deteccion' => '2022-03-15', 
+            'inicio_tratamiento' => '2022-03-15', 
+            'fin_tratamiento' => null, 
+        ]);
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '18', 
+            'id_historial' => '1', 
+            'fecha_deteccion' => '2022-03-15', 
+            'inicio_tratamiento' => '2022-03-15', 
+            'fin_tratamiento' => null, 
+        ]);
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '18', 
+            'id_historial' => '1', 
+            'fecha_deteccion' => '2022-03-15', 
+            'inicio_tratamiento' => '2022-03-15', 
+            'fin_tratamiento' => '2022-04-30', 
+        ]);
 
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (13, 2, '2022-03-15', '2022-03-15', '2022-03-30')");
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '13', 
+            'id_historial' => '2', 
+            'fecha_deteccion' => '2022-03-15', 
+            'inicio_tratamiento' => '2022-03-15', 
+            'fin_tratamiento' => '2022-03-30', 
+        ]);
+
         
         //para los de vacunas
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (3, 3, '2022-03-10', '2022-03-10', '2022-03-10')");//moquillo
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (1, 3, '2022-03-20', '2022-03-20', '2022-03-20')");//rabia
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '3', 
+            'id_historial' => '3', 
+            'fecha_deteccion' => '2022-03-10', 
+            'inicio_tratamiento' => '2022-03-10', 
+            'fin_tratamiento' => '2022-03-10', 
+        ]);//moquillo
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '1', 
+            'id_historial' => '3', 
+            'fecha_deteccion' => '2022-03-20', 
+            'inicio_tratamiento' => '2022-03-20', 
+            'fin_tratamiento' => '2022-03-20', 
+        ]);//rabia
 
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (1, 4, '2022-03-20', '2022-03-20', '2022-03-20')");
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (5, 4, '2022-03-30', '2022-03-30', '2022-03-30')");
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '1', 
+            'id_historial' => '4', 
+            'fecha_deteccion' => '2022-03-20', 
+            'inicio_tratamiento' => '2022-03-20', 
+            'fin_tratamiento' => '2022-03-20', 
+        ]);
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '5', 
+            'id_historial' => '4', 
+            'fecha_deteccion' => '2022-03-30', 
+            'inicio_tratamiento' => '2022-03-30', 
+            'fin_tratamiento' => '2022-03-30', 
+        ]);
 
-        DB::insert("insert into 
-        detalle_enfermedades (id_enfermedad, id_historial, fecha_deteccion, inicio_tratamiento, fin_tratamiento) 
-        values (4, 5, '2022-03-10', '2022-03-10', '2022-03-10')");
 
+        DetalleEnfermedad::create([
+            'id_enfermedad' => '4', 
+            'id_historial' => '5', 
+            'fecha_deteccion' => '2022-03-10', 
+            'inicio_tratamiento' => '2022-03-10', 
+            'fin_tratamiento' => '2022-03-10', 
+        ]);
 
     }
 }

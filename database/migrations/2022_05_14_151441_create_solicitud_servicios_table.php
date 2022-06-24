@@ -21,7 +21,7 @@ class CreateSolicitudServiciosTable extends Migration
             $table->foreign('id_cliente')->references('id')->on('clientes');
             $table->foreign('id_servicio')->references('id')->on('servicios')->nullOnDelete();
             $table->foreign('id_recibo')->references('id')->on('recibos');
-
+            $table->timestamps();
         });
     }
 

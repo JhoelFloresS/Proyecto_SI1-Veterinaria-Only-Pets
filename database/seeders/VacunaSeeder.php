@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Vacuna;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,12 +15,26 @@ class VacunaSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into vacunas (nombre) values ('V. Parvovirus')");
-        DB::insert("insert into vacunas (nombre) values ('V. Moquillo')");
-        DB::insert("insert into vacunas (nombre) values ('V. Polivalente')");
-        DB::insert("insert into vacunas (nombre) values ('V. Rabia')");
-        DB::insert("insert into vacunas (nombre) values ('V. Lyme')");
-        DB::insert("insert into vacunas (nombre) values ('V. Leptospirosis')");
-        DB::insert("insert into vacunas (nombre) values ('V. Leishmaniosis')");
+        Vacuna::create([
+            'nombre' => 'V. Parvovirus', 
+        ]);
+        Vacuna::create([
+            'nombre' => 'V. Moquillo', 
+        ]);
+        Vacuna::create([
+            'nombre' => 'V. Polivalente', 
+        ]);
+        Vacuna::create([
+            'nombre' => 'V. Rabia', 
+        ]);
+        Vacuna::create([
+            'nombre' => 'V. Lyme', 
+        ]);
+        Vacuna::create([
+            'nombre' => 'V. Leptospirosis', 
+        ]);
+        Vacuna::create([
+            'nombre' => 'V. Leishmaniosis', 
+        ]);
     }
 }

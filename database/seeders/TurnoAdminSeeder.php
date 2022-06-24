@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TurnoAdmin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,12 +15,18 @@ class TurnoAdminSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into turno_admins (id_administrativo, id_turno) 
-        values (3, 1)");
-        DB::insert("insert into turno_admins (id_administrativo, id_turno) 
-        values (4, 2)");
-        DB::insert("insert into turno_admins (id_administrativo, id_turno) 
-        values (5, 3)");
+        TurnoAdmin::create([
+            'id_administrativo' => '3', 
+            'id_turno' => '1', 
+        ]);
+        TurnoAdmin::create([
+            'id_administrativo' => '4', 
+            'id_turno' => '2', 
+        ]);
+        TurnoAdmin::create([
+            'id_administrativo' => '5', 
+            'id_turno' => '3', 
+        ]);
 
     }
 }

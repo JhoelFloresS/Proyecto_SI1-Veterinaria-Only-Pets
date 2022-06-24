@@ -19,6 +19,7 @@ class CreateTurnoAdminsTable extends Migration
             $table->foreign('id_administrativo')->references('id')->on('administrativos');
             $table->foreign('id_turno')->references('id')->on('turnos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->primary(['id_administrativo','id_turno']);
+            $table->timestamps();
         });
     }
 

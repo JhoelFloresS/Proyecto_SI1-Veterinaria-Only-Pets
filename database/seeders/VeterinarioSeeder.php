@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Veterinario;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,17 +15,36 @@ class VeterinarioSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into veterinarios (id, profesion, id_servicio) 
-        values (2, 'Medico general', 1)");
-        DB::insert("insert into veterinarios (id, profesion, id_servicio) 
-        values (6, 'Medico general', 1)");
-        DB::insert("insert into veterinarios (id, profesion, id_servicio) 
-        values (7, 'Medico de cirugia', 5)");
-        DB::insert("insert into veterinarios (id, profesion, id_servicio) 
-        values (8, 'Medico de farmacia', 4)");
-        DB::insert("insert into veterinarios (id, profesion, id_servicio) 
-        values (14, 'Medico interno', 3)");
-        DB::insert("insert into veterinarios (id, profesion, id_servicio) 
-        values (15, 'Estetica', 2)");
+        Veterinario::create([
+            'id' => '2', 
+            'profesion' => 'Medico general', 
+            'id_servicio' => '1', 
+        ]);
+        Veterinario::create([
+            'id' => '6', 
+            'profesion' => 'Medico general', 
+            'id_servicio' => '1', 
+        ]);
+        Veterinario::create([
+            'id' => '7', 
+            'profesion' => 'Medico de cirugia', 
+            'id_servicio' => '5', 
+        ]);
+        Veterinario::create([
+            'id' => '8', 
+            'profesion' => 'Medico de farmacia', 
+            'id_servicio' => '4', 
+        ]);
+        Veterinario::create([
+            'id' => '14', 
+            'profesion' => 'Medico interno', 
+            'id_servicio' => '3', 
+        ]);
+        Veterinario::create([
+            'id' => '15', 
+            'profesion' => 'Estetica', 
+            'id_servicio' => '2', 
+        ]);
+
     }
 }

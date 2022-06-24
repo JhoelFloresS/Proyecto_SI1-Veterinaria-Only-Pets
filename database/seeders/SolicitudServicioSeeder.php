@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SolicitudServicio;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,62 +16,99 @@ class SolicitudServicioSeeder extends Seeder
     public function run()
     {
         //para cirugias
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, 5, 1)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, 5, 2)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, 5, 3)");
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => '5', 
+            'id_recibo' => '1', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => '5', 
+            'id_recibo' => '2', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => '5', 
+            'id_recibo' => '3', 
+        ]);
 
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, 5, 4)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, null, 5)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, null, 6)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, null, 7)");
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => '5', 
+            'id_recibo' => '4', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => null, 
+            'id_recibo' => '5', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => null, 
+            'id_recibo' => '6', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => null, 
+            'id_recibo' => '7', 
+        ]);
+
 
         //para vacunas
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (9, 1, 8)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (9, 1, 9)");
+        SolicitudServicio::create([
+            'id_cliente' => '9', 
+            'id_servicio' => '1', 
+            'id_recibo' => '8', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '9', 
+            'id_servicio' => '1', 
+            'id_recibo' => '9', 
+        ]);
 
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (10, 1, 10)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (10, 1, 11)");
 
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (11, 1, 12)");
+        SolicitudServicio::create([
+            'id_cliente' => '10', 
+            'id_servicio' => '1', 
+            'id_recibo' => '10', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '10', 
+            'id_servicio' => '1', 
+            'id_recibo' => '11', 
+        ]);
+
+
+        SolicitudServicio::create([
+            'id_cliente' => '11', 
+            'id_servicio' => '1', 
+            'id_recibo' => '12', 
+        ]);
+
         
         //para productos
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (8, null, 13)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (9, null, 14)");
+        SolicitudServicio::create([
+            'id_cliente' => '8', 
+            'id_servicio' => null, 
+            'id_recibo' => '13', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '9', 
+            'id_servicio' => null, 
+            'id_recibo' => '14', 
+        ]);
 
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (10, null, 15)");
-        DB::insert("insert into solicitud_servicios 
-        (id_cliente, id_servicio, id_recibo) 
-        values (10, null, 16)");
+        SolicitudServicio::create([
+            'id_cliente' => '10', 
+            'id_servicio' => null, 
+            'id_recibo' => '15', 
+        ]);
+        SolicitudServicio::create([
+            'id_cliente' => '10', 
+            'id_servicio' => null, 
+            'id_recibo' => '16', 
+        ]);
+
 
     }
 }

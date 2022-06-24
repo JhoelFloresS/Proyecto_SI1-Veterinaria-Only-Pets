@@ -22,7 +22,7 @@ class CreateDetallesVentasTable extends Migration
 
             $table->foreign('id_recibo')->references('id')->on('recibos');
             $table->foreign('id_producto')->references('id')->on('productos')->onDelete('set null')->onUpdate('cascade');
-
+            $table->timestamps();
         });
     }
 

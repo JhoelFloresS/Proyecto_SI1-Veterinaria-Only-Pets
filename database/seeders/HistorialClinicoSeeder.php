@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\HistorialClinico;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,19 +15,40 @@ class HistorialClinicoSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into historiales_clinicos (id_mascota, peso, talla) 
-        values (1, 15.4, 5)");
-        DB::insert("insert into historiales_clinicos (id_mascota, peso, talla) 
-        values (2, 20.2, 7)");
-        DB::insert("insert into historiales_clinicos (id_mascota, peso, talla) 
-        values (3, 17.7, 6)");
-        DB::insert("insert into historiales_clinicos (id_mascota, peso, talla) 
-        values (4, 15.4, 5)");
-        DB::insert("insert into historiales_clinicos (id_mascota, peso, talla) 
-        values (5, 13.9, 4)");
-        DB::insert("insert into historiales_clinicos (id_mascota, peso, talla) 
-        values (6, 21.0, 8)");
-        DB::insert("insert into historiales_clinicos (id_mascota, peso, talla) 
-        values (7, 14.9, 5)");
+        HistorialClinico::create([
+            'id_mascota' => '1', 
+            'peso' => '15.4', 
+            'talla' => '5',  
+        ]);
+        HistorialClinico::create([
+            'id_mascota' => '2', 
+            'peso' => '20.2', 
+            'talla' => '7',  
+        ]);
+        HistorialClinico::create([
+            'id_mascota' => '3', 
+            'peso' => '17.7', 
+            'talla' => '6',  
+        ]);
+        HistorialClinico::create([
+            'id_mascota' => '4', 
+            'peso' => '15.4', 
+            'talla' => '5',  
+        ]);
+        HistorialClinico::create([
+            'id_mascota' => '5', 
+            'peso' => '13.9', 
+            'talla' => '4',  
+        ]);
+        HistorialClinico::create([
+            'id_mascota' => '6', 
+            'peso' => '21.0', 
+            'talla' => '8',  
+        ]);
+        HistorialClinico::create([
+            'id_mascota' => '7', 
+            'peso' => '14.9', 
+            'talla' => '5',  
+        ]);
     }
 }

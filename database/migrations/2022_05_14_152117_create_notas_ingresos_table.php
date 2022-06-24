@@ -27,6 +27,7 @@ class CreateNotasIngresosTable extends Migration
             $table->foreign('id_proveedor')->references('id')->on('proveedores')->onDelete('set null')->onUpdate('cascade');
             $table->foreign('id_producto')->references('id')->on('productos')->onDelete('set null')->onUpdate('cascade');
             $table->foreign('id_administrativo')->references('id')->on('administrativos')->onDelete('set null')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Usuario;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -16,64 +17,110 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         $password = Hash::make('1234');
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('juan', '$password', '1', '1', '1')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('maria', '$password', '1', '2', '2')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('sofia', '$password', '1', '3', '3')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('gonzales', '$password', '1', '3', '4')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('josue', '$password', '1', '3', '5')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('andresF', '$password', '1', '2', '6')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('luci', '$password', '1', '2', '7')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('molina', '$password', '1', '2', '8')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('luis', '$password', '1', '4', '9')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('enrrique', '$password', '1', '4', '10')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('santiago EB', '$password', '1', '4', '11')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('guzman pedraza', '$password', '1', '4', '12')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('marcelo', '$password', '1', '4', '13')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('felipe', '$password', '1', '2', '14')");
-
-        DB::insert("insert into usuarios 
-        (nombre_usuario, password, enable, id_rol, id_persona) 
-        values ('angela', '$password', '1', '2', '15')");
+        Usuario::create([
+            'nombre_usuario' => 'juan', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '1', 
+            'id_persona' => '1', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'maria', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '2', 
+            'id_persona' => '2', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'sofia', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '3', 
+            'id_persona' => '3', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'gonzales', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '3', 
+            'id_persona' => '4', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'josue', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '3', 
+            'id_persona' => '5', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'andresF', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '2', 
+            'id_persona' => '6', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'luci', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '2', 
+            'id_persona' => '7', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'molina', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '2', 
+            'id_persona' => '8', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'luis', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '4', 
+            'id_persona' => '9', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'enrique', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '4', 
+            'id_persona' => '10', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'santiago EB', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '4', 
+            'id_persona' => '11', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'guzman pedraza', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '4', 
+            'id_persona' => '12', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'marcelo', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '4', 
+            'id_persona' => '13', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'felipe', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '2', 
+            'id_persona' => '14', 
+        ]);
+        Usuario::create([
+            'nombre_usuario' => 'angela', 
+            'password' => $password, 
+            'enable' => '1', 
+            'id_rol' => '2', 
+            'id_persona' => '15', 
+        ]);
     }
 }

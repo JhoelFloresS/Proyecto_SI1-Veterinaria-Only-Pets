@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DetalleVacuna;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,22 +15,43 @@ class DetalleVacunaSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into detalles_vacunas 
-        (id_vacuna, id_historial, dosis, fecha_aplicacion, fecha_prox_aplicacion) 
-        values (2, 3, 1, '2022-03-10', null)");//moquillo
-        DB::insert("insert into detalles_vacunas 
-        (id_vacuna, id_historial, dosis, fecha_aplicacion, fecha_prox_aplicacion) 
-        values (4, 3, 1, '2022-03-20', null)");//rabia
-        
-        DB::insert("insert into detalles_vacunas 
-        (id_vacuna, id_historial, dosis, fecha_aplicacion, fecha_prox_aplicacion) 
-        values (4, 4, 1, '2022-03-20', null)");//rabia
-        DB::insert("insert into detalles_vacunas 
-        (id_vacuna, id_historial, dosis, fecha_aplicacion, fecha_prox_aplicacion) 
-        values (1, 4, 1, '2022-03-30', null)");//Parvovirus
+        DetalleVacuna::create([
+            'id_vacuna' => '2', 
+            'id_historial' => '3', 
+            'dosis' => '1', 
+            'fecha_aplicacion' => '2022-03-10', 
+            'fecha_prox_aplicacion' => null, 
+        ]);//moquillo
+        DetalleVacuna::create([
+            'id_vacuna' => '4', 
+            'id_historial' => '3', 
+            'dosis' => '1', 
+            'fecha_aplicacion' => '2022-03-20', 
+            'fecha_prox_aplicacion' => null, 
+        ]);//rabia
 
-        DB::insert("insert into detalles_vacunas 
-        (id_vacuna, id_historial, dosis, fecha_aplicacion, fecha_prox_aplicacion) 
-        values (6, 5, 1, '2022-03-10', null)");//Leptospirosis
+        
+        DetalleVacuna::create([
+            'id_vacuna' => '4', 
+            'id_historial' => '4', 
+            'dosis' => '1', 
+            'fecha_aplicacion' => '2022-03-10', 
+            'fecha_prox_aplicacion' => null, 
+        ]);//rabia
+        DetalleVacuna::create([
+            'id_vacuna' => '1', 
+            'id_historial' => '4', 
+            'dosis' => '1', 
+            'fecha_aplicacion' => '2022-03-30', 
+            'fecha_prox_aplicacion' => null, 
+        ]);//Parvovirus
+
+        DetalleVacuna::create([
+            'id_vacuna' => '6', 
+            'id_historial' => '5', 
+            'dosis' => '1', 
+            'fecha_aplicacion' => '2022-03-10', 
+            'fecha_prox_aplicacion' => null, 
+        ]);//Leptospirosis
     }
 }

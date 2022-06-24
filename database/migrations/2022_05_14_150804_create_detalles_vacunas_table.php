@@ -27,7 +27,7 @@ class CreateDetallesVacunasTable extends Migration
             //foreing 
             $table->foreign('id_vacuna')->references('id')->on('vacunas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_historial')->references('id')->on('historiales_clinicos')->onDelete('cascade')->onUpdate('cascade');
-           
+            $table->timestamps();
         });
     }
 

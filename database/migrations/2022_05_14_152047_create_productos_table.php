@@ -24,7 +24,7 @@ class CreateProductosTable extends Migration
             $table->integer('cantidad');
             $table->unsignedBigInteger('id_categoria')->nullable();
             $table->foreign('id_categoria')->references('id')->on('categorias')->onDelete('set null')->onUpdate('cascade');
-
+            $table->timestamps();
         });
     }
 

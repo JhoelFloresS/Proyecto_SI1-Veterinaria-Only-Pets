@@ -23,7 +23,7 @@ class CreateDetalleEnfermedadesTable extends Migration
             //declaración de llaves
             $table->foreign('id_historial')->references('id')->on('historiales_clinicos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_enfermedad')->references('id')->on('enfermedades')->onDelete('cascade')->onUpdate('cascade');
-         
+            $table->timestamps();
         });
     }
 

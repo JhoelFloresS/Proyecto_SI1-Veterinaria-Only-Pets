@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cirugia;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,14 +15,23 @@ class CirugiaSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into cirugias (nombre, tipo) 
-        values ('Cirugía oncológica', 'Cancer')");
-        DB::insert("insert into cirugias (nombre, tipo) 
-        values ('Cirugía digestiva.', 'Gastrointestinal')");
-        DB::insert("insert into cirugias (nombre, tipo) 
-        values ('Cirugía del aparato urinario.', 'Via urinaria')");
+        Cirugia::create([
+            'nombre' => 'Cirugía oncológica', 
+            'tipo' => 'Cancer', 
+        ]);
+        Cirugia::create([
+            'nombre' => 'Cirugía digestiva.', 
+            'tipo' => 'Gastrointestinal', 
+        ]);
+        Cirugia::create([
+            'nombre' => 'Cirugía del aparato urinario.', 
+            'tipo' => 'Via urinaria', 
+        ]);
+
         //Hernia = Desplazamiento de uno de los discos intervertebrales
-        DB::insert("insert into cirugias (nombre, tipo) 
-        values ('Operación de hernias.', 'Huesos')"); 
+        Cirugia::create([
+            'nombre' => 'Operación de hernias', 
+            'tipo' => 'Huesos', 
+        ]);
     }
 }
