@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\clienteMascota;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,19 +15,33 @@ class ClienteMascotaSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into clientes_mascotas (id_cliente, id_mascota) 
-        values(8, 1)");
-        DB::insert("insert into clientes_mascotas (id_cliente, id_mascota) 
-        values(8, 2)");
-        DB::insert("insert into clientes_mascotas (id_cliente, id_mascota) 
-        values(9, 3)");
-        DB::insert("insert into clientes_mascotas (id_cliente, id_mascota) 
-        values(10, 4)");
-        DB::insert("insert into clientes_mascotas (id_cliente, id_mascota) 
-        values(11, 5)");
-        DB::insert("insert into clientes_mascotas (id_cliente, id_mascota) 
-        values(11, 6)");
-        DB::insert("insert into clientes_mascotas (id_cliente, id_mascota) 
-        values(12, 7)");
+        clienteMascota::create([
+            'id_cliente' => '8', 
+            'id_mascota' => '1', 
+        ]);
+        clienteMascota::create([
+            'id_cliente' => '8', 
+            'id_mascota' => '2', 
+        ]);
+        clienteMascota::create([
+            'id_cliente' => '9', 
+            'id_mascota' => '3', 
+        ]);
+        clienteMascota::create([
+            'id_cliente' => '10', 
+            'id_mascota' => '4', 
+        ]);
+        clienteMascota::create([
+            'id_cliente' => '11', 
+            'id_mascota' => '5', 
+        ]);
+        clienteMascota::create([
+            'id_cliente' => '11', 
+            'id_mascota' => '6', 
+        ]);
+        clienteMascota::create([
+            'id_cliente' => '12', 
+            'id_mascota' => '7', 
+        ]);
     }
 }

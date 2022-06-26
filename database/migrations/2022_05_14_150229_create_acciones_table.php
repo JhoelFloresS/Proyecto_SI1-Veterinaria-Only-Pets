@@ -23,6 +23,7 @@ class CreateAccionesTable extends Migration
             $table->time('hora');
             $table->unsignedBigInteger('id_bitacora');
             $table->foreign('id_bitacora')->references('id')->on('bitacoras')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 

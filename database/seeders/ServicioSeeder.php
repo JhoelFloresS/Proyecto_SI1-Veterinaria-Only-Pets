@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Servicio;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,15 +15,31 @@ class ServicioSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into servicios (nombre, descripcion, precio) 
-        values ('Consulta', 'consulta general', 20)");
-        DB::insert("insert into servicios (nombre, descripcion, precio) 
-        values ('Estetica', 'peluqueria y baño', 60)");
-        DB::insert("insert into servicios (nombre, descripcion, precio) 
-        values ('Medicina interna', 'medicina interna', 100)");
-        DB::insert("insert into servicios (nombre, descripcion, precio) 
-        values ('Farmacia', 'medicamentos', 80)");
-        DB::insert("insert into servicios (nombre, descripcion, precio) 
-        values ('Cirugia', 'cirugia interna', 1000)");
+        Servicio::create([
+            'nombre' => 'Consulta', 
+            'descripcion' => 'consulta general', 
+            'precio' => '20', 
+        ]);
+        Servicio::create([
+            'nombre' => 'Estetica', 
+            'descripcion' => 'peluqueria y limpieza', 
+            'precio' => '60', 
+        ]);
+        Servicio::create([
+            'nombre' => 'Medicina interna', 
+            'descripcion' => 'medicina interna', 
+            'precio' => '100', 
+        ]);
+        Servicio::create([
+            'nombre' => 'Farmacia', 
+            'descripcion' => 'medicamentos', 
+            'precio' => '80', 
+        ]);
+        Servicio::create([
+            'nombre' => 'Cirugia', 
+            'descripcion' => 'cirugia interna', 
+            'precio' => '1000', 
+        ]);
+        
     }
 }

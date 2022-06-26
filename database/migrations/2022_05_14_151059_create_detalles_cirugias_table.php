@@ -28,7 +28,7 @@ class CreateDetallesCirugiasTable extends Migration
             //declarando las llaves
             $table->foreign('id_cirugia')->references('id')->on('cirugias')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_historial')->references('id')->on('historiales_clinicos')->onDelete('cascade')->onUpdate('cascade');
-            
+            $table->timestamps();
         });
     }
 

@@ -20,7 +20,7 @@ class CreateDetallesHistorial extends Migration
             $table->date('fecha_prox_consulta')->nullable();
             $table->unsignedBigInteger('id_historial');
             $table->foreign('id_historial')->references('id')->on('historiales_clinicos')->onDelete('cascade')->onUpdate('cascade');
-          
+            $table->timestamps();
         });
     }
 

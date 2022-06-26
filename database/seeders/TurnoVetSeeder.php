@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TurnoVet;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,19 +15,33 @@ class TurnoVetSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into turno_vets (id_veterinario, id_turno) 
-        values(2, 1)");
-        DB::insert("insert into turno_vets (id_veterinario, id_turno) 
-        values(6, 2)");
-        DB::insert("insert into turno_vets (id_veterinario, id_turno) 
-        values(7, 2)");
-        DB::insert("insert into turno_vets (id_veterinario, id_turno) 
-        values(8, 4)");
-        DB::insert("insert into turno_vets (id_veterinario, id_turno) 
-        values(14, 4)");
-        DB::insert("insert into turno_vets (id_veterinario, id_turno) 
-        values(15, 3)");
-        DB::insert("insert into turno_vets (id_veterinario, id_turno) 
-        values(14, 3)");
+        TurnoVet::create([
+            'id_veterinario' => '2', 
+            'id_turno' => '1', 
+        ]);
+        TurnoVet::create([
+            'id_veterinario' => '6', 
+            'id_turno' => '2', 
+        ]);
+        TurnoVet::create([
+            'id_veterinario' => '7', 
+            'id_turno' => '2', 
+        ]);
+        TurnoVet::create([
+            'id_veterinario' => '8', 
+            'id_turno' => '4', 
+        ]);
+        TurnoVet::create([
+            'id_veterinario' => '14', 
+            'id_turno' => '4', 
+        ]);
+        TurnoVet::create([
+            'id_veterinario' => '15', 
+            'id_turno' => '3', 
+        ]);
+        TurnoVet::create([
+            'id_veterinario' => '14', 
+            'id_turno' => '3', 
+        ]);
     }
 }

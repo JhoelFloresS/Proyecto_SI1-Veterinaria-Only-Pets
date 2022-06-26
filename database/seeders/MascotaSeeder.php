@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Mascota;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,27 +15,62 @@ class MascotaSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into mascotas 
-        (nombre, raza, fecha_nacimiento, especie, descripcion, sexo) 
-        values ('Firulais', 'Pitbull', '2021-05-14', 'mamifero', 'color cafe con blanco', 'Macho')");
-        DB::insert("insert into mascotas 
-        (nombre, raza, fecha_nacimiento, especie, descripcion, sexo) 
-        values ('Monchito', 'Bulldog', '2020-01-22', 'mamifero', 'color negro', 'Macho')");
-        DB::insert("insert into mascotas 
-        (nombre, raza, fecha_nacimiento, especie, descripcion, sexo) 
-        values ('Manchas', 'Boxer', '2021-02-11', 'mamifero', 'color blanco con negro', 'Macho')");
-        DB::insert("insert into mascotas 
-        (nombre, raza, fecha_nacimiento, especie, descripcion, sexo) 
-        values ('Boby', 'Husky', '2019-12-30', 'mamifero', 'color cafe', 'Macho')");
-        DB::insert("insert into mascotas 
-        (nombre, raza, fecha_nacimiento, especie, descripcion, sexo) 
-        values ('Luna', 'Doberman', '2019-10-17', 'mamifero', 'color blanco', 'Hembra')");
-        DB::insert("insert into mascotas 
-        (nombre, raza, fecha_nacimiento, especie, descripcion, sexo) 
-        values ('Panquesito', 'Pitbull', '2018-10-10', 'mamifero', 'color cafe con negro', 'Hembra')");
-        DB::insert("insert into mascotas 
-        (nombre, raza, fecha_nacimiento, especie, descripcion, sexo) 
-        values ('Bethoben', 'Mastil', '2019-04-07', 'mamifero', 'color blanco', 'Macho')");
+        Mascota::create([
+            'nombre' => 'Firulais', 
+            'raza' => 'Pitbull', 
+            'fecha_nacimiento' => '2021-05-14', 
+            'especie' => 'perro', 
+            'descripcion' => 'color cafe con blanco', 
+            'sexo'=> 'Macho', 
+        ]);
+        Mascota::create([
+            'nombre' => 'Monchito', 
+            'raza' => 'Bulldog', 
+            'fecha_nacimiento' => '2020-01-22', 
+            'especie' => 'perro', 
+            'descripcion' => 'color negro', 
+            'sexo'=> 'Macho', 
+        ]);
+        Mascota::create([
+            'nombre' => 'Manchas', 
+            'raza' => 'Boxer', 
+            'fecha_nacimiento' => '2021-02-11', 
+            'especie' => 'perro', 
+            'descripcion' => 'color blanco con negro', 
+            'sexo'=> 'Macho', 
+        ]);
+        Mascota::create([
+            'nombre' => 'Boby', 
+            'raza' => 'Husky', 
+            'fecha_nacimiento' => '2019-12-30', 
+            'especie' => 'perro', 
+            'descripcion' => 'color cafe', 
+            'sexo'=> 'Macho', 
+        ]);
+        Mascota::create([
+            'nombre' => 'Luna', 
+            'raza' => 'Doberman', 
+            'fecha_nacimiento' => '2019-10-17', 
+            'especie' => 'perro', 
+            'descripcion' => 'color blanco', 
+            'sexo'=> 'Hembra', 
+        ]);
+        Mascota::create([
+            'nombre' => 'Panquesito', 
+            'raza' => 'Pitubull', 
+            'fecha_nacimiento' => '2018-10-10', 
+            'especie' => 'perro', 
+            'descripcion' => 'color cafe con negro', 
+            'sexo'=> 'Hembra', 
+        ]);
+        Mascota::create([
+            'nombre' => 'Bethoben', 
+            'raza' => 'Mastil', 
+            'fecha_nacimiento' => '2019-04-07', 
+            'especie' => 'perro', 
+            'descripcion' => 'color blanco', 
+            'sexo'=> 'Macho', 
+        ]);
         
     }
 }

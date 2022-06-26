@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Proveedor;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,24 +16,42 @@ class ProveedorSeeder extends Seeder
     public function run()
     {
         //proveedor de medicamentos
-        DB::insert("insert into proveedores 
-        (nombre, direccion, telefono, email, NIT) 
-        values ('Jose Guzman', 'La Guardia', '63182674', 'joseguzman@gmail.com', '100789')");
+        Proveedor::create([
+            'nombre' => 'Jose Guzman', 
+            'direccion' => 'La Guardia', 
+            'telefono' => '63182674', 
+            'email' => 'joseguzman@gmail.com', 
+            'NIT' => '100789', 
+        ]);
 
         //proveedor de ropa
-        DB::insert("insert into proveedores 
-        (nombre, direccion, telefono, email, NIT) 
-        values ('Juan Salazar', 'Cambodromo', '69125649', 'salazarjuan@gmail,com', '100317')");
+        Proveedor::create([
+            'nombre' => 'Juan Salazar', 
+            'direccion' => 'Cambodromo', 
+            'telefono' => '69125649', 
+            'email' => 'salazarjuan@gmail.com', 
+            'NIT' => '100317', 
+        ]);
+
 
         //proveedor de accesorios
-        DB::insert("insert into proveedores 
-        (nombre, direccion, telefono, email, NIT) 
-        values ('Carlos Peres', 'El Bajio', '70040798', 'perescarlos@gmail.com', '100618')");
+        Proveedor::create([
+            'nombre' => 'Carlos Peres', 
+            'direccion' => 'El Bajio', 
+            'telefono' => '70040798', 
+            'email' => 'perescarlos@gmail.com', 
+            'NIT' => '100618', 
+        ]);
 
         //proveedor de comida
-        DB::insert("insert into proveedores 
-        (nombre, direccion, telefono, email, NIT) 
-        values ('Pedro Carvajal', 'Av Radial 27', '60030412', 'carvajalpedro@gmail,com', '100401')");
+        Proveedor::create([
+            'nombre' => 'Pedro Carvajal', 
+            'direccion' => 'Av Radial 27', 
+            'telefono' => '60030412', 
+            'email' => 'carvajalpedro@gmail.com', 
+            'NIT' => '100401', 
+        ]);
+
         
     }
 }

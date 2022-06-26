@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Administrativo;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,11 +15,17 @@ class AdministrativoSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into administrativos (id, profesion) 
-        values (3, 'Recepcionista')");
-        DB::insert("insert into administrativos (id, profesion) 
-        values (4, 'Recepcionista')");
-        DB::insert("insert into administrativos (id, profesion) 
-        values (5, 'Recepcionista')");
+        Administrativo::create([
+            'id' => '3', 
+            'profesion' => 'Recepcionista', 
+        ]);
+        Administrativo::create([
+            'id' => '4', 
+            'profesion' => 'Recepcionista', 
+        ]);
+        Administrativo::create([
+            'id' => '5', 
+            'profesion' => 'Recepcionista', 
+        ]);
     }
 }

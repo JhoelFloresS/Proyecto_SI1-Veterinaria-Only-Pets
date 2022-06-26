@@ -23,7 +23,7 @@ class CreateRecibosTable extends Migration
             $table->unsignedBigInteger('id_administrativo')->nullable();
          
             $table->foreign('id_administrativo')->references('id')->on('administrativos')->nullOnDelete()->onUpdate('cascade');
-
+            $table->timestamps();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PlanDePago;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,9 +15,10 @@ class PlanDePagoSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("insert into plan_de_pagos (nro_cuotas, monto_cuota, id_servicio) 
-        values (4, 250, 5)");
-        /*DB::insert("insert into plan_de_pagos (nro_cuotas, monto_cuota, id_servicio) 
-        values (2, 500, 5)");*/
+        PlanDePago::create([
+            'nro_cuotas' => '4', 
+            'monto_cuota' => '250', 
+            'id_servicio' => '5', 
+        ]);
     }
 }
