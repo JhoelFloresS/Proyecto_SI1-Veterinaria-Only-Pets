@@ -15,4 +15,20 @@ class SolicitudServicio extends Model
         'id_servicio', 
         'id_recibo', 
     ];
+
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'id_cliente');
+    }
+
+    public function servicio()
+    {
+        return $this->belongsTo(Servicio::class, 'id_servicio');
+    }
+
+    public function recibo()
+    {
+        return $this->belongsTo(Recibo::class, 'id_recibo');
+    }
 }

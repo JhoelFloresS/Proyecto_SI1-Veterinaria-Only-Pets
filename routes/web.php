@@ -8,6 +8,8 @@ use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\HistorialClinicoController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\SolicitudServicioController;
+use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
@@ -47,8 +49,9 @@ Route::get('/datos', function () {
 Route::get('/historialClinico', function () {
     return view('historialClinico');
 })->name('historialClinico');
-
-
+Route::get('/servicio', function () {
+    return view('servicio');
+})->name('servicio');
 Route::resource('usuarios', UsuarioController::class);
 
 Route::get('mascotas/datas/{id}', [MascotaController::class, 'datas'])->name('mascotas.datas');
@@ -90,3 +93,13 @@ Route::get('/login2', function () {
 Route::get('/shop', function () {
     return view('shop.index');
 });
+
+
+
+
+
+
+
+Route::get('solicitudes/datas/{id}', [SolicitudServicioController::class, 'datas']);
+Route::resource('solicitudes', SolicitudServicioController::class);
+Route::resource('turnos', TurnoController::class);
