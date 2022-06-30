@@ -59,7 +59,7 @@
             <thead class="thead">
                 <tr>
                     <th>Id</th>
-                    <th>Usuario</th>
+                    <th style="width:20%;">Usuario</th>
                     <th>Accion</th>
                     <th>Descripción</th>
                     <th>Fecha</th>

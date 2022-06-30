@@ -11,6 +11,8 @@ class TurnoVet extends Model
     protected $table = 'turno_vets';
 
     public $timestamps = false;
+    public $incrementing = false;
+    
     protected $fillable  = [ 
         'id_veterinario', 
         'id_turno', 
