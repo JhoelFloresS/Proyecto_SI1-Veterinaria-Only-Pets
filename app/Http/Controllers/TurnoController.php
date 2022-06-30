@@ -20,4 +20,29 @@ class TurnoController extends Controller
         ];
         return view('turnos.index', compact('turnos'));
     }
+
+    public function store(Request $request) 
+    {
+        Turno::create([
+            'horario_entrada' => $request->horario_entrada,
+            'horario_salida' => $request->horario_salida,
+        ]);
+        return redirect(route('turnos.index'));
+    }
+
+    public function datas($id){
+        $turno = Turno::find($id);
+        return $turno;
+    }
+
+    
+    public function update(Request $request, $id) {
+        $turno = Turno::find($id);
+        $data = [
+            'horario_entrada' => $request->horario_entrada,
+            'horario_salida' => $request->horario_salida,
+        ];
+        $turno->update($data);
+        return redirect(route('turnos.index'));
+    }
 }

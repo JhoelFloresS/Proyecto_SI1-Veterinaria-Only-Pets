@@ -12,51 +12,57 @@
                     <form class="row g-3" id="formSolicitudesUpdate" action="" method="POST">
                         @method('PUT')
                         @csrf
-                        <div class="row">
-                            <div class="col-6 ">
-                                <div class="row h-100">
-                                    <div class="col-12 mt-3">
-                                        <label for="id_cliente" class="form-label fs-5">Clientes</label>
-                                        <select class=" form-control" id="id_cliente" name="id_cliente" >
-                                            @foreach ($clientes() as $cliente)
-                                            <option value="{{ $cliente->id }}">
-                                                {{ $cliente->persona->nombre .
-                                                    ' ' .
-                                                    $cliente->persona->apellido_paterno .
-                                                    ' ' .
-                                                    $cliente->persona->apellido_materno }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                        
+                        <div class="col-md-6">
+                            <label for="id_cliente" class="form-label fs-5">Clientes</label>
+                            <select class=" form-control" id="id_cliente" name="id_cliente" >
+                                @foreach ($clientes() as $cliente)
+                                <option value="{{ $cliente->id }}">
+                                    {{ $cliente->persona->nombre .
+                                        ' ' .
+                                        $cliente->persona->apellido_paterno .
+                                        ' ' .
+                                        $cliente->persona->apellido_materno }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                                    <div class="col-12 mt-3">
-                                        <label for="servicios" class="form-label fs-5">Servicios</label>
-                                        <select class=" form-control" id="servicios"
-                                             name="servicios" >
-                                             <option value="">Ninguno</option>
-                                            @foreach ($servicios() as $servicio)
-                                            <option value="{{ $servicio->id }}">
-                                                {{ $servicio->nombre }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                        <div class="col-md-6">
+                            <label for="id_mascota" class="form-label fs-5">Mascota</label>
+                            <select class=" form-control" id="id_mascota"
+                                name="id_mascota" >
+                                @foreach ($mascotas() as $mascota)
+                                <option value="{{ $mascota->id }}">
+                                    {{ $mascota->nombre }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                                    <div class="col-12 mt-3">
-                                        <label for="id_recibo" class="form-label fs-5">Id de Recibo</label>
-                                        <select class=" form-control" id="id_recibo"
-                                            name="id_recibo" >
-                                            @foreach ($recibos() as $recibo)
-                                            <option value="{{ $recibo->id }}">
-                                                {{ $recibo->id }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="servicios" class="form-label fs-5">Servicios</label>
+                            <select class=" form-control" id="servicios"
+                                 name="servicios" >
+                                 <option value="">Ninguno</option>
+                                @foreach ($servicios() as $servicio)
+                                <option value="{{ $servicio->id }}">
+                                    {{ $servicio->nombre }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
 
+                        <div class="col-md-6">
+                            <label for="id_recibo" class="form-label fs-5">Id de Recibo</label>
+                            <select class=" form-control" id="id_recibo"
+                                name="id_recibo" >
+                                @foreach ($recibos() as $recibo)
+                                <option value="{{ $recibo->id }}">
+                                    {{ $recibo->id }}
+                                </option>
+                                @endforeach
+                            </select>
                         </div>
 
                     </form>

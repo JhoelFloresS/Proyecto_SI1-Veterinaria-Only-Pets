@@ -40,6 +40,7 @@
         <tr>
           <th>Id</th>
           <th>Nombre de cliente</th>
+          <th>Nombre de mascota</th>
           <th>Nombre de servicio</th>
           <th>Id de recibo</th>
           <th>Editar</th>
@@ -54,6 +55,7 @@
           {{$solicitud->cliente->persona->apellido_paterno}} 
           {{$solicitud->cliente->persona->apellido_materno}}
         </td>
+        <td>{{$solicitud->mascota->nombre}}</td>
         <td> @if($solicitud->id_servicio)
           {{$solicitud->servicio->nombre}}
           @else
@@ -126,6 +128,18 @@
                 })
                 $(id_clienteSelected).attr("selected", true)
             }
+
+      //PARA LA MASCOTA
+      $("#solicitudesFormUpdate #id_mascota option")[0].selected="true"
+            if (datos.id_mascota) {
+                const id_mascota = datos.id_mascota ?? null
+                const id_mascotaSelected = "#solicitudesFormUpdate #id_mascota " + "option[value=" + String(id_mascota) + "]"
+                $("#solicitudesFormUpdate #id_mascota option").each((i,e)=>{
+                    $(e).attr("selected", false)
+                   // console.log(e)
+                })
+                $(id_mascotaSelected).attr("selected", true)
+            }     
 
        //PARA EL RECIBO
       $("#solicitudesFormUpdate #id_recibo option")[0].selected="true"
