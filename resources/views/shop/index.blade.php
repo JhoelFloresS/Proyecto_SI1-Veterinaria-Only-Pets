@@ -16,7 +16,7 @@
     <!-- navigation menu -->
     <nav>
         <div class="navbar">
-            <div class="logo"><a href="#">Only Pet's.</a></div>
+            <div class="logo"><a href="#">Only Pet'\''s.</a></div>
             <ul class="menu">
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/login2">Ingresar</a></li>

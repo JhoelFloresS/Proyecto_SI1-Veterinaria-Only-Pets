@@ -17,8 +17,8 @@ class CreateAccionesTable extends Migration
     {
         Schema::create('acciones', function (Blueprint $table) {
             $table->id();
-            $table->string('accion','20');
-            $table->string('descripcion','300');
+            $table->string('accion','50');
+            $table->string('descripcion','500');
             $table->date('fecha');
             $table->time('hora');
             $table->unsignedBigInteger('id_bitacora');

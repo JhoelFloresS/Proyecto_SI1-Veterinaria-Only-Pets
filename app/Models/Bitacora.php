@@ -11,4 +11,15 @@ class Bitacora extends Model
     protected $table = 'bitacoras';
 
     protected $fillable  = [ 'descripcion', 'id_usuario'];
+
+
+
+    public function usuario()
+    {
+        return $this->belongsTo('App\Models\Usuario', 'id_usuario');
+    }
+
+    public function acciones(){
+        return $this->hasMany('App\Models\Accion', 'id_bitacora');
+    }
 }

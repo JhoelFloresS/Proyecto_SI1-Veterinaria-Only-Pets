@@ -2,7 +2,9 @@
 
 namespace App\Actions;
 
+use App\Http\Controllers\BitacoraController;
 use App\Models\Administrativo;
+use App\Models\Bitacora;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
@@ -11,6 +13,7 @@ use App\Models\Telefono;
 use App\Models\Turno;
 use App\Models\TurnoAdmin;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Auth;
 use Mockery\Undefined;
 
 use function PHPUnit\Framework\isNull;
@@ -58,7 +61,12 @@ class AdministrativoAction
             'id_rol'         => '3',
             'id_persona'     => $persona->id,
         ]);
-        
+        BitacoraController::registrar(Auth::user()->id,
+        'Creación de Administrativo',
+        'Se creó un nuevo administrativo con el nombre: ' . $request->nombre . ' ' . $request->apellido_paterno . ' ' . $request->apellido_materno);
+        BitacoraController::registrar(Auth::user()->id,
+        'Creación de Usuario',
+        'Se creó un nuevo usuario con el nombre: ' . $request->email);
     }
 
     public static function executeUpdate(Request $request, $id):void
@@ -115,8 +123,11 @@ class AdministrativoAction
             }
         }
 
-
         $persona->update($data);
+
         $administrativo->update();
+        BitacoraController::registrar(Auth::user()->id,
+        'Actualización de datos',
+        'Se actualizó los datos del administrativo: ' . $request->nombre . ' ' . $request->apellido_paterno . ' ' . $request->apellido_materno);
     }
 }
