@@ -4,7 +4,7 @@ namespace App\View\Components\Forms;
 
 use Illuminate\View\Component;
 
-class mascotasUpdate extends Component
+class MascotasUpdate extends Component
 {
 
 
