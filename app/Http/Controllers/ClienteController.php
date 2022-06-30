@@ -8,6 +8,7 @@ use App\Models\Persona;
 use App\Models\Telefono;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Auth;
 
 class ClienteController extends Controller
 {
@@ -50,6 +51,11 @@ class ClienteController extends Controller
             'id_persona'     => $persona->id,
         ]);
 
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Creación de cliente',
+            'Se creó el cliente: ' . $request->nombre . ' ' . $request->apellido_paterno . ' ' . $request->apellido_materno
+        );
 
         return redirect()->route('clientes.index');
     }
@@ -98,6 +104,12 @@ class ClienteController extends Controller
         $persona->update($data);
         $cliente->update();
 
+
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Edición de cliente',
+            'Se editó el cliente: ' . $request->nombre . ' ' . $request->apellido_paterno . ' ' . $request->apellido_materno
+        );
         return redirect()->route('clientes.index');
 
 

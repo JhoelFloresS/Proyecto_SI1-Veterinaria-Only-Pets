@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Model\Servicio;
+use App\Models\Bitacora;
 use App\Models\PlanDePago;
 use App\Models\Servicio as ModelsServicio;
 use App\Models\SolicitudServicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServicioController extends Controller
 {
@@ -44,6 +46,13 @@ class ServicioController extends Controller
             'id_servicio' => $servicio->id,
         ]);
 
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Creación de servicio',
+            'Se creó el servicio: '.$request->nombre. ' con precio: '.$request->precio
+        );
+
+
         return redirect(route('servicios.index'));
     }
 
@@ -63,6 +72,11 @@ class ServicioController extends Controller
             'precio' => $request->precio,
         ]);
         $servicio->update($data);
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Edición de servicio',
+            'Se editó el servicio: '.$request->nombre. ' con precio: '.$request->precio
+        );
         return redirect()->route('servicios.index');
     }
 }

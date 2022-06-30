@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vacuna;
-use Illuminate\Http\Request;
 use App\Http\Requests\StorevacunasRequest;
 use App\Actions\VacunaAction;
 
@@ -23,6 +22,11 @@ class VacunaController extends Controller
         
         VacunaAction::executeStore($request);
 
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Creación de vacuna',
+            'Se creó la vacuna: '.$request->nombre
+        );
         return redirect()->route('vacunas.index');
     }
 }

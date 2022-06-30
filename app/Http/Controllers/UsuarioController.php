@@ -19,7 +19,7 @@ class UsuarioController extends Controller
         $usuarios = Usuario::where('nombre_usuario','LIKE','%'.$busqueda.'%')
             ->orWhere('enable','LIKE','%'.$busqueda.'%')
             ->latest('id')
-            ->paginate(2);
+            ->paginate(10);
         $data = [
             'usuario'=>$usuarios,
             'busqueda' => $busqueda,

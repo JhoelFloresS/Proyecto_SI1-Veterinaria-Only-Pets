@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Mascota;
 use App\Models\Recibo;
 use App\Models\Servicio;
 use App\Models\SolicitudServicio;
@@ -29,6 +30,7 @@ class SolicitudServicioController extends Controller
         $solicitudes->load('servicio');
         $solicitudes->load('recibo');
         $solicitudes->load('mascota');
+     
         return view('solicitudes.index', compact('solicitudes'));
     }
 
@@ -62,7 +64,18 @@ class SolicitudServicioController extends Controller
                 ]);
             }
         }        
-           
+        
+        $cliente = Cliente::findOrFail($request->id_cliente)->load('persona')->persona;
+        $mascota = Mascota::findOrFail($request->id_mascota);
+        $servicios = Servicio::whereIn('id', $request->servicios)->get()->map(function($servicio){
+            return $servicio->nombre;
+        });
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Solicitud de servicio',
+            'El cliente '.$cliente->nombre.' '.$cliente->apellido_paterno.' '.$cliente->apellido_materno.
+            ' solicitó el/los servicios: '.implode('-',$servicios->toArray()).' para la mascota '.$mascota->nombre
+        );
         return redirect(route('solicitudes.index'));
     }
 
