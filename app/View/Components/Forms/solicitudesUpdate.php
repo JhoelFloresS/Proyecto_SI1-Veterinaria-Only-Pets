@@ -3,6 +3,7 @@
 namespace App\View\Components\Forms;
 
 use App\Models\Cliente;
+use App\Models\Mascota;
 use App\Models\Recibo;
 use App\Models\Servicio;
 use Illuminate\View\Component;
@@ -42,5 +43,9 @@ class solicitudesUpdate extends Component
 
     public function recibos(){
         return Recibo::get();
+    } 
+
+    public function mascotas(){
+        return Mascota::get();
     } 
 }

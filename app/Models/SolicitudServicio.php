@@ -14,6 +14,7 @@ class SolicitudServicio extends Model
         'id_cliente', 
         'id_servicio', 
         'id_recibo', 
+        'id_mascota',
     ];
 
 
@@ -31,4 +32,10 @@ class SolicitudServicio extends Model
     {
         return $this->belongsTo(Recibo::class, 'id_recibo');
     }
+
+    public function mascota()
+    {
+        return $this->belongsTo(Mascota::class, 'id_mascota');
+    }
+    
 }

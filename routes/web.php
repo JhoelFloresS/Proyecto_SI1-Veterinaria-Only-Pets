@@ -49,9 +49,11 @@ Route::get('/datos', function () {
 Route::get('/historialClinico', function () {
     return view('historialClinico');
 })->name('historialClinico');
+
 Route::get('/servicio', function () {
     return view('servicio');
 })->name('servicio');
+
 Route::resource('usuarios', UsuarioController::class);
 
 Route::get('mascotas/datas/{id}', [MascotaController::class, 'datas'])->name('mascotas.datas');
@@ -94,12 +96,7 @@ Route::get('/shop', function () {
     return view('shop.index');
 });
 
-
-
-
-
-
-
 Route::get('solicitudes/datas/{id}', [SolicitudServicioController::class, 'datas']);
 Route::resource('solicitudes', SolicitudServicioController::class);
+Route::get('turnos/datas/{id}', [TurnoController::class, 'datas']);
 Route::resource('turnos', TurnoController::class);
