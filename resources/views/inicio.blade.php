@@ -14,7 +14,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animacion-inicio.css') }}">
-    <title>Only Pet's</title>
+    <title>Only Pet{{"'"}}s</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
     <!-- navigation menu -->
     <nav>
         <div class="navbar">
-            <div class="logo"><a href="#">Only Pet's.</a></div>
+            <div class="logo"><a href="#">Only Pet{{"'"}}s.</a></div>
             <ul class="menu">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
@@ -47,7 +47,7 @@
     <div class="banner">
         <div class="banner__overlay">
             <div class="banner__container">
-                <p class="banner__text">Bienvenido a Clinica Veterinaria Only Pet''\''s</p>
+                <p class="banner__text">Bienvenido a Clinica Veterinaria Only Pet{{"'"}}s</p>
                 <h1 class="banner__title">Trabajamos contigo por la salud de tu mascota</h1>
             </div>
             <a href="#servicios">
@@ -64,7 +64,7 @@
             </div>
             <div class="row row--small row--margin row--center">
                 <div class="col-md-4 col-sm-4 coffee">
-                    <img src="/images/inicio/medicos-servicios.jpg" class="coffee__img">
+                    <img src="{{asset('/images/inicio/medicos-servicios.jpg')}}" class="coffee__img">
                     <h2 class="coffee__name">Servicios Medicos</h2>
                     <p class="coffee__descr">
                         En ONLY PET'\''S ofrecemos servicios médicos veterinarios integrales. Contamos con el personal idóneo y las herramientas necesarias para dar la mejor atención a sus mascotas.
@@ -82,10 +82,10 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4 coffee">
-                    <img src="/images/inicio/estetica-servicios.jpg" class="coffee__img">
+                    <img src="{{asset('/images/inicio/estetica-servicios.jpg')}}" class="coffee__img">
                     <h2 class="coffee__name">Estetica</h2>
                     <p class="coffee__descr">
-                        En ONLY PET'\''S trabajamos en la prestación de servicios estéticos para mascotas. La calidad de nuestra labor profesional se encuentra avalada por la recomendación de nuestros clientes.
+                        En ONLY PET{{"'"}}S trabajamos en la prestación de servicios estéticos para mascotas. La calidad de nuestra labor profesional se encuentra avalada por la recomendación de nuestros clientes.
                     </p>
                     <p>Baños estéticos y medicados:</p>
                     <ul>
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4 coffee">
-                    <img src="/images/inicio/otros-servicios.jpg" class="coffee__img">
+                    <img src="{{asset('/images/inicio/otros-servicios.jpg')}}" class="coffee__img">
                     <h2 class="coffee__name">Otros Servicios</h2>
                     <p class="coffee__descr">
                         En ONLY PETS ofrecemos productos farmacéuticos y artículos para mascotas. Somos una empresa sólida que cuenta con profesionales con una profunda sensibilidad hacia los animales.

@@ -4,7 +4,7 @@ namespace App\View\Components\Forms;
 
 use Illuminate\View\Component;
 
-class mascotasInput extends Component
+class MascotasInput extends Component
 {
 
     public $id;    
