@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\View\Components\Forms\MascotasInput;
+use App\View\Components\Forms\MascotasUpdate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        Blade::component('mascotas-input', MascotasInput::class);
+        Blade::component('mascotas-update', MascotasUpdate::class);
     }
 }
