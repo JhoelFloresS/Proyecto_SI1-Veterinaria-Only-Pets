@@ -73,7 +73,10 @@
                                         <label for="duenho" class="form-label fs-5">Dueños</label>
                                         <select class=" form-control" id="duenhos" name="duenhos[]"
                                             name="duenho" multiple="multiple">
-                                            @foreach ($clientes() as $cliente)
+                                            @php
+                                                $clientes = $clientes();
+                                            @endphp
+                                            @foreach ($clientes as $cliente)
                                                 <option value="{{ $cliente->id }}">
                                                     {{ $cliente->persona->nombre .
                                                         ' ' .
