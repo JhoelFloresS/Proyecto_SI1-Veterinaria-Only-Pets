@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\View\Components\MascotasInput;
-use App\View\Components\Forms\MascotasUpdate;
+use App\View\Components\MascotasUpdate;
 use App\View\Components\InputDatos;
 use App\View\Components\SolicitudesInput;
 use App\View\Components\SolicitudesUpdate;
