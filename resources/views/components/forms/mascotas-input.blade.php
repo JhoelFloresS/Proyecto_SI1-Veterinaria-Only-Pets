@@ -74,7 +74,7 @@
                                         <select class=" form-control" id="duenhos" name="duenhos[]"
                                             name="duenho" multiple="multiple">
                                             @php
-                                                $clientes = $clientes();
+                                                $clientes = $this->$clientes();
                                             @endphp
                                             @foreach ($clientes as $cliente)
                                                 <option value="{{ $cliente->id }}">
