@@ -75,8 +75,8 @@
 
 @section('body-final')
 
-    <x-forms.input-datos id="ClienteFormInput" type="cliente" />
-    <x-forms.update-datos id="ClienteFormUpdate" type="cliente" />
+    <x-input-datos id="ClienteFormInput" type="cliente" />
+    <x-update-datos id="ClienteFormUpdate" type="cliente" />
 @endsection
 @section('js-home')
 

@@ -1,19 +1,17 @@
 <?php
 
-namespace App\View\Components\Forms;
+namespace App\View\Components;
 
 use App\Models\Servicio;
 use App\Models\Turno;
 use Illuminate\View\Component;
 
-class updateDatos extends Component
-{   
-
+class InputDatos extends Component
+{
     public $id;
 
     public $type;
     /**
-    
      * Create a new component instance.
      *
      * @return void
@@ -31,7 +29,7 @@ class updateDatos extends Component
      */
     public function render()
     {
-        return view('components.forms.update-datos');
+        return view('components.forms.input-datos');
     }
 
     public function getTurnos(){

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Forms;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class MascotasInput extends Component
+class MascotasUpdate extends Component
 {
 
     public $id;    
@@ -25,9 +25,8 @@ class MascotasInput extends Component
      */
     public function render()
     {
-        return view('components.forms.mascotas-input');
+        return view('components.forms.mascotas-update');
     }
-
 
     public function clientes(){
         return \App\Models\Cliente::get()->load('persona');

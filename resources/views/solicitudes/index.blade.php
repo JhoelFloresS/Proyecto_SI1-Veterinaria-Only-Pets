@@ -88,8 +88,8 @@
 </div>
 @endsection
 @section('body-final')
-<x-forms.solicitudes-input id="solicitudesFormInput"/>
-<x-forms.solicitudes-update id="solicitudesFormUpdate"/>
+<x-solicitudes-input id="solicitudesFormInput"/>
+<x-solicitudes-update id="solicitudesFormUpdate"/>
 @endsection
 
 @section('js-home')
