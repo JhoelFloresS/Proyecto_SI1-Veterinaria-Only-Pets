@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\View\Components\Forms\MascotasInput;
+use App\View\Components\MascotasInput;
 use App\View\Components\Forms\MascotasUpdate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;

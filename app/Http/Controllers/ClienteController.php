@@ -8,7 +8,7 @@ use App\Models\Persona;
 use App\Models\Telefono;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller
 {
