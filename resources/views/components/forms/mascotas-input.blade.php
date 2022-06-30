@@ -74,9 +74,9 @@
                                         <select class=" form-control" id="duenhos" name="duenhos[]"
                                             name="duenho" multiple="multiple">
                                             @php
-                                                $clientes = $this->$clientes();
+                                                $clientess = $clientes();
                                             @endphp
-                                            @foreach ($clientes as $cliente)
+                                            @foreach ($clientess as $cliente)
                                                 <option value="{{ $cliente->id }}">
                                                     {{ $cliente->persona->nombre .
                                                         ' ' .
