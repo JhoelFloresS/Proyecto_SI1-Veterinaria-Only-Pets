@@ -16,6 +16,7 @@ use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\View\Components\Forms\MascotaInput;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+
 
 
 Route::get('/', [LoginController::class, 'showLoginForm']);

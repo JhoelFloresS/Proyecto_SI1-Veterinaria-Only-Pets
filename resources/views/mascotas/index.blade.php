@@ -81,8 +81,8 @@
 </div>
 @endsection
 @section('body-final')
-<x-forms.mascotas-input id="mascotasFormInput"/>
-<x-forms.mascotas-update id="mascotasFormUpdate"/>
+<x-mascotas-input id="mascotasFormInput"/>
+<x-mascotas-update id="mascotasFormUpdate"/>
 @endsection
 
 @section('js-home')
