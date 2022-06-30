@@ -6,7 +6,7 @@ use App\Models\Cliente;
 use App\Models\clienteMascota;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class MascotaController extends Controller
 {
@@ -46,6 +46,11 @@ class MascotaController extends Controller
                 'id_cliente' => $duenho,
             ]);
         }
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Creación de mascota',
+            'Se creó la mascota: '.$request->nombre. ' de especie: '.$request->especie
+        );
 
         return redirect()->route('mascotas.index');
     }
@@ -81,6 +86,11 @@ class MascotaController extends Controller
             ]);
         }
 
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Edición de mascota',
+            'Se editó datos de la mascota: '.$request->nombre. ' de especie: '.$request->especie
+        );
         return redirect()->route('mascotas.index');
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVeterinarioRequest;
+use App\Models\Bitacora;
 use App\Models\Cliente;
 use App\Models\Persona;
 use App\Models\Telefono;
@@ -10,6 +11,7 @@ use App\Models\TurnoVet;
 use App\Models\Usuario;
 use App\Models\Veterinario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VeterinarioController extends Controller
 {
@@ -63,6 +65,11 @@ class VeterinarioController extends Controller
             'id_persona'     => $persona->id,
         ]);
 
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Creación de veterinario',
+            'Se creó el veterinario: ' . $request->nombre . ' ' . $request->apellido_paterno . ' ' . $request->apellido_materno
+        );
         return redirect()->route('veterinarios.index');
     }
 
@@ -133,7 +140,11 @@ class VeterinarioController extends Controller
 
         $persona->update($data);
         $veterinario->update();
-
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Edición de veterinario',
+            'Se editó los datos del veterinario: ' . $request->nombre . ' ' . $request->apellido_paterno . ' ' . $request->apellido_materno
+        );
         return redirect()->route('veterinarios.index');
     }
 

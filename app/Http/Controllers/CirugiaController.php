@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cirugia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CirugiaController extends Controller
 {
@@ -17,6 +18,11 @@ class CirugiaController extends Controller
             'nombre' => $request->nombre,
             'tipo' => $request->tipo
         ]);
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Creación de cirugía',
+            'Se creó la cirugia: '.$request->nombre. ' de tipo: '.$request->tipo
+        );
         return redirect(route('cirugias.index'));
     }
 
@@ -32,6 +38,11 @@ class CirugiaController extends Controller
             'tipo' => $request->tipo,
         ]);
         $cirugia->update($data);
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Edición de cirugía',
+            'Se editó la cirugía: '.$request->nombre. ' de tipo: '.$request->tipo
+        );
         return redirect()->route('cirugias.index');
     }
 }

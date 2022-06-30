@@ -34,6 +34,11 @@ class EnfermedadController extends Controller
             'nombre' => $request->nombre,
             'tipo' => $request->tipo
         ]);
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Creación de enfermedad',
+            'Se creó la enfermedad: '.$request->nombre. ' de tipo: '.$request->tipo
+        );
         return redirect(route('enfermedades.index'));
     }
 
@@ -49,6 +54,11 @@ class EnfermedadController extends Controller
             'tipo' => $request->tipo,
         ]);
         $enfermedad->update($data);
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Edición de enfermedad',
+            'Se editó la enfermedad: '.$request->nombre. ' de tipo: '.$request->tipo
+        );
         return redirect()->route('enfermedades.index');
     }
 }
