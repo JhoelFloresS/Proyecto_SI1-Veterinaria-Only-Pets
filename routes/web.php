@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\CirugiaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EnfermedadController;
@@ -68,6 +69,8 @@ Route::resource('vacunas', VacunaController::class);
 Route::resource('cirugias', CirugiaController::class); 
 Route::resource('enfermedades', EnfermedadController::class);
 Route::resource('historiales', HistorialClinicoController::class);
+Route::get('bitacoras', [BitacoraController::class, 'index'])->name('bitacoras.index');
+
 
 Route::get('', function () {
     return view('inicio');

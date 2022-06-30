@@ -29,4 +29,8 @@ class Usuario extends Authenticatable
     {
         return $this->belongsTo(Rol::class, 'id_rol');
     }
+
+    public function bitacora(){
+        return $this->hasOne(Bitacora::class, 'id_usuario');
+    }
 }

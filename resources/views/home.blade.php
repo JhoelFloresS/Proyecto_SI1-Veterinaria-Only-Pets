@@ -57,13 +57,13 @@
                 <span class="material-icons-sharp">control_point</span>
                 <h3>Servicio</h3>
             </a>
-            <a href="#">
+            <a href="# ">
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>
-            <a href="#">
-                <span class="material-icons-sharp">file_download</span>
-                <h3>Exportar Datos</h3>
+            <a href="{{route('bitacoras.index')}}" class=@yield('bitacoras', '')>
+                <span class="material-icons-sharp">pending_actions</span>
+                <h3>Bitacora</h3>
             </a>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
