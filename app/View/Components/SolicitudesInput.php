@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Forms;
+namespace App\View\Components;
 
 use App\Models\Cliente;
 use App\Models\Mascota;
@@ -8,10 +8,8 @@ use App\Models\Recibo;
 use App\Models\Servicio;
 use Illuminate\View\Component;
 
-class solicitudesUpdate extends Component
+class SolicitudesInput extends Component
 {
-
-
     public $id;    
     /**
      * Create a new component instance.
@@ -30,11 +28,12 @@ class solicitudesUpdate extends Component
      */
     public function render()
     {
-        return view('components.forms.solicitudes-update');
+        return view('components.forms.solicitudes-input');
     }
 
+
     public function clientes(){
-        return Cliente::get();
+        return Cliente::get()->load('persona');
     }
 
     public function servicios(){

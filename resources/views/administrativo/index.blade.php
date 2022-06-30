@@ -70,8 +70,8 @@
 @endsection
 
 @section('body-final')
-    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
-    <x-forms.update-datos id="AdministrativoFormUpdate" type="administrativo" />
+    <x-input-datos id="AdministrativoFormInput" type="administrativo" />
+    <x-update-datos id="AdministrativoFormUpdate" type="administrativo" />
 @endsection
 
 @section('js-home')

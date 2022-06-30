@@ -91,10 +91,10 @@
 
 @endsection
 @section('body-final')
-    <x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
-    <x-forms.input-datos id="AdministrativoFormInput" type="administrativo" />
-    <x-forms.input-datos id="ClienteFormInput" type="cliente" />
-    <x-forms.mascotas-input id="mascotasFormInput"/>
+    <x-input-datos id="VeterinarioFormInput" type="veterinario" />
+    <x-input-datos id="AdministrativoFormInput" type="administrativo" />
+    <x-input-datos id="ClienteFormInput" type="cliente" />
+    <x-mascotas-input id="mascotasFormInput"/>
 @endsection
 
 @section('js-home')
