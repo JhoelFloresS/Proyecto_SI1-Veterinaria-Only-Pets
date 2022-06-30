@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vacuna;
 use App\Http\Requests\StorevacunasRequest;
 use App\Actions\VacunaAction;
+use Illuminate\Support\Facades\Auth;
 
 class VacunaController extends Controller
 {
