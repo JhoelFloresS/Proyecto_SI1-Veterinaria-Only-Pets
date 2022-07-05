@@ -57,7 +57,7 @@
                 <span class="material-icons-sharp">control_point</span>
                 <h3>Servicio</h3>
             </a>
-            <a href="# ">
+            <a href="{{ route('petshop') }}" class=@yield('petshop', '')>
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>

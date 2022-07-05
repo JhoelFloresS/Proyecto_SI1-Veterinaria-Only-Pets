@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\CirugiaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DetalleHistorialController;
 use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\HistorialClinicoController;
 use App\Http\Controllers\MascotaController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
+use App\Models\DetalleHistorial;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\View\Components\Forms\MascotaInput;
@@ -56,6 +58,10 @@ Route::get('/historialClinico', function () {
 Route::get('/servicio', function () {
     return view('servicio');
 })->name('servicio');
+
+Route::get('/petshop', function () {
+    return view('petshop');
+})->name('petshop');
 
 Route::resource('usuarios', UsuarioController::class);
 
@@ -103,5 +109,8 @@ Route::get('/shop', function () {
 
 Route::get('solicitudes/datas/{id}', [SolicitudServicioController::class, 'datas']);
 Route::resource('solicitudes', SolicitudServicioController::class);
+
 Route::get('turnos/datas/{id}', [TurnoController::class, 'datas']);
 Route::resource('turnos', TurnoController::class);
+
+Route::resource('diagnosticos', DetalleHistorialController::class);
