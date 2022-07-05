@@ -6,7 +6,17 @@ use App\Models\HistorialClinico;
 use Illuminate\Http\Request;
 
 class HistorialClinicoController extends Controller
-{
+{   
+
+    public function __construct()
+    {
+        $this->middleware('can:historiales.index')->only('index');
+        $this->middleware('can:historiales.create')->only('store');
+        $this->middleware('can:historiales.edit')->only('edit', 'update');
+
+    }
+
+
     public function index() {
         $historiales = HistorialClinico::get();
         return view('historiales.index', compact('historiales'));

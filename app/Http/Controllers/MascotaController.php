@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Auth;
 class MascotaController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:mascotas.index')->only('index', 'show');
+        $this->middleware('can:mascotas.create')->only('create', 'store');
+        $this->middleware('can:mascotas.edit')->only('edit', 'update','datas');
+        
+    }
+
 
     public function index(Request $request)
     {

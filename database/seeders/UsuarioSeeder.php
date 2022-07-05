@@ -17,110 +17,110 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         $password = Hash::make('1234');
+
         Usuario::create([
-            'nombre_usuario' => 'juan', 
+            'nombre_usuario' => 'torrez-juan@gmail.com', 
             'password' => $password, 
-            'enable' => '1', 
-            'id_rol' => '1', 
+            'enable' => '1',
             'id_persona' => '1', 
-        ]);
+        ])->assignRole('super-admin');
+
         Usuario::create([
             'nombre_usuario' => 'maria', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '2', 
             'id_persona' => '2', 
-        ]);
+        ])->assignRole('veterinario');
+
         Usuario::create([
             'nombre_usuario' => 'sofia', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '3', 
             'id_persona' => '3', 
-        ]);
+        ])->assignRole('recepcionista');
+
         Usuario::create([
             'nombre_usuario' => 'gonzales', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '3', 
             'id_persona' => '4', 
-        ]);
+        ])->assignRole('recepcionista');
+
         Usuario::create([
             'nombre_usuario' => 'josue', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '3', 
             'id_persona' => '5', 
-        ]);
+        ])->assignRole('recepcionista');
+
         Usuario::create([
             'nombre_usuario' => 'andresF', 
             'password' => $password, 
-            'enable' => '1', 
-            'id_rol' => '2', 
+            'enable' => '1',  
             'id_persona' => '6', 
-        ]);
+        ])->assignRole('veterinario');
+
         Usuario::create([
             'nombre_usuario' => 'luci', 
             'password' => $password, 
-            'enable' => '1', 
-            'id_rol' => '2', 
+            'enable' => '1',  
             'id_persona' => '7', 
-        ]);
+        ])->assignRole('veterinario');
+
         Usuario::create([
             'nombre_usuario' => 'molina', 
             'password' => $password, 
-            'enable' => '1', 
-            'id_rol' => '2', 
+            'enable' => '1',  
             'id_persona' => '8', 
-        ]);
+        ])->assignRole('veterinario');
+
         Usuario::create([
             'nombre_usuario' => 'luis', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '4', 
             'id_persona' => '9', 
-        ]);
+        ])->assignRole('cliente');
+
         Usuario::create([
             'nombre_usuario' => 'enrique', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '4', 
             'id_persona' => '10', 
-        ]);
+        ])->assignRole('cliente');
+
         Usuario::create([
             'nombre_usuario' => 'santiago EB', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '4', 
             'id_persona' => '11', 
-        ]);
+        ])->assignRole('cliente');
+
         Usuario::create([
             'nombre_usuario' => 'guzman pedraza', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '4', 
             'id_persona' => '12', 
-        ]);
+        ])->assignRole('cliente');
+
         Usuario::create([
             'nombre_usuario' => 'marcelo', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '4', 
             'id_persona' => '13', 
-        ]);
+        ])->assignRole('cliente');
+
         Usuario::create([
             'nombre_usuario' => 'felipe', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '2', 
             'id_persona' => '14', 
-        ]);
+        ])->assignRole('veterinario');
+
         Usuario::create([
             'nombre_usuario' => 'angela', 
             'password' => $password, 
             'enable' => '1', 
-            'id_rol' => '2', 
             'id_persona' => '15', 
-        ]);
+        ])->assignRole('veterinario');
     }
 }

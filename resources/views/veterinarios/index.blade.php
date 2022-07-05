@@ -16,6 +16,7 @@
 
 @section('contenido')
 <div class="crud">
+    @can('veterinarios.create')
     <div class="registrar">
 
         <button class="buttonRegistrame"   data-bs-toggle="modal"
@@ -24,6 +25,7 @@
             Registrar <br>Veterinario
         </button>
     </div>
+    @endcan
     <div class="tabla-contenedor">
         <table class="tabla">
             <thead class="thead">
@@ -37,8 +39,7 @@
                     <th>Email</th>
                     <th>Servicio</th>
                     <th>Sexo</th>
-                    <th>Editar</th>
-                    <th>Ver</th>
+                    <th colspan="2">Acciones</th>
                 </tr>
             </thead>
             <tbody class="tbody">
@@ -54,6 +55,7 @@
                     <td>{{$veterinario->servicio->nombre??''}}</td>
                     <td>{{$veterinario->persona->sexo}}</td>
                     <td>
+                        @can('veterinarios.edit')
                         <button class="button-edit" id="editar" onclick =@php
                         echo "\"imprimir(" . json_encode($veterinario->id) . ")\""; @endphp
                         data-bs-toggle="modal"
@@ -63,10 +65,10 @@
                             </span>
 
                         </button>
+                        @endcan
                     </td>
   
                     <td><a href="{{route('veterinarios.show', $veterinario)}}" class="button-edit" id="ver">
-
                             <span class="material-icons-sharp">
                                 visibility
                             </span>
@@ -81,9 +83,16 @@
 @endsection
 
 @section('body-final')
-<x-forms.input-datos id="VeterinarioFormInput" type="veterinario" />
-<x-forms.update-datos id="VeterinarioFormUpdate" type="veterinario" />
+@can('veterinarios.create')
+<x-input-datos id="VeterinarioFormInput" type="veterinario" />
+@endcan
+
+@can('veterinarios.edit')
+<x-update-datos id="VeterinarioFormUpdate" type="veterinario" />
+@endcan
+
 @endsection
+
 @section('js-home')
 
     <script>

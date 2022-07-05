@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class TurnoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:turnos.index')->only('index');
+        $this->middleware('can:turnos.create')->only('create', 'store');
+        $this->middleware('can:turnos.edit')->only('edit', 'update','datas');
+
+    }
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
