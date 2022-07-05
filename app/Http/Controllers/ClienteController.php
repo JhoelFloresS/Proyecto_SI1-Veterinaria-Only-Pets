@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:clientes.index')->only('index', 'show');
+        $this->middleware('can:clientes.create')->only('create', 'store', 'datas');
+        $this->middleware('can:clientes.edit')->only('edit', 'update');
+        
+    }
+
+
     public function index(){
         $clientes=Persona::join('clientes','clientes.id','=','personas.id')->get();
 

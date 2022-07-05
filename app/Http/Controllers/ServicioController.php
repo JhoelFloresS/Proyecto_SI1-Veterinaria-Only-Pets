@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ServicioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:servicios.index')->only('index', 'show');
+        $this->middleware('can:servicios.create')->only('create', 'store');
+        $this->middleware('can:servicios.edit')->only('edit', 'update','datas');
+        $this->middleware('can:servicios.destroy')->only('destroy');
+    }
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;

@@ -41,30 +41,53 @@
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
-            <a href="{{ route('usuarios.index') }}" class=@yield('usuario', '')>
-                <span class="material-icons-sharp">person</span>
-                <h3>Usuario</h3>
-            </a>
-            <a href="{{ route('datos') }}" class=@yield('registrar-datos', '')>
-                <span class="material-icons-sharp">app_registration</span>
-                <h3>Datos</h3>
-            </a>
-            <a href="{{ route('historialClinico') }}" class=@yield('historial-clinico', '')>
-                <span class="material-icons-sharp">description</span>
-                <h3>Historial Clinico</h3>
-            </a>
-            <a href="{{ route('servicio') }}" class=@yield('servicio', '')>
-                <span class="material-icons-sharp">control_point</span>
-                <h3>Servicio</h3>
-            </a>
+            @can('usuarios.index')
+                <a href="{{ route('usuarios.index') }}" class=@yield('usuario', '')>
+                    <span class="material-icons-sharp">person</span>
+                    <h3>Usuario</h3>
+                </a>
+            @endcan
+
+            @canany(['administrativos.index', 'mascotas.index', 'clientes.index', 'veterinarios.index'])
+                <a href="{{ route('datos') }}" class=@yield('registrar-datos', '')>
+                    <span class="material-icons-sharp">app_registration</span>
+                    <h3>Datos</h3>
+                </a>
+            @endcanany
+
+            @canany(['cirugias.index', 'enfermedades.index', 'vacunas.index', 'historiales.index'])
+                <a href="{{ route('historialClinico') }}" class=@yield('historial-clinico', '')>
+                    <span class="material-icons-sharp">description</span>
+                    <h3>Historial Clinico</h3>
+                </a>
+            @endcanany
+
+            @canany(['servicios.index','cita-servicio.index','turnos.index'])
+                <a href="{{ route('servicio') }}" class=@yield('servicio', '')>
+                    <span class="material-icons-sharp">control_point</span>
+                    <h3>Servicio</h3>
+                </a>
+            @endcanany
+                
             <a href="# ">
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>
+
+            @canany(['bitacora'])
             <a href="{{route('bitacoras.index')}}" class=@yield('bitacoras', '')>
                 <span class="material-icons-sharp">pending_actions</span>
                 <h3>Bitacora</h3>
             </a>
+            @endcanany
+
+            @can('roles.index')
+            <a href="{{route('roles.index')}}" class=@yield('roles', '')>
+                <span class="material-icons-sharp">group</span>
+                <h3>Roles y Permisos</h3>
+            </a>
+            @endcan
+
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit">

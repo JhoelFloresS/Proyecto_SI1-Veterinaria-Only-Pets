@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-start fs-4" id="exampleModalLabel">
-                    Añadir Mascota
+                    Actualizar datos de Mascota
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

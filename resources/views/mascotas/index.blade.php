@@ -20,13 +20,17 @@
 
 <div class="crud">
 
-  <div class="registrar">
-    <button href="{{'/administrativos/create'}}" class="buttonRegistrame" data-bs-toggle="modal"
-    data-bs-target="#mascotasFormInput" onclick="createSelector('Input')">
-      Registrar <br>Mascota
-    </button>
-  </div>
-  <div class="d-md-flex justify-content-md-end" style="margin-bottom: 1rem;">
+
+  <div class="d-md-flex justify-content-md-between" style="margin-bottom: 1rem;">
+    @can('mascotas.create')
+    <div class="registrar">
+      <button href="{{'/administrativos/create'}}" class="buttonRegistrame" data-bs-toggle="modal"
+      data-bs-target="#mascotasFormInput" onclick="createSelector('Input')">
+        Registrar <br>Mascota
+      </button>
+    </div>
+    @endcan
+
     <form action="{{ route('mascotas.index')}}" method="GET">
       <div class="btn-group">
         <input type=" text" name="busqueda" class="form-control">
@@ -44,8 +48,7 @@
           <th>raza</th>
           <th>sexo</th>
           <th>Nombre del dueño</th>
-          <th>Editar</th>
-          <th>Ver</th>
+          <th style="width:20%;">Acciones</th>
         </tr>
       </thead>
       <tbody class="tbody">
@@ -57,19 +60,23 @@
           <td>{{$mascota->raza}}</td>
           <td>{{$mascota->sexo}}</td>
           <td>{{$mascota->propietario[0]->nombre.' '.$mascota->propietario[0]->apellido_paterno.' '.$mascota->propietario[0]->apellido_materno}}</td>
-          <td><button class="button-edit"
-            onclick=@php
-            echo "\"desplegarForm(" . json_encode($mascota->id) . ")\""; @endphp 
-            data-bs-toggle="modal" data-bs-target="#mascotasFormUpdate">
-              <span class="material-icons-sharp">
-                edit
-              </span>
-            </button></td>
-          <td><a href="{{route('mascotas.show', $mascota)}}" class="button-edit" id="ver">
-              <span class="material-icons-sharp">
-                visibility
-              </span>
-            </a></td>
+          <td>
+            <div class="d-flex flex-row justify-content-between">
+              @can('mascotas.edit')
+              <button class="button-edit" onclick=@php echo "\"desplegarForm(" . json_encode($mascota->id) . ")\""; @endphp 
+              data-bs-toggle="modal" data-bs-target="#mascotasFormUpdate">
+                <span class="material-icons-sharp">
+                  edit
+                </span>
+              </button>
+              @endcan
+              <a href="{{route('mascotas.show', $mascota)}}" class="button-edit" id="ver">
+                <span class="material-icons-sharp">
+                  visibility
+                </span>
+              </a>
+            </div>
+          </td>
         </tr>
         @endforeach
       </tbody>

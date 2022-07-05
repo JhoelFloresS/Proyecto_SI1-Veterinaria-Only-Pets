@@ -51,11 +51,12 @@
             </p>
             <hr>
             <p>
-                <strong>Rol</strong>: @if($usuario->rol->nombre)
-                {{$usuario->rol->nombre}}
-                @else
-                ---
-                @endif <br>
+                <strong >Rol</strong>:
+                @forelse($usuario->roles as $rol)
+                <span style="text-transform: capitalize;">{{$rol->name}} </span>
+                @empty
+                No tiene roles registrados
+                @endforelse <br>
             </p>
             <hr>
             

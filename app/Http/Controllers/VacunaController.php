@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class VacunaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:vacunas.index')->only('index');
+        $this->middleware('can:vacunas.create')->only('create', 'store');
+        $this->middleware('can:vacunas.edit')->only('edit', 'update');
+        
+    }
     
     public function index() {
         $vacunas = Vacuna::get();
@@ -30,4 +38,5 @@ class VacunaController extends Controller
         );
         return redirect()->route('vacunas.index');
     }
+    
 }

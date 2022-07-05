@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class CirugiaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:cirugias.index')->only('index');
+        $this->middleware('can:cirugias.create')->only('create', 'store');
+        $this->middleware('can:cirugias.edit')->only('edit', 'update');
+
+    }
+
+
     public function index() {
         $cirugias = Cirugia::get();
         return view('cirugias.index', compact('cirugias'));
