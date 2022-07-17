@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Auth;
 
 class VeterinarioController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:veterinarios.index')->only('index', 'show');
+        $this->middleware('can:veterinarios.create')->only('create', 'store', 'datas');
+        $this->middleware('can:veterinarios.edit')->only('edit', 'update');
+    }
+
     public function index()
     {
         $veterinarios = Veterinario::get();

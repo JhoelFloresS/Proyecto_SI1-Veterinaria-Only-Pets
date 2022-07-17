@@ -16,12 +16,15 @@
 
     <div class="crud">
 
+        @can('clientes.create')
         <div class="registrar">
             <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#ClienteFormInput"
                 onclick="createSelector('cliente','input')">
                 Registrar <br>cliente
             </button>
         </div>
+        @endcan
+
         <div class="tabla-contenedor">
             <table class="tabla">
                 <thead class="thead">
@@ -35,8 +38,7 @@
                         <th>Email</th>
                         <th>Fecha nacimiento</th>
                         <th>Sexo</th>
-                        <th>Editar</th>
-                        <th>Ver</th>
+                        <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody class="tbody">
@@ -52,6 +54,7 @@
                             <td>{{ $cliente->fecha_de_nacimiento }}</td>
                             <td>{{ $cliente->sexo }}</td>
                             <td>
+                                @can('clientes.edit')
                                 <button href="{{ route('clientes.edit', $cliente) }}" class="button-edit"
                                     onclick=@php
                                     echo "\"imprimir(" . json_encode($cliente->id) . ")\""; @endphp data-bs-toggle="modal" data-bs-target="#ClienteFormUpdate">
@@ -59,6 +62,7 @@
                                         edit
                                     </span>
                                 </button>
+                                @endcan
                             </td>
                             <td><a href="{{route('clientes.show', $cliente)}}" class="button-edit" id="ver">
                                     <span class="material-icons-sharp">
@@ -74,9 +78,13 @@
 @endsection
 
 @section('body-final')
-
+    @can('clientes.create')
     <x-input-datos id="ClienteFormInput" type="cliente" />
+    @endcan
+
+    @can('clientes.edit')
     <x-update-datos id="ClienteFormUpdate" type="cliente" />
+    @endcan
 @endsection
 @section('js-home')
 

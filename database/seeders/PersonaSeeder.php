@@ -21,7 +21,7 @@ class PersonaSeeder extends Seeder
             'apellido_materno' => 'Perez', 
             'ci' => '13945614', 
             'direccion' => 'La Guardia', 
-            'email'=> 'torrez.juan@gmail.com', 
+            'email'=> 'torrez-juan@gmail.com', 
             'fecha_de_nacimiento' => '1999-05-23', 
             'sexo' => 'M',
         ]);

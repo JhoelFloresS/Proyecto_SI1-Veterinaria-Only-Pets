@@ -14,7 +14,14 @@ use App\Models\Turno;
 use Illuminate\Support\Facades\DB;
 
 class AdministrativoController extends Controller
-{
+{   
+
+    public function __construct()
+    {
+        $this->middleware('can:administrativos.index')->only('index', 'show');
+        $this->middleware('can:administrativos.create')->only('create', 'store', 'datas');
+        $this->middleware('can:administrativos.edit')->only('edit', 'update');
+    }
     
     public function index() {
         $admins = Administrativo::get();

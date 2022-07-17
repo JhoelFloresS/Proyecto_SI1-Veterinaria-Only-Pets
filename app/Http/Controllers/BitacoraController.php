@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 
 class BitacoraController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:bitacora')->only('index');
+    }
     
     public function index(Request $request){
         // if($id == null){

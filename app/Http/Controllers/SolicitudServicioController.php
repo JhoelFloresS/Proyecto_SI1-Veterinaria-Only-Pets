@@ -13,7 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 class SolicitudServicioController extends Controller
 {
-    
+
+    public function __construct()
+    {
+        $this->middleware('can:cita-servicio.index')->only('index');
+        $this->middleware('can:cita-servicio.create')->only('create', 'store');
+    }
+
+
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
@@ -77,29 +84,8 @@ class SolicitudServicioController extends Controller
             ' solicitó el/los servicios: '.implode('-',$servicios->toArray()).' para la mascota '.$mascota->nombre
         );
         return redirect(route('solicitudes.index'));
-    }
 
-    public function datas($id){
-        $solicitud = SolicitudServicio::find($id);
-        $solicitud->load('servicio');
-        $solicitud->load('recibo');
-        $solicitud->load('mascota');
-        $solicitud->load('cliente');
-        $solicitud->cliente->load('persona');
-        return $solicitud;
-    }
 
-    
-    public function update(Request $request, $id) {
-        $solicitud = SolicitudServicio::find($id);
-        $data = [
-            'id_cliente' => $request->id_cliente,
-            'id_servicio' => $request->servicios,
-            'id_recibo' => $request->id_recibo,
-            'id_mascota' => $request->id_mascota,
-        ];
-        $solicitud->update($data);
-        return redirect(route('solicitudes.index'));
-    }
+
 
 }

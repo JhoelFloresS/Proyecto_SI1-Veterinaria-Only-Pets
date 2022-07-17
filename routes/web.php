@@ -9,6 +9,7 @@ use App\Http\Controllers\DetalleHistorialController;
 use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\HistorialClinicoController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\SolicitudServicioController;
 use App\Http\Controllers\TurnoController;
@@ -43,25 +44,43 @@ Route::get('/', [LoginController::class, 'showLoginForm']);
     return view('register');
 });*/
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth');
 
-Route::get('/datos', function () {
-    return view('datos');
-})->name('datos');
 
-Route::get('/historialClinico', function () {
-    return view('historialClinico');
-})->name('historialClinico');
+Route::get('', function () {
+    return view('inicio');
+});
 
-Route::get('/servicio', function () {
-    return view('servicio');
-})->name('servicio');
+
+Route::get('/login2', function () {
+    return view('login');
+});
+
+Route::get('/shop', function () {
+    return view('shop.index');
+});
 
 Route::get('/petshop', function () {
     return view('petshop');
 })->name('petshop');
+
+Route::middleware('auth')->group(function(){
+
+    Route::get('/home', function () {
+        return view('home');
+    });
+    
+    Route::get('/datos', function () {
+        return view('datos');
+    })->name('datos');
+    
+    Route::get('/historialClinico', function () {
+        return view('historialClinico');
+    })->name('historialClinico');
+    
+    Route::get('/servicio', function () {
+        return view('servicio');
+    })->name('servicio');
+    
 
 Route::resource('usuarios', UsuarioController::class);
 
@@ -92,20 +111,9 @@ Route::resource('historiales', HistorialClinicoController::class);
 Route::get('bitacoras', [BitacoraController::class, 'index'])->name('bitacoras.index');
 
 
-Route::get('', function () {
-    return view('inicio');
-});
-
 Route::get('servicios/datas/{id}', [ServicioController::class, 'datas']);
 Route::resource('servicios', ServicioController::class);
 
-Route::get('/login2', function () {
-    return view('login');
-});
-
-Route::get('/shop', function () {
-    return view('shop.index');
-});
 
 Route::get('solicitudes/datas/{id}', [SolicitudServicioController::class, 'datas']);
 Route::resource('solicitudes', SolicitudServicioController::class);
@@ -113,4 +121,8 @@ Route::resource('solicitudes', SolicitudServicioController::class);
 Route::get('turnos/datas/{id}', [TurnoController::class, 'datas']);
 Route::resource('turnos', TurnoController::class);
 
+
 Route::resource('diagnosticos', DetalleHistorialController::class);
+Route::resource('roles',RoleController::class);
+});
+

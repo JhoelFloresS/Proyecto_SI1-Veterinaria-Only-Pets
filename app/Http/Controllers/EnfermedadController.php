@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class EnfermedadController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:enfermedades.index')->only('index');
+        $this->middleware('can:enfermedades.create')->only('create', 'store');
+        $this->middleware('can:enfermedades.edit')->only('edit', 'update');
+        
+    }
+
     public function index(Request $request)
     {
         $enfermedades = Enfermedad::get();
