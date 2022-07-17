@@ -84,7 +84,7 @@ class SolicitudServicioController extends Controller
             ' solicitó el/los servicios: '.implode('-',$servicios->toArray()).' para la mascota '.$mascota->nombre
         );
         return redirect(route('solicitudes.index'));
-
+    }
 
 
 
