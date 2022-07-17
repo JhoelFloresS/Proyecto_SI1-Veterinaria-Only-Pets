@@ -16,15 +16,6 @@
 
 @section('contenido')
 
-    @can('historiales.index')
-        <div class="registrar">
-            <button class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#HistorialFormInput"
-                onclick="createSelector('historial','input')">
-                Registrar <br>Historial Clinico
-            </button>
-        </div>
-    @endcan
-
     <table class="tabla">
         <thead class="thead">
             <tr>

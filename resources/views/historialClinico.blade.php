@@ -94,9 +94,6 @@
                 <a href="{{ route('historiales.index') }}">
                     <button type="button" class="btn btn-primary mb-3">Ver lista</button>
                 </a>
-                @can('historiales.create')
-                <button type="button" class="btn btn-success">Crear Historial clinico</button>
-                @endcan
             </div>
         </div>
     </div>
