@@ -41,6 +41,7 @@
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
+            
             @can('usuarios.index')
                 <a href="{{ route('usuarios.index') }}" class=@yield('usuario', '')>
                     <span class="material-icons-sharp">person</span>
@@ -69,7 +70,7 @@
                 </a>
             @endcanany
                 
-            <a href="# ">
+            <a href="{{ route('petshop') }}" class=@yield('petshop', '')>
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>
