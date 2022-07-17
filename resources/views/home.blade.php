@@ -116,9 +116,6 @@
                     <p>Usuario</p>
                     <small class="text-muted">Admin</small>
                 </div>
-                <div class="profile-photo">
-                    <img src="/images/home/profile-1.jpg">
-                </div>
             </div>
         </div>
         <div class="contenido">

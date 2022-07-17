@@ -26,20 +26,20 @@
 <div class="row d-flex align-items-stretch pt-5  ">
     <div class="col">
         @can('proveedores.index')
-            <div class="card">
-                <img src="{{ asset('images/petshop/proveedores.jpg') }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title fs-4 ">Proveedores</h5>
-                    <a href="{{ route('proveedores.index') }}">
-                        <button type="button" class="btn btn-primary mb-3">Ver lista</button>
-                    </a>
-                    @can('proveedores.create')
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ProveedorFormInput" onclick="createSelector('proveedor','input')">
-                        Registrar Proveedor
-                    </button>
-                    @endcan
-                </div>
+        <div class="card">
+            <img src="{{ asset('images/petshop/proveedores.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title fs-4 ">Proveedores</h5>
+                <a href="{{ route('proveedores.index') }}">
+                    <button type="button" class="btn btn-primary mb-3">Ver lista</button>
+                </a>
+                @can('proveedores.create')
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#proveedoresFormInput" onclick="createSelector('Input')">
+                    Registrar Proveedor
+                </button>
+                @endcan
             </div>
+        </div>
         @endcan
     </div>
     <div class="col">
@@ -86,11 +86,8 @@
 
 @endsection
 @section('body-final')
-@can('servicios.create')
-<x-forms.input-datos-servicios id="ServicioFormInput" type="servicio" />
-@endcan
-@can('turnos.create')
-<x-forms.turnos-input id="turnosFormInput" />
+@can('proveedores.create')
+<x-forms.proveedores-input id="proveedoresFormInput" />
 @endcan
 @endsection
 
