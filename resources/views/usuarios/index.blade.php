@@ -9,13 +9,6 @@
 
 
     <div class="d-md-flex justify-content-md-between" style="margin-bottom: 1rem;">
-        @can('usuarios.create')
-        <div class="registrar">
-            <a href="#" class="buttonRegistrame">
-                Registrar <br>Usuario
-            </a>
-        </div>
-        @endcan
         <div>
             <form action="{{ route('usuarios.index') }}" method="GET" class="d-flex align-items-center">
                 <div class="btn-group">
