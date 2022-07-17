@@ -234,28 +234,40 @@
     </div>
 
     <div class="content-header" id="comida">
+        <?php
+            $medicinas = DB::select('select * from Productos where id_categoria=1');
+            $ropas = DB::select('select * from Productos where id_categoria=2');
+            $accesorios = DB::select('select * from Productos where id_categoria=3');
+            $comidas = DB::select('select * from Productos where id_categoria=4');
+            $higienes = DB::select('select * from Productos where id_categoria=5');
+        ?>
+        
         <header>Comida</header>
         <div class="content">
             <button id="prev2" class="btn">
                 <i class='bx bxs-chevron-left'></i>
             </button>
             <div class="con-cards2">
+                
+                @foreach($ropas as $comida)
                 <div class="card">
-                    <h3>40 Bs.</h3>
+                    <h3>{{ $comida->precio }} BS.</h3>
                     <i class='bx bx-heart'></i>
                     <div class="con-img">
                         <img src="/images/shop/comida-perro.png" alt="">
                     </div>
                     <div class="con-text">
                         <h2>
-                            Croqueta
+                            {{ $comida->nombre }}
                         </h2>
                         <p>
                             <!-- text... -->
-                            Comida para perros
+                            {{ $comida->descripcion }} Adicionado con la base de datos
                         </p>
                     </div>
                 </div>
+                @endforeach
+                
                 <div class="card">
                     <h3>40 Bs.</h3>
                     <i class='bx bx-heart'></i>
