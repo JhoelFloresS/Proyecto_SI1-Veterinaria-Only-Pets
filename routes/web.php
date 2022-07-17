@@ -9,6 +9,7 @@ use App\Http\Controllers\DetalleHistorialController;
 use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\HistorialClinicoController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\SolicitudServicioController;
@@ -121,8 +122,11 @@ Route::resource('solicitudes', SolicitudServicioController::class);
 Route::get('turnos/datas/{id}', [TurnoController::class, 'datas']);
 Route::resource('turnos', TurnoController::class);
 
-
 Route::resource('diagnosticos', DetalleHistorialController::class);
+
+Route::get('proveedores/datas/{id}', [ProveedorController::class, 'datas']);
+Route::resource('proveedores', ProveedorController::class);
+
 Route::resource('roles',RoleController::class);
 });
 
