@@ -1,5 +1,5 @@
 @extends('home')
-@section('title', 'categoria')
+@section('title', 'categorias')
 @section('petshop', 'active')
 @section('css-derecha')
     <link rel="stylesheet" href="{{ asset('css/table-information.css') }}">
@@ -44,7 +44,7 @@
         </table>
     </div>
            <div class="pagination" style="margin-top: 1rem;">
-               {{ $categoria->appends('busqueda=>$busqueda') }}
+               {{ $categorias->appends('busqueda=>$busqueda') }}
             </div>
 </div>
 @endsection

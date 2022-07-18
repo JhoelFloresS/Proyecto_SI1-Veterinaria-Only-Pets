@@ -9,7 +9,7 @@ class CategoriaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:categoria.index')->only('index');
+        $this->middleware('can:categorias.index')->only('index');
     }
     public function index(Request $request)
     
@@ -20,6 +20,6 @@ class CategoriaController extends Controller
             'servicio' => $categoria,
             'busqueda' => $busqueda,
         ];
-        return view('categoria.index', compact('categoria'));}
+        return view('categorias.index', compact('categorias'));}
     
 }
