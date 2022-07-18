@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Http\Requests\StoreCategoriaRequest;
+use App\Http\Requests\UpdateProveedorRequest;
 
 class CategoriaController extends Controller
 {
@@ -30,5 +32,8 @@ class CategoriaController extends Controller
         return redirect(route('categorias.index'));
     }
 
-
+    public function datas($id){
+        $categorias = Categoria::find($id);
+        return $categorias;
+    }
 }
