@@ -69,7 +69,7 @@
                 </a>
             @endcanany
                 
-            <a href="{{ route('categoria.index')}}">
+            <a href="{{ route('categorias.index')}}">
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>
