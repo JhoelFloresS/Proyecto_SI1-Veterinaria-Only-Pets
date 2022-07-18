@@ -14,10 +14,10 @@ class CategoriaController extends Controller
     public function index(Request $request)
     
     {   $busqueda = $request->busqueda;
-        $categoria = ModelsCategoria::where('nombre', 'LIKE', '%' . $busqueda . '%')
+        $categorias = ModelsCategoria::where('nombre', 'LIKE', '%' . $busqueda . '%')
             ->paginate(7);
         $data = [
-            'servicio' => $categoria,
+            'servicio' => $categorias,
             'busqueda' => $busqueda,
         ];
         return view('categorias.index', compact('categorias'));}
