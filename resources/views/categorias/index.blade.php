@@ -42,8 +42,7 @@
                     <tr>
                         <td>{{ $categoria->id }}</td>
                         <td>{{ $categoria->nombre }}</td>
-                        <td>
-                        </tr>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

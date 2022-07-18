@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Http\Requests\StoreCategoriaRequest;
-use App\Http\Requests\UpdateProveedorRequest;
+use App\Http\Requests\UpdateCategoriaRequest;
 
 class CategoriaController extends Controller
 {
@@ -35,5 +35,18 @@ class CategoriaController extends Controller
     public function datas($id){
         $categorias = Categoria::find($id);
         return $categorias;
+    }
+    public function update(UpdateCategoriaRequest $request, $id) {
+        $categorias = Categoria::find($id);
+        $data = [
+            'nombre' => $request->nombre,
+        ];
+        $categorias->update($data);
+        return redirect(route('categorias.index'));
+    }
+
+    public function show(Categoria $proveedore)
+    {
+        return view('categorias.show', compact('categorias'));
     }
 }
