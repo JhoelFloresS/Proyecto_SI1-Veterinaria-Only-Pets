@@ -3,10 +3,7 @@
 @section('petshop', 'active')
 @section('css-derecha')
     <link rel="stylesheet" href="{{ asset('css/table-information.css') }}">
-    <style>
-        #categoriaFormUpdate .form-control,
-        #categoriaFormUpdate .form-select,
-        #categoriaFormUpdate .select2-selection {
+    <style> {
             background-color: khaki !important;
         }
     </style>
