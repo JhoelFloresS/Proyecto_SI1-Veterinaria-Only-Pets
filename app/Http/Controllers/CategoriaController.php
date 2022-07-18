@@ -22,4 +22,13 @@ class CategoriaController extends Controller
         ];
         return view('categorias.index', compact('categorias'));}
     
+        public function store(StoreCategoriaRequest $request) 
+    {
+        Categoria::create([
+            'nombre' => $request->nombre,
+        ]);
+        return redirect(route('categorias.index'));
+    }
+
+
 }
