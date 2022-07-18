@@ -13,6 +13,14 @@
 
 <div class="crud">
     <div class="d-md-flex justify-content-md-between" style="margin-bottom: 1rem;">
+        @can('proveedores.create')
+        <div class="registrar">
+            <button href="#" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#categoriaFormInput"
+                onclick="createSelector('Input')">
+                Registrar categoria
+            </button>
+        </div>
+        @endcan
         <form action="{{ route('categorias.index') }}" method="GET">
             <div class="btn-group">
                 <input type=" text" name="busqueda" class="form-control">
@@ -44,4 +52,10 @@
                {{ $categorias->appends('busqueda=>$busqueda') }}
             </div>
 </div>
+@endsection
+
+@section('body-final')
+    @can('categorias.create')
+    <x-forms.categoria-input id="categoriaFormInput" />
+    @endcan
 @endsection
