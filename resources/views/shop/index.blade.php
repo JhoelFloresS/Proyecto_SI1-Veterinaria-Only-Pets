@@ -16,13 +16,21 @@
     <!-- navigation menu -->
     <nav>
         <div class="navbar">
-            <div class="logo"><a href="#">Only Pet'\''s.</a></div>
+            <div class="logo"><a href="#">Only Pet{{'\''}}s</a></div>
             <ul class="menu">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/login2">Ingresar</a></li>
+                <li><a href="{{ route('login') }}">Ingresar</a></li>
             </ul>
         </div>
     </nav>
+
+    <?php
+    $medicinas = DB::select('select * from Productos where id_categoria=1');
+    $ropas = DB::select('select * from Productos where id_categoria=2');
+    $accesorios = DB::select('select * from Productos where id_categoria=3');
+    $comidas = DB::select('select * from Productos where id_categoria=4');
+    $higienes = DB::select('select * from Productos where id_categoria=5');
+    ?>
 
     <div class="content-header" id="medicina">
         <header>Medicina</header>
@@ -31,118 +39,24 @@
                 <i class='bx bxs-chevron-left'></i>
             </button>
             <div class="con-cards">
+                @foreach($medicinas as $comida)
                 <div class="card">
-                    <h3>40 Bs.</h3>
+                    <h3>{{ $comida->precio }} BS.</h3>
                     <i class='bx bx-heart'></i>
                     <div class="con-img">
-                        <img src="/images/shop/vitamina-c.png" alt="">
+                        <img src="{{ $comida->foto }}" alt="">
                     </div>
                     <div class="con-text">
                         <h2>
-                            Vitamina C
+                            {{ $comida->nombre }}
                         </h2>
                         <p>
                             <!-- text... -->
-                            80mg 32 comprimidos
+                            {{ $comida->descripcion }}
                         </p>
                     </div>
                 </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/vitamina-c.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Vitamina C
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            80mg 32 comprimidos
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/vitamina-c.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Vitamina C
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            80mg 32 comprimidos
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/vitamina-c.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Vitamina C
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            80mg 32 comprimidos
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/vitamina-c.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Vitamina C
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            80mg 32 comprimidos
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/vitamina-c.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Vitamina C
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            80mg 32 comprimidos
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/vitamina-c.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Vitamina C
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            80mg 32 comprimidos
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <button id="next" class="btn">
                 <i class='bx bxs-chevron-right'></i>
@@ -234,27 +148,21 @@
     </div>
 
     <div class="content-header" id="comida">
-        <?php
-            $medicinas = DB::select('select * from Productos where id_categoria=1');
-            $ropas = DB::select('select * from Productos where id_categoria=2');
-            $accesorios = DB::select('select * from Productos where id_categoria=3');
-            $comidas = DB::select('select * from Productos where id_categoria=4');
-            $higienes = DB::select('select * from Productos where id_categoria=5');
-        ?>
-        
+
+
         <header>Comida</header>
         <div class="content">
             <button id="prev2" class="btn">
                 <i class='bx bxs-chevron-left'></i>
             </button>
             <div class="con-cards2">
-                
-                @foreach($ropas as $comida)
+
+                @foreach($comidas as $comida)
                 <div class="card">
                     <h3>{{ $comida->precio }} BS.</h3>
                     <i class='bx bx-heart'></i>
                     <div class="con-img">
-                        <img src="/images/shop/comida-perro.png" alt="">
+                        <img src="{{ $comida->foto }}" alt="">
                     </div>
                     <div class="con-text">
                         <h2>
@@ -262,108 +170,11 @@
                         </h2>
                         <p>
                             <!-- text... -->
-                            {{ $comida->descripcion }} Adicionado con la base de datos
+                            {{ $comida->descripcion }}
                         </p>
                     </div>
                 </div>
                 @endforeach
-                
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/comida-perro.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Croqueta
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Comida para perros
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/comida-perro.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Croqueta
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Comida para perros
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/comida-perro.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Croqueta
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Comida para perros
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/comida-perro.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Croqueta
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Comida para perros
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/comida-perro.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Croqueta
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Comida para perros
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/comida-perro.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Croqueta
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Comida para perros
-                        </p>
-                    </div>
-                </div>
             </div>
             <button id="next2" class="btn">
                 <i class='bx bxs-chevron-right'></i>
@@ -386,118 +197,24 @@
                 <i class='bx bxs-chevron-left'></i>
             </button>
             <div class="con-cards3">
+                @foreach($ropas as $comida)
                 <div class="card">
-                    <h3>40 Bs.</h3>
+                    <h3>{{ $comida->precio }} BS.</h3>
                     <i class='bx bx-heart'></i>
                     <div class="con-img">
-                        <img src="/images/shop/ropa-impermeable.png" alt="">
+                        <img src="{{ $comida->foto }}" alt="">
                     </div>
                     <div class="con-text">
                         <h2>
-                            Impermeable
+                            {{ $comida->nombre }}
                         </h2>
                         <p>
                             <!-- text... -->
-                            Impermeable color rojo
+                            {{ $comida->descripcion }}
                         </p>
                     </div>
                 </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/ropa-impermeable.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Impermeable
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Impermeable color rojo
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/ropa-impermeable.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Impermeable
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Impermeable color rojo
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/ropa-impermeable.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Impermeable
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Impermeable color rojo
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/ropa-impermeable.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Impermeable
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Impermeable color rojo
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/ropa-impermeable.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Impermeable
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Impermeable color rojo
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>40 Bs.</h3>
-                    <i class='bx bx-heart'></i>
-                    <div class="con-img">
-                        <img src="/images/shop/ropa-impermeable.png" alt="">
-                    </div>
-                    <div class="con-text">
-                        <h2>
-                            Impermeable
-                        </h2>
-                        <p>
-                            <!-- text... -->
-                            Impermeable color rojo
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <button id="next3" class="btn">
                 <i class='bx bxs-chevron-right'></i>
@@ -506,7 +223,43 @@
         <a href="#comida">
             <div class="scroll-up"></div>
         </a>
-
+        <a href="#accesorio">
+            <div class="scroll-down-2"></div>
+        </a>
+    </div>
+    <div class="content-header" id="accesorio">
+        <header>Accesorio</header>
+        <div class="content">
+            <button id="prev4" class="btn">
+                <i class='bx bxs-chevron-left'></i>
+            </button>
+            <div class="con-cards4">
+                @foreach($accesorios as $comida)
+                <div class="card">
+                    <h3>{{ $comida->precio }} BS.</h3>
+                    <i class='bx bx-heart'></i>
+                    <div class="con-img">
+                        <img src="{{ $comida->foto }}" alt="">
+                    </div>
+                    <div class="con-text">
+                        <h2>
+                            {{ $comida->nombre }}
+                        </h2>
+                        <p>
+                            <!-- text... -->
+                            {{ $comida->descripcion }}
+                        </p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <button id="next4" class="btn">
+                <i class='bx bxs-chevron-right'></i>
+            </button>
+        </div>
+        <a href="#ropa">
+            <div class="scroll-up"></div>
+        </a>
     </div>
     <script src="{{ asset('js/shop.js') }}"></script>
 </body>

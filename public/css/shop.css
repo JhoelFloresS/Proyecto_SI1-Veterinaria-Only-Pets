@@ -180,7 +180,8 @@ header {
 
 .con-cards,
 .con-cards2,
-.con-cards3 {
+.con-cards3,
+.con-cards4 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -201,6 +202,10 @@ header {
 }
 
 .con-cards3::-webkit-scrollbar {
+    height: 0px;
+}
+
+.con-cards4::-webkit-scrollbar {
     height: 0px;
 }
 
