@@ -112,8 +112,8 @@ Route::get('bitacoras', [BitacoraController::class, 'index'])->name('bitacoras.i
 Route::get('servicios/datas/{id}', [ServicioController::class, 'datas']);
 Route::resource('servicios', ServicioController::class);
 
-Route::get('categoria/datas/{id}', [categoriaController::class, 'datas']);
-Route::resource('categoria', categoriaController::class);
+Route::get('categorias/datas/{id}', [categoriaController::class, 'datas']);
+Route::resource('categorias', categoriaController::class);
 
 Route::get('solicitudes/datas/{id}', [SolicitudServicioController::class, 'datas']);
 Route::resource('solicitudes', SolicitudServicioController::class);
