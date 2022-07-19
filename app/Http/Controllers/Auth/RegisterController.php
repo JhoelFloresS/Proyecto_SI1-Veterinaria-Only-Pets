@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bitacora;
+use App\Models\Cliente;
 use App\Models\Persona;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -84,6 +85,10 @@ class RegisterController extends Controller
                 'apellido_paterno' => $data['apellido_paterno'],
                 'apellido_materno' => $data['apellido_materno'],
                 'email' => $data['email'],
+            ]);
+
+            $cliente = Cliente::create([
+                'id' => $persona->id,
             ]);
     
            $user = Usuario::create([
