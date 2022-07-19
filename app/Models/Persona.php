@@ -45,4 +45,9 @@ class Persona extends Model
         return $this->hasOne(Veterinario::class, 'id');
 
     }
+
+    
+    public function mascotas(){
+        return $this->belongsToMany(Mascota::class, 'clientes_mascotas', 'id_cliente', 'id_mascota');
+    }
 }

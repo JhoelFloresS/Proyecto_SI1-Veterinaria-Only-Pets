@@ -23,6 +23,10 @@ class Usuario extends Authenticatable
         'id_persona'
     ];
 
+    public $filterable = [
+        'nombre'
+    ];
+
     public function persona()
     {
         return $this->belongsTo(Persona::class, 'id_persona');
@@ -36,4 +40,6 @@ class Usuario extends Authenticatable
     public function bitacora(){
         return $this->hasOne(Bitacora::class, 'id_usuario');
     }
+
+    
 }

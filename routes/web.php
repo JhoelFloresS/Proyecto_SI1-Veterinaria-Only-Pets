@@ -18,6 +18,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
 use App\Models\DetalleHistorial;
+use App\Models\Veterinario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\View\Components\Forms\MascotaInput;
@@ -52,9 +53,6 @@ Route::get('', function () {
 });
 
 
-Route::get('/login2', function () {
-    return view('login');
-});
 
 Route::get('/shop', function () {
     return view('shop.index');
@@ -86,6 +84,7 @@ Route::middleware('auth')->group(function(){
 Route::resource('usuarios', UsuarioController::class);
 
 Route::get('mascotas/datas/{id}', [MascotaController::class, 'datas'])->name('mascotas.datas');
+Route::get('mascotas/my', [MascotaController::class, 'myPets'])->name('mascotas.my');
 Route::resource('mascotas', MascotaController::class);
 
 Route::get('veterinarios/datas/{id}', [VeterinarioController::class, 'datas']);
@@ -127,6 +126,7 @@ Route::resource('diagnosticos', DetalleHistorialController::class);
 Route::get('proveedores/datas/{id}', [ProveedorController::class, 'datas']);
 Route::resource('proveedores', ProveedorController::class);
 
-Route::resource('roles',RoleController::class);
+
+
 });
 
