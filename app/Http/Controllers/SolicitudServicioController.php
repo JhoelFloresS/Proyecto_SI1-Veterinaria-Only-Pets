@@ -10,6 +10,7 @@ use App\Models\SolicitudServicio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class SolicitudServicioController extends Controller
 {
@@ -37,19 +38,20 @@ class SolicitudServicioController extends Controller
         $solicitudes->load('servicio');
         $solicitudes->load('recibo');
         $solicitudes->load('mascota');
-     
+
         return view('solicitudes.index', compact('solicitudes'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         //NOTA: esta accion solo la puede realizar el administrativo
         //Auth::user()->id  es el id de la persona que esta 
         //registrando la solicitud de servicio
         $fecha = Carbon::now();
         $recibo = Recibo::create([
-            'fecha' => $fecha->toDateString(), 
-            'concepto' => $request->concepto, 
-            'monto_cancelado' => $request->monto_cancelado, 
+            'fecha' => $fecha->toDateString(),
+            'concepto' => $request->concepto,
+            'monto_cancelado' => $request->monto_cancelado,
             'saldo' => $request->saldo,
             'monto_total' => $request->monto_total,
             'id_administrativo' => Auth::user()->id,
@@ -70,22 +72,35 @@ class SolicitudServicioController extends Controller
                     'id_mascota' => $request->id_mascota,
                 ]);
             }
-        }        
-        
+        }
+
         $cliente = Cliente::findOrFail($request->id_cliente)->load('persona')->persona;
         $mascota = Mascota::findOrFail($request->id_mascota);
-        $servicios = Servicio::whereIn('id', $request->servicios)->get()->map(function($servicio){
+        $servicios = Servicio::whereIn('id', $request->servicios)->get()->map(function ($servicio) {
             return $servicio->nombre;
         });
         BitacoraController::registrar(
             Auth::user()->id,
             'Solicitud de servicio',
-            'El cliente '.$cliente->nombre.' '.$cliente->apellido_paterno.' '.$cliente->apellido_materno.
-            ' solicitó el/los servicios: '.implode('-',$servicios->toArray()).' para la mascota '.$mascota->nombre
+            'El cliente ' . $cliente->nombre . ' ' . $cliente->apellido_paterno . ' ' . $cliente->apellido_materno .
+                ' solicitó el/los servicios: ' . implode('-', $servicios->toArray()) . ' para la mascota ' . $mascota->nombre
         );
         return redirect(route('solicitudes.index'));
     }
 
+    public function show($id)
+    {
+        $solicitud = SolicitudServicio::findOrFail($id);
+        return view('solicitudes.show', compact('solicitud'));
+    }
 
+    public function pdf($id)
+    {
+        $solicitud = SolicitudServicio::findOrFail($id);
 
+        $pdf = PDF::loadView('solicitudes.pdf',['solicitud'=>$solicitud]);
+        //$pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->download('recibo.pdf');
+        //return view('solicitudes.pdf',compact('solicitud'));
+    }
 }

@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="sidebar">
-            <a href="/home">
+            <a href="/home" class=@yield('home', '')>
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
@@ -70,8 +70,10 @@
                 </a>
             @endcanany
                 
+
             @canany(['proveedores.index','productos.index','categorias.index'])
             <a href="{{ route('petshop') }}" class=@yield('petshop', '')>
+
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>

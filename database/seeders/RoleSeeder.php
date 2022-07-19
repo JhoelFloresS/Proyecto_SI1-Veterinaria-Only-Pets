@@ -19,6 +19,7 @@ class RoleSeeder extends Seeder
         $recepcion = Role::create(['name' => 'recepcionista']);
         $vet = Role::create(['name' => 'veterinario']);
         $client = Role::create(['name' => 'cliente']);
+        $supervisor = Role::create(['name' => 'supervisor']);
 
         Permission::create(['name' => 'usuarios.index', 'description' => 'ver listado de usuarios'])->syncRoles([ $recepcion]);
         Permission::create(['name' => 'usuarios.create', 'description' => 'crear usuario'])->syncRoles([$recepcion]);
@@ -95,10 +96,10 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'productos.edit', 'description' => 'editar productos'])->syncRoles([ $recepcion]);
         Permission::create(['name' => 'productos.destroy', 'description' => 'eliminar productos']);
 
-        Permission::create(['name' => 'categorias.index', 'description' => 'ver listado de categorias']);
-        Permission::create(['name' => 'categorias.create', 'description' => 'crear categoria']);
-        Permission::create(['name' => 'categorias.edit', 'description' => 'editar categoria']);
-        Permission::create(['name' => 'categorias.destroy', 'description' => 'eliminar categoria']);
+        Permission::create(['name' => 'categorias.index', 'description' => 'ver listado de categorias'])->syncRoles([ $supervisor]);
+        Permission::create(['name' => 'categorias.create', 'description' => 'crear categoria'])->syncRoles([ $supervisor]);;
+        Permission::create(['name' => 'categorias.edit', 'description' => 'editar categoria'])->syncRoles([ $supervisor]);;
+        Permission::create(['name' => 'categorias.destroy', 'description' => 'eliminar categoria'])->syncRoles([ $supervisor]);;
 
 
 
