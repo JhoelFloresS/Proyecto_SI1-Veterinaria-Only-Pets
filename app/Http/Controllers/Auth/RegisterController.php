@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bitacora;
 use App\Models\Persona;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -91,6 +92,12 @@ class RegisterController extends Controller
                 'enable' => true,
                 'id_persona' => $persona->id,
             ])->assignRole('cliente');
+
+            Bitacora::create([
+                'descripcion' => 'Bitacora de '.$user->nombre.' '.$user->apellido_paterno.' '.$user->apellido_materno,
+                'id_usuario' => $user->id
+            ]);
+
             DB::commit();
 
         }catch(Exception $e){
