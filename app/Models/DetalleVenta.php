@@ -16,4 +16,12 @@ class DetalleVenta extends Model
         'cantidad', 
         'precio_total',
     ];
+
+    public function recibo() {
+        return $this->belongsTo(Recibo::class, 'id_recibo');
+    }
+
+    public function producto() {
+        return $this->belongsTo(Producto::class, 'id_producto');
+    }
 }

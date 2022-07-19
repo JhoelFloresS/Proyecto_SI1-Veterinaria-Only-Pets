@@ -9,31 +9,31 @@ class NotaIngresoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:ingresos.index')->only('index', 'show');
-        $this->middleware('can:ingresos.create')->only('create', 'store');
-        $this->middleware('can:ingresos.edit')->only('edit', 'update', 'datas');
-        $this->middleware('can:ingresos.destroy')->only('destroy');
+        $this->middleware('can:compras.index')->only('index', 'show');
+        $this->middleware('can:compras.create')->only('create', 'store');
+        $this->middleware('can:compras.edit')->only('edit', 'update', 'datas');
+        $this->middleware('can:compras.destroy')->only('destroy');
     }
 
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $ingresos = NotaIngreso::where('id', 'LIKE', '%' . $busqueda . '%')
+        $compras = NotaIngreso::where('id', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('cantidad', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('monto_total', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('fecha', 'LIKE', '%' . $busqueda . '%')
             ->paginate(7);
         $data = [
-            'servicio' => $ingresos,
+            'servicio' => $compras,
             'busqueda' => $busqueda,
         ];
-        return view('ingresos.index', compact('ingresos'));
+        return view('compras.index', compact('compras'));
     }
 
     public function show($id)
     {
         //return view('enfermedades.show', compact('enfermedad'));
-        $ingresos = NotaIngreso::findOrFail($id);
-        return view('ingresos.show', compact('ingresos'));
+        $compras = NotaIngreso::findOrFail($id);
+        return view('compras.show', compact('compras'));
     }
 }
