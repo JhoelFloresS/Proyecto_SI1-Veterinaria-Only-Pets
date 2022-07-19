@@ -58,7 +58,6 @@ class AdministrativoAction
             'nombre_usuario' => $request->email,
             'password'       => bcrypt($request->ci),
             'enable'         => '1',
-            'id_rol'         => '3',
             'id_persona'     => $persona->id,
         ]);
         BitacoraController::registrar(Auth::user()->id,
