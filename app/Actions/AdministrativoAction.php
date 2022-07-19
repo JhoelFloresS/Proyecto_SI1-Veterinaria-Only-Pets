@@ -15,6 +15,7 @@ use App\Models\TurnoAdmin;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Auth;
 use Mockery\Undefined;
+use Spatie\Permission\Models\Role;
 
 use function PHPUnit\Framework\isNull;
 
@@ -54,12 +55,19 @@ class AdministrativoAction
             ]);
         }
 
-        Usuario::create([
+        $user = Usuario::create([
             'nombre_usuario' => $request->email,
             'password'       => bcrypt($request->ci),
             'enable'         => '1',
             'id_persona'     => $persona->id,
-        ]);
+        ])->assignRole(Role::find($request->rol));
+
+        Bitacora::create([
+            'id_usuario' => $user->id,
+            'descripcion' =>'bitacora',
+        ]);    
+
+
         BitacoraController::registrar(Auth::user()->id,
         'Creación de Administrativo',
         'Se creó un nuevo administrativo con el nombre: ' . $request->nombre . ' ' . $request->apellido_paterno . ' ' . $request->apellido_materno);

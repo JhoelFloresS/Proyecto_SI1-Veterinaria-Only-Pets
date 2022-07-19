@@ -5,6 +5,7 @@ namespace App\View\Components;
 use App\Models\Servicio;
 use App\Models\Turno;
 use Illuminate\View\Component;
+use Spatie\Permission\Models\Role;
 
 class InputDatos extends Component
 {
@@ -39,4 +40,11 @@ class InputDatos extends Component
     public function getServicios(){
         return Servicio::get();
     }	
+
+    public function getRoles(){
+        $roles = Role::where('id','<>','1')
+                ->where('id','<>','4')
+                ->where('id','<>','3')->get();
+        return $roles;
+    }
 }
