@@ -8,6 +8,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DetalleHistorialController;
 use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\HistorialClinicoController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RoleController;
@@ -66,9 +67,7 @@ Route::get('/petshop', function () {
 
 Route::middleware('auth')->group(function(){
 
-    Route::get('/home', function () {
-        return view('home');
-    });
+    Route::get('/home', [HomeController::class,'index']);
     
     Route::get('/datos', function () {
         return view('datos');
@@ -128,5 +127,8 @@ Route::get('proveedores/datas/{id}', [ProveedorController::class, 'datas']);
 Route::resource('proveedores', ProveedorController::class);
 
 Route::resource('roles',RoleController::class);
+
+Route::get('solicitudes/pdf/{id}', [SolicitudServicioController::class,'pdf'])->name('solicitudes.pdf');
+Route::get('historiales/pdf/{id}', [HistorialClinicoController::class,'pdf'])->name('historiales.pdf');
 });
 

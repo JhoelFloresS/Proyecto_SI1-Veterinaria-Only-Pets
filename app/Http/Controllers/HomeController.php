@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $productos = Producto::all();
+
+        $puntos = [];
+
+        foreach($productos as $producto){
+            $puntos[] = ['name' => $producto['nombre'], 'y'=>$producto['cantidad']];
+        }
+        return view('home.index',["data" => json_encode($puntos)]);
     }
 }
