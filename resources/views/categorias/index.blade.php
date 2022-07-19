@@ -3,7 +3,10 @@
 @section('petshop', 'active')
 @section('css-derecha')
     <link rel="stylesheet" href="{{ asset('css/table-information.css') }}">
-    <style> {
+    <style> 
+        #categoriasFormUpdate .form-control,
+        #categoriasFormUpdate .form-select,
+        #categoriasFormUpdate .select2-selection {
             background-color: khaki !important;
         }
     </style>
@@ -42,7 +45,18 @@
                     <tr>
                         <td>{{ $categoria->id }}</td>
                         <td>{{ $categoria->nombre }}</td>
-                    </tr>
+                        <td>
+                    <div class="d-flex flex-row justify-content-between">
+                        @can('categorias.edit')
+                        <button class="button-edit" onclick=@php  echo "\"desplegarForm(" . json_encode($categoria->id) . ")\""; @endphp data-bs-toggle="modal"
+                            data-bs-target="#categoriaFormUpdate">
+                            <span class="material-icons-sharp">
+                                edit
+                            </span>
+                        </button>
+                        @endcan
+                    </div>
+                </td>
                 @endforeach
             </tbody>
         </table>
@@ -57,4 +71,40 @@
     @can('categorias.create')
     <x-forms.categoria-input id="categoriaFormInput" />
     @endcan
+    @can('categorias.edit')
+    <x-forms.categoria-update id="categoriaFormUpdate" />
+    @endcan
+
+    @section('js-home')
+    <script>
+        const createSelector = (type) => {
+
+            $('#formcategorias' + type + ' #categorias').select2({
+                theme: 'bootstrap-5',
+                placeholder: 'Seleccione la categoria',
+                maximumSelectionLength: 5,
+                width: '100%'
+            })
+        }
+
+        function desplegarForm(id) {
+            var admin = new XMLHttpRequest()
+            admin.open("GET", "/categorias/datas/" + id.toString(), true)
+            admin.addEventListener("load", cargarDatos)
+            admin.send()
+        }
+
+        function cargarDatos(e) {
+            const datos = JSON.parse(this.responseText)
+            $("#categoriaFormUpdate #nombre").attr("value", datos.nombre)
+
+            createSelector('Update')
+
+            let action = "/categorias/" + datos.id
+
+            $('#categoriaFormUpdate form').attr('action', action)
+
+        }
+    </script>
+
 @endsection
