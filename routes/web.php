@@ -10,6 +10,7 @@ use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\HistorialClinicoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicioController;
@@ -132,9 +133,14 @@ Route::resource('diagnosticos', DetalleHistorialController::class);
 Route::get('proveedores/datas/{id}', [ProveedorController::class, 'datas']);
 Route::resource('proveedores', ProveedorController::class);
 
+Route::get('productos/datas/{id}', [ProductoController::class, 'datas']);
+Route::post('productos/comprar', [ProductoController::class, 'comprar'])->name('productos.comprar');
+Route::resource('productos', ProductoController::class);
+
 Route::resource('roles',RoleController::class);
 
 Route::get('solicitudes/pdf/{id}', [SolicitudServicioController::class,'pdf'])->name('solicitudes.pdf');
 Route::get('historiales/pdf/{id}', [HistorialClinicoController::class,'pdf'])->name('historiales.pdf');
+
 });
 

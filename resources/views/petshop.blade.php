@@ -42,22 +42,25 @@
         </div>
         @endcan
     </div>
+
     <div class="col">
+        @can('productos.index')
         <div class="card">
             <img src="{{ asset('images/petshop/productos.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title fs-4">Producto</h5>
-                <a href="#">
+                <a href="{{ route('productos.index') }}">
                     <button type="button" class="btn btn-primary mb-3">Ver lista
                     </button>
                 </a>
-                @can('servicios.index')
+                @can('productos.create')
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ProductoFormInput" onclick="createSelector('producto','input')">
                     Registrar Producto
                 </button>
                 @endcan
             </div>
         </div>
+        @endcan
     </div>
 
 
