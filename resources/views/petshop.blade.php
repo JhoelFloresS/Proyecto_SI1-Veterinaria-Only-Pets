@@ -69,7 +69,7 @@
             <img src="{{ asset('images/petshop/categorias.jpg') }}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
                 <h5 class="card-title fs-4">Categorias</h5>
-                <a href="#">
+                <a href="{{ route('categorias.index') }}">
                     <button type="button" class="btn btn-primary mb-3">Ver lista
                     </button>
                 </a>

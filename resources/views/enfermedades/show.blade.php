@@ -1,7 +1,7 @@
 @extends('home')
 @section('title', 'Enfermedades')
 
-@section('registrar-datos','active')
+@section('historial-clinico','active')
 
 @section('css-derecha')
 <link rel="stylesheet" href="{{asset('css/table-information.css')}}">
