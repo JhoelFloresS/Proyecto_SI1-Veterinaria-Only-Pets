@@ -16,6 +16,10 @@ class AdministrativoSeeder extends Seeder
     public function run()
     {
         Administrativo::create([
+            'id' => '1',
+            'profesion' => 'medico veterinario',
+        ]);
+        Administrativo::create([
             'id' => '3', 
             'profesion' => 'Recepcionista', 
         ]);

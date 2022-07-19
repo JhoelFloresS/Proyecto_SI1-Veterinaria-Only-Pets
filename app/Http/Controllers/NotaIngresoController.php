@@ -9,10 +9,7 @@ class NotaIngresoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:compras.index')->only('index', 'show');
-        $this->middleware('can:compras.create')->only('create', 'store');
-        $this->middleware('can:compras.edit')->only('edit', 'update', 'datas');
-        $this->middleware('can:compras.destroy')->only('destroy');
+
     }
 
     public function index(Request $request)
