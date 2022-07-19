@@ -17,7 +17,7 @@ class MascotaController extends Controller
     public function __construct()
     {
         $this->middleware(['can:mascotas.index'])->only('index');
-        $this->middleware(['role_or_permission:mascotas.index|cliente']);
+        $this->middleware(['role_or_permission:mascotas.index|cliente|super-admin'])->only('show');
         $this->middleware('can:mascotas.create')->only('create', 'store');
         $this->middleware('can:mascotas.edit')->only('edit', 'update','datas');
         $this->middleware('role:cliente')->only('myPets');
