@@ -29,23 +29,6 @@
                     </button>
                 </div>
             @endcan
-            @can('productos.create')
-                <div class="registrar">
-                    <button href="#" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#comprasFormInput"
-                        onclick="createSelector('Input')">
-                        Registrar <br> Compra
-                    </button>
-                </div>
-            @endcan
-            @can('productos.create')
-                <div class="registrar">
-                    <button href="#" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#ventasFormInput"
-                        onclick="createSelector('Input')">
-                        Registrar <br> Venta
-                    </button>
-                </div>
-            @endcan
-            
             <form action="{{ route('productos.index') }}" method="GET">
                 <div class="btn-group">
                     <input type=" text" name="busqueda" class="form-control">
