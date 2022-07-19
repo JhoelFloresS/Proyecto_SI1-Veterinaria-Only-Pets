@@ -82,6 +82,47 @@
         </div>
 
     </div>
+
+    <div class="col">
+        <div class="card">
+            <img src="{{ asset('images/petshop/compras.jpg') }}" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title fs-4">Compras</h5>
+                <a href="#">
+                    <button type="button" class="btn btn-primary mb-3">Ver lista
+                    </button>
+                </a>
+                {{-- @can('turnos.create')
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#CategoriaFormInput" onclick="createSelector('Input')">
+                        Registrar Categoria
+                    </button>
+                @endcan --}}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <img src="{{ asset('images/petshop/ventas.jpg') }}" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title fs-4">Ventas</h5>
+                <a href="#">
+                    <button type="button" class="btn btn-primary mb-3">Ver lista
+                    </button>
+                </a>
+                {{-- @can('turnos.create')
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#CategoriaFormInput" onclick="createSelector('Input')">
+                        Registrar Categoria
+                    </button>
+                @endcan --}}
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 
