@@ -10,6 +10,10 @@
     <title>@yield('title', 'titulo')</title>
     @section('head')
     @show
+
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @livewireStyles
 </head>
 
