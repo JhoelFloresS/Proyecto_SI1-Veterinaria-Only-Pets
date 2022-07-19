@@ -88,10 +88,11 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'proveedores.edit', 'description' => 'editar proveedores'])->syncRoles([ $recepcion]);
         Permission::create(['name' => 'proveedores.destroy', 'description' => 'eliminar proveedores']);
 
-        Permission::create(['name' => 'productos.index', 'description' => 'ver listado de productos']);
+        Permission::create(['name' => 'productos.index', 'description' => 'ver listado de productos'])->syncRoles([ $recepcion]);
+        Permission::create(['name' => 'productos.create', 'description' => 'crear productos'])->syncRoles([ $recepcion]);
         Permission::create(['name' => 'productos.comprar', 'description' => 'registrar compra de productos']);
         Permission::create(['name' => 'productos.vender', 'description' => 'registrar venta de productos']);
-        Permission::create(['name' => 'productos.edit', 'description' => 'editar productos']);
+        Permission::create(['name' => 'productos.edit', 'description' => 'editar productos'])->syncRoles([ $recepcion]);
         Permission::create(['name' => 'productos.destroy', 'description' => 'eliminar productos']);
 
         Permission::create(['name' => 'categorias.index', 'description' => 'ver listado de categorias']);
