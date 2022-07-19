@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bitacora;
+use App\Models\Persona;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Usuario;
+use Exception;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,6 +36,11 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+
+    public function showRegistrationForm()
+    {
+        return view('auth.login');
+    }
     /**
      * Create a new controller instance.
      *
@@ -50,8 +60,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'nombre' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:App\Models\Usuario,nombre_usuario'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,10 +74,39 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user;
+        try{
+            
+            DB::beginTransaction();
+            
+            $persona = Persona::create([
+                'nombre' => $data['nombre'],
+                'apellido_paterno' => $data['apellido_paterno'],
+                'apellido_materno' => $data['apellido_materno'],
+                'email' => $data['email'],
+            ]);
+    
+           $user = Usuario::create([
+                'nombre_usuario' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'enable' => true,
+                'id_persona' => $persona->id,
+            ])->assignRole('cliente');
+
+            Bitacora::create([
+                'descripcion' => 'Bitacora de '.$user->nombre.' '.$user->apellido_paterno.' '.$user->apellido_materno,
+                'id_usuario' => $user->id
+            ]);
+
+            DB::commit();
+
+        }catch(Exception $e){
+            DB::rollBack();
+            return back();
+        }
+        
+     
+
+        return $user;
     }
 }

@@ -93,6 +93,14 @@
             </a>
             @endcan
 
+            @role('cliente')
+            <a href="{{route('mascotas.my')}}" class=@yield('mis-mascotas', '')>
+                <span class="material-icons-sharp">pets</span>
+                <h3>Mis Mascotas</h3>
+            </a>
+            @endrole
+  
+
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit">
@@ -115,9 +123,10 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>Usuario</p>
-                    <small class="text-muted">Admin</small>
-                </div>
+                    <strong>{{ Auth::user()->persona->nombre.' '.Auth::user()->persona->apellido_paterno.' '.Auth::user()->persona->apellido_materno}}</strong>
+                    <br>
+                    <small class="text-muted" style="text-transform: capitalize"> {{ implode('-' , Auth::user()->roles->pluck('name')->toArray() ) }} </small>
+                </div> 
             </div>
         </div>
         <div class="contenido">

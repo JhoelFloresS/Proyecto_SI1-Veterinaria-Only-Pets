@@ -12,9 +12,12 @@
 </head>
 
 <body>
-    <div class="container" id="container">
+    <div class="container @error('password')
+    right-panel-active
+    @enderror" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form action="{{route('register')}}" method="POST">
+                @csrf
                 <h1>Crear Cuenta</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -22,15 +25,11 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>o usa tu correo electronico para registrarte</span>
-                @section('formulario')
+         
                 <div class="contenedor">
                     <div class="user-box">
                         <input class="myInput" type="text" id="nombre" required name="nombre" value="{{old('nombre')}}">
                         <label>Nombre</label>
-                    </div>
-                    <div class="user-box">
-                        <input class="myInput" type="text" id="apellido" required name="nombre_usuario" value="{{old('nombre_usuario')}}">
-                        <label>Correo De Inicio</label>
                     </div>
                     <div class="user-box">
                         <input class="myInput" type="text" id="apellido" required name="apellido_paterno" value="{{old('apellido_paterno')}}">
@@ -46,19 +45,34 @@
                     </div>
                     <div class="user-box">
                         <input class="myInput" type="password" id="password" required name="password">
-                        <label>Password</label>
+                        <label>Contraseña</label>
+                    </div>
+                    <div class="user-box">
+                        <input class="myInput" type="password" id="password" required name="password_confirmation">
+                        <label>Repita su Contraseña</label>
                     </div>
                 </div>
-                <button class="buttonRegistrame" value="Registrarme" type="submit" style="visibility: hidden; display: none;"></button>
-                @show
+
+                @error('password','nombre','apellido_paterno','apellido_materno','email')
+                    {{$message}}
+                @enderror
+                @if($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div>{{$error}}</div>
+                @endforeach
+            @endif
+                
+         
                 <div class="iniciar">
-                    <a href="#">
+                    <button class="submit">
+                    <a h="this.form.submit()">
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
                         Registar
                     </a>
+                </button>
                 </div>
             </form>
         </div>
@@ -91,7 +105,7 @@
                 <a href="">¿Olvidaste tu contraseña?</a>
                 <div class="iniciar">
                     <button class="submit">
-                        <a id="linkSubmitLogin">
+                        <a h="this.form.submit()">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -121,9 +135,7 @@
     </div>
     <script src="{{ asset('js/login2.js') }}"></script>
 
-    <script>
 
-    </script>
 </body>
 
 </html>
