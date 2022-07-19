@@ -18,7 +18,11 @@ use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
+
+use App\Http\Controllers\CategoriaController;
+
 use App\Models\DetalleHistorial;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\View\Components\Forms\MascotaInput;
@@ -114,6 +118,8 @@ Route::get('bitacoras', [BitacoraController::class, 'index'])->name('bitacoras.i
 Route::get('servicios/datas/{id}', [ServicioController::class, 'datas']);
 Route::resource('servicios', ServicioController::class);
 
+Route::get('categorias/datas/{id}', [categoriaController::class, 'datas']);
+Route::resource('categorias', categoriaController::class);
 
 Route::get('solicitudes/datas/{id}', [SolicitudServicioController::class, 'datas']);
 Route::resource('solicitudes', SolicitudServicioController::class);

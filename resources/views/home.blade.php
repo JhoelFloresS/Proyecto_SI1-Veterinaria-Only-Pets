@@ -70,8 +70,10 @@
                 </a>
             @endcanany
                 
+
             @canany(['proveedores.index','productos.index','categorias.index'])
             <a href="{{ route('petshop') }}" class=@yield('petshop', '')>
+
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>
