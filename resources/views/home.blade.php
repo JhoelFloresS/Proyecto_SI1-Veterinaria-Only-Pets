@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="sidebar">
-            <a href="/home">
+            <a href="/home" class=@yield('home', '')>
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
