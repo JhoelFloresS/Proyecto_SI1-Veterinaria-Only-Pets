@@ -135,6 +135,7 @@ Route::resource('proveedores', ProveedorController::class);
 
 Route::get('productos/datas/{id}', [ProductoController::class, 'datas']);
 Route::post('productos/comprar', [ProductoController::class, 'comprar'])->name('productos.comprar');
+Route::post('productos/vender', [ProductoController::class, 'vender'])->name('productos.vender');
 Route::resource('productos', ProductoController::class);
 
 Route::resource('roles',RoleController::class);
