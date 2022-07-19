@@ -57,7 +57,7 @@
 
                             <div class="col-md-6">
                                 <label for="foto" class="form-label fs-5">Foto</label>
-                                <input type="file"  accept="image/*" class="form-control" id="foto" name="foto">
+                                <input type="text" class="form-control" id="foto" name="foto">
                                 {!! $errors->first('foto', '<span class="help-block text-danger">*:message</span>') !!}
                             </div>
 

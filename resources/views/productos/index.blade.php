@@ -37,6 +37,14 @@
                     </button>
                 </div>
             @endcan
+            @can('productos.create')
+                <div class="registrar">
+                    <button href="#" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#ventasFormInput"
+                        onclick="createSelector('Input')">
+                        Registrar <br> Venta
+                    </button>
+                </div>
+            @endcan
             
             <form action="{{ route('productos.index') }}" method="GET">
                 <div class="btn-group">
@@ -100,6 +108,9 @@
     @can('productos.create')
     <x-forms.compras-input id="comprasFormInput" />
     @endcan
+    @can('productos.create')
+    <x-forms.ventas-input id="ventasFormInput" />
+    @endcan
     @can('productos.edit')
     <x-forms.productos-update id="productosFormUpdate" />
     @endcan
@@ -131,7 +142,18 @@
             $("#productosFormUpdate #costo").attr("value", datos.costo)
             $("#productosFormUpdate #precio").attr("value", datos.precio)
             $("#productosFormUpdate #marca").attr("value", datos.marca)
-            $("#productosFormUpdate #id_categoria").attr("value", datos.id_categoria)
+            $("#productosFormUpdate #foto").attr("value", datos.foto)
+            
+            $("#productosFormUpdate #id_categoria option")[0].selected="true"
+            if (datos.id_categoria) {
+                const id_cat = datos.id_categoria
+                const categoriaSelected = "#productosFormUpdate #id_categoria " + "option[value=" + String(id_cat) + "]"
+                $("#productosFormUpdate #id_categoria option").each((i,e)=>{
+                    $(e).attr("selected", false)
+                   // console.log(e)
+                })
+                $(categoriaSelected).attr("selected", true)
+            }
 
             createSelector('Update')
 
