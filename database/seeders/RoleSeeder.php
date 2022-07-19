@@ -70,7 +70,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'servicios.destroy', 'description' => 'eliminar servicio']);
 
         Permission::create(['name' => 'cita-servicio.index', 'description' => 'ver listado de solicitudes de servicio'])->syncRoles([ $vet, $recepcion]);
-        Permission::create(['name' => 'cita-servicio.create', 'description' => 'crear solicitud de servicio'])->syncRoles([ $vet]);
+        Permission::create(['name' => 'cita-servicio.create', 'description' => 'crear solicitud de servicio'])->syncRoles([ $vet, $recepcion]);
         
         Permission::create(['name' => 'turnos.index', 'description' => 'ver listado de turnos'])->syncRoles([ $recepcion]);
         Permission::create(['name' => 'turnos.create', 'description' => 'crear turno'])->syncRoles([ $recepcion]);
@@ -84,9 +84,9 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'roles.edit', 'description' => 'editar rol']);
         Permission::create(['name' => 'roles.destroy', 'description' => 'eliminar rol']);
 
-        Permission::create(['name' => 'proveedores.index', 'description' => 'ver listado de proveedores']);
-        Permission::create(['name' => 'proveedores.create', 'description' => 'crear proveedores']);
-        Permission::create(['name' => 'proveedores.edit', 'description' => 'editar proveedores']);
+        Permission::create(['name' => 'proveedores.index', 'description' => 'ver listado de proveedores'])->syncRoles([ $recepcion]);
+        Permission::create(['name' => 'proveedores.create', 'description' => 'crear proveedores'])->syncRoles([ $recepcion]);
+        Permission::create(['name' => 'proveedores.edit', 'description' => 'editar proveedores'])->syncRoles([ $recepcion]);
         Permission::create(['name' => 'proveedores.destroy', 'description' => 'eliminar proveedores']);
 
         Permission::create(['name' => 'productos.index', 'description' => 'ver listado de productos']);

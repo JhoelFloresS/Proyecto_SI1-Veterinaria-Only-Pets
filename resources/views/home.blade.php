@@ -37,10 +37,11 @@
             </div>
         </div>
         <div class="sidebar">
-            <a href="#">
+            <a href="/home" class=@yield('home', '')>
                 <span class="material-icons-sharp">home</span>
                 <h3>Inicio</h3>
             </a>
+            
             @can('usuarios.index')
                 <a href="{{ route('usuarios.index') }}" class=@yield('usuario', '')>
                     <span class="material-icons-sharp">person</span>
@@ -69,10 +70,14 @@
                 </a>
             @endcanany
                 
-            <a href="{{ route('categorias.index')}}">
+
+            @canany(['proveedores.index','productos.index','categorias.index'])
+            <a href="{{ route('petshop') }}" class=@yield('petshop', '')>
+
                 <span class="material-icons-sharp">shopping_cart</span>
                 <h3>Pet Shop</h3>
             </a>
+            @endcanany
 
             @canany(['bitacora'])
             <a href="{{route('bitacoras.index')}}" class=@yield('bitacoras', '')>
@@ -112,9 +117,6 @@
                 <div class="info">
                     <p>Usuario</p>
                     <small class="text-muted">Admin</small>
-                </div>
-                <div class="profile-photo">
-                    <img src="/images/home/profile-1.jpg">
                 </div>
             </div>
         </div>

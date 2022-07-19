@@ -43,7 +43,7 @@
                         <div class="col-md-12">
                             <label for="servicios" class="form-label fs-5">Servicios</label>
                             <select class=" form-control" id="servicios"
-                                name="servicios[]" name="servicios" multiple="multiple">
+                                name="servicios[]" name="servicios" multiple="multiple" required>
                                 <option  value="">Ninguno</option>
                                 @foreach ($servicios() as $servicio)
                                 <option value="{{ $servicio->id }}">

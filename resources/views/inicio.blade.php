@@ -34,7 +34,6 @@
                 <li><a href="#contacto">Contactanos</a></li>
                 <li><a href="/shop">Tienda</a></li>
                 <li><a href="{{ route('login') }}" target="_blank">Ingresar</a></li>
-                <li><a href="{{ route('register') }}" target="_blank">Registrar</a></li>
                 <div class="cancel-btn">
                     <i class="fas fa-times"></i>
                 </div>
@@ -159,15 +158,15 @@
                     <h1 class="sect__title best--bottom sect--white-text">NUESTROS RESULTADOS</h1>
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <img src="https://cdn.icon-icons.com/icons2/1392/PNG/512/health_96630.png" class="best__img">
+                            <img src="{{asset('/images/inicio/corazon.png')}}" class="best__img">
                             <h2 class="best__title">+300 Casos clínicos mensuales</h2>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <img src="https://cdn.icon-icons.com/icons2/2255/PNG/512/glove_gloves_icon_140172.png" class="best__img">
+                            <img src="{{asset('/images/inicio/guantes.png')}}" class="best__img">
                             <h2 class="best__title">90% Procedimientos quirúrgicos son de mínima invasión</h2>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <img src="https://cdn.icon-icons.com/icons2/688/PNG/512/like-thumbs-up-hand-social-media_icon-icons.com_61429.png" class="best__img">
+                            <img src="{{asset('/images/inicio/like.png')}}" class="best__img">
                             <h2 class="best__title">+20 Años de experiencia</h2>
                         </div>
                     </div>

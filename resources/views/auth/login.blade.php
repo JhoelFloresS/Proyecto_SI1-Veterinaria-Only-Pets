@@ -22,32 +22,35 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>o usa tu correo electronico para registrarte</span>
+                @section('formulario')
                 <div class="contenedor">
                     <div class="user-box">
-                        <input type="text" name="" required="">
+                        <input class="myInput" type="text" id="nombre" required name="nombre" value="{{old('nombre')}}">
                         <label>Nombre</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" name="" required="">
-                        <label>Username</label>
+                        <input class="myInput" type="text" id="apellido" required name="nombre_usuario" value="{{old('nombre_usuario')}}">
+                        <label>Correo De Inicio</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" name="" required="">
+                        <input class="myInput" type="text" id="apellido" required name="apellido_paterno" value="{{old('apellido_paterno')}}">
                         <label>Apellido Paterno</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" name="" required="">
+                        <input class="myInput" type="text" id="apellido" required name="apellido_materno" value="{{old('apellido_materno')}}">
                         <label>Apellido Materno</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" name="" required="">
+                        <input class="myInput" type="email" id="email" required name="email" value="{{old('email')}}">
                         <label>Email</label>
                     </div>
                     <div class="user-box">
-                        <input type="password" name="" required="">
+                        <input class="myInput" type="password" id="password" required name="password">
                         <label>Password</label>
                     </div>
                 </div>
+                <button class="buttonRegistrame" value="Registrarme" type="submit" style="visibility: hidden; display: none;"></button>
+                @show
                 <div class="iniciar">
                     <a href="#">
                         <span></span>
@@ -85,15 +88,17 @@
                     @enderror
                 </div>
                 <button id="buttonFormLogin" type="submit" style="visibility: hidden; display: none;"></button>
-                <a  href="">¿Olvidaste tu contraseña?</a>
+                <a href="">¿Olvidaste tu contraseña?</a>
                 <div class="iniciar">
-                    <a href="" id="linkSubmitLogin">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Ingresar
-                    </a>
+                    <button class="submit">
+                        <a id="linkSubmitLogin">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Ingresar
+                        </a>
+                    </button>
                 </div>
             </form>
         </div>
@@ -114,8 +119,8 @@
             </div>
         </div>
     </div>
-     <script src="{{ asset('js/login2.js') }}"></script>  
-  
+    <script src="{{ asset('js/login2.js') }}"></script>
+
     <script>
 
     </script>
