@@ -11,6 +11,7 @@
                         Añadir Cliente
                     @endif
                 </h5>
+            
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -110,6 +111,18 @@
                                 <label for="profesion" class="form-label fs-5">Profesión</label>
                                 <input type="text" class="form-control" id="profesion" name="profesion" required>
                                 {!! $errors->first('profesion', '<span class="help-block text-danger">*:message</span>') !!}
+
+                                @if($type == 'administrativo')
+                                
+                                <label for="profesion" class="form-label fs-5">Rol</label>
+                                <select class="form-select" name="rol" id="rol">
+                                    @foreach($getRoles as $rol)
+                                    <option value="{{$rol->id}}">{{$rol->name}}</option>
+                                    @endforeach
+                                </select>
+                                @endif
+
+
                                 @if ($type == 'veterinario')
                                     <div class="row mt-4">
                                         <label for="especialidad" class="col-sm-2 col-form-label fs-5">Servicio</label>

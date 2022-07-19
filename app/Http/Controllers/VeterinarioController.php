@@ -65,12 +65,16 @@ class VeterinarioController extends Controller
             ]);
         }
 
-        Usuario::create([
+        $user = Usuario::create([
             'nombre_usuario' => $request->email,
             'password'       => bcrypt($request->ci),
             'enable'         => '1',
-            'id_rol'         => '2',
             'id_persona'     => $persona->id,
+        ])->assignRole('veterinario');
+
+        Bitacora::create([
+            'descripcion' => 'bitacora',
+            'id_usuario' => $user->id,
         ]);
 
         BitacoraController::registrar(
