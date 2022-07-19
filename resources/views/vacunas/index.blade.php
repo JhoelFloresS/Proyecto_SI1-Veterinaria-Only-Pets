@@ -29,7 +29,6 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Editar</th>
             <th>Eliminar</th>
         </tr>
     </thead>
@@ -38,16 +37,6 @@
         <tr>
             <td>{{ $vacuna->id }}</td>
             <td>{{ $vacuna->nombre }}</td>
-            <td>
-                @can('vacunas.edit')
-                <button class="button-edit">
-                    <span class="material-icons-sharp" onclick=@php echo "\" imprimir(" . json_encode($vacuna->id) . ")\""; @endphp data-bs-toggle="modal"
-                        data-bs-target="#VacunaFormUpdate">
-                        edit
-                    </span>
-                </button>
-                @endcan
-            </td>
             <td>
                 @can('vacunas.edit')
                 <form action="{{route('vacunas.destroy',$vacuna->id)}}" method="POST">

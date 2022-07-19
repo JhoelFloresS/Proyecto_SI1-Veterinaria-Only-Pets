@@ -35,13 +35,6 @@
                     <td>{{ $historial->talla }}</td>
                     <td>
                         <div class="d-flex flex-row justify-content-between">
-                        @can('historiales.edit')
-                        <button class="button-edit">
-                            <span class="material-icons-sharp">
-                                edit
-                            </span>
-                        </button>
-                        @endcan
                         <a href="{{ route('historiales.show', $historial) }}" class="button-edit" id="ver">
                             <span class="material-icons-sharp">
                                 visibility
