@@ -54,9 +54,11 @@
                     </button>
                 </a>
                 @can('productos.create')
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ProductoFormInput" onclick="createSelector('producto','input')">
-                    Registrar Producto
-                </button>
+                <div class="registrar">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productosFormInput" onclick="createSelector('Input')">
+                        Registrar Producto
+                    </button>
+                </div>
                 @endcan
             </div>
         </div>
@@ -73,10 +75,12 @@
                     <button type="button" class="btn btn-primary mb-3">Ver lista
                     </button>
                 </a>
-                @can('turnos.create')
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CategoriaFormInput" onclick="createSelector('Input')">
-                    Registrar Categoria
-                </button>
+                @can('proveedores.create')
+                <div class="registrar">
+                    <button type="button" class="btn btn-success" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#categoriaFormInput" onclick="createSelector('Input')">
+                        Registrar categoria
+                    </button>
+                </div>
                 @endcan
             </div>
         </div>
@@ -93,9 +97,11 @@
                     </button>
                 </a>
                 @can('productos.create')
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ProductoFormInput" onclick="createSelector('producto','input')">
-                    Registrar Compra
-                </button>
+                <div class="registrar">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#comprasFormInput" onclick="createSelector('Input')">
+                        Registrar Compra
+                    </button>
+                </div>
                 @endcan
             </div>
         </div>
@@ -112,9 +118,11 @@
                     </button>
                 </a>
                 @can('productos.create')
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ProductoFormInput" onclick="createSelector('producto','input')">
-                    Registrar Venta
-                </button>
+                <div class="registrar">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ventasFormInput" onclick="createSelector('Input')">
+                        Registrar Venta
+                    </button>
+                </div>
                 @endcan
             </div>
         </div>
@@ -130,6 +138,18 @@
 @section('body-final')
 @can('proveedores.create')
 <x-forms.proveedores-input id="proveedoresFormInput" />
+@endcan
+@can('productos.create')
+<x-forms.compras-input id="comprasFormInput" />
+@endcan
+@can('productos.create')
+<x-forms.ventas-input id="ventasFormInput" />
+@endcan
+@can('productos.create')
+<x-forms.productos-input id="productosFormInput" />
+@endcan
+@can('categorias.create')
+<x-forms.categoria-input id="categoriaFormInput" />
 @endcan
 @endsection
 
