@@ -10,6 +10,7 @@
     <title>@yield('title', 'titulo')</title>
     @section('head')
     @show
+    @livewireStyles
 </head>
 
 <body>  
@@ -23,6 +24,7 @@
   
     @section('js')
     @show
+    @livewireScripts
 </body>
 
 

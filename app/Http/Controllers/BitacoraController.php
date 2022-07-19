@@ -21,37 +21,9 @@ class BitacoraController extends Controller
     public function index(Request $request){
         // if($id == null){
            // $bitacoras = Bitacora::all()->orderby('id','desc');
-           $filtro = $request->filtro;
-           if($filtro == "usuario"){
-             $palabras = $this->separateWords($request->busqueda.'');
-             $personas = new Collection;
-             foreach($palabras as $key => $palabra){
-                if($key == 0)
-                      $personas = $personas->concat(Persona::where('nombre','LIKE','%'.$palabra.'%')->get());
-                elseif($key == 1)
-                        $personas = $personas->concat(Persona::where('apellido_paterno','LIKE','%'.$palabra.'%')
-                                    ->orWhere('nombre','LIKE','%'.$palabra.'%')->get());
-                else{
-                    $personas = $personas->concat(Persona::where('apellido_materno','LIKE','%'.$palabra.'%')
-                                ->orWhere('apellido_paterno','LIKE','%'.$palabra.'%')->get());
-                }
-            }
-            $usuarios = Usuario::whereIn('id_persona',$personas->pluck('id'))->get();
-            $bitacoras = Bitacora::whereIn('id_usuario',$usuarios->pluck('id'))->get();
-            $acciones = Accion::whereIn('id_bitacora',$bitacoras->pluck('id'))->orderBy('id','desc')->paginate(7);
-             return view('bitacora.index', ['acciones' => $acciones ,'busqueda'=>$request->busqueda.'','filtro'=>$filtro]);
-
-           }elseif($filtro == "fecha_hora"){
-
-           }
-
-           $busqueda = $request->busqueda;
-            $acciones = Accion::where('accion','LIKE','%'.$busqueda.'%')
-            ->orWhere('descripcion','LIKE','%'.$busqueda.'%')
-            ->latest('id')
-            ->orderBy('id','desc')->paginate(10);
-            $acciones->load('bitacora');
-            return view('bitacora.index', compact('acciones'));
+            
+            
+            return view('bitacora.index');
 
         
     }

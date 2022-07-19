@@ -1,7 +1,9 @@
 @extends('home')
 @section('title', 'mascotas3')
-
-@section('registrar-datos','active')
+@php
+    $active = Auth::user()->hasRole('cliente')?'mis-mascotas':'registrar-datos';
+@endphp
+@section($active,'active')
 
 @section('css-derecha')
 <link rel="stylesheet" href="{{asset('css/table-information.css')}}">
@@ -59,7 +61,12 @@
             <hr>
             
             <div class="col">
-                <a href="{{route('mascotas.index')}}" class="buttonRegistrame">Volver Atras</a>
+                <a   @if (!Auth::user()->hasRole('cliente'))
+                    href="{{ route('mascotas.index') }}"
+                    @else
+                      href="{{route('mascotas.my')}}"
+                    @endif
+                   class="buttonRegistrame">Volver Atras</a>
             </div>
         </div>
     </div>

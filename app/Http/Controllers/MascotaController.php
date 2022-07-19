@@ -5,34 +5,43 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\clienteMascota;
 use App\Models\Mascota;
+use App\Models\Usuario;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class MascotaController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('can:mascotas.index')->only('index', 'show');
+        $this->middleware(['can:mascotas.index'])->only('index');
+        $this->middleware(['role_or_permission:mascotas.index|cliente']);
         $this->middleware('can:mascotas.create')->only('create', 'store');
         $this->middleware('can:mascotas.edit')->only('edit', 'update','datas');
-        
+        $this->middleware('role:cliente')->only('myPets');
     }
 
 
     public function index(Request $request)
     {
+
         $busqueda = $request->busqueda;
+
         $mascotas = Mascota::where('nombre', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('raza', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('sexo', 'LIKE', '%' . $busqueda . '%')
             ->latest('id')
             ->paginate(7);
+
         $data = [
             'mascota' => $mascotas,
             'busqueda' => $busqueda,
         ];
+
         $mascotas->load('propietario');
+
         return view('mascotas.index', compact('mascotas'));
     }
 
@@ -110,6 +119,21 @@ class MascotaController extends Controller
 
     public function show(Mascota $mascota)
     {
+        if(Auth::user()->hasRole('cliente')){
+            if(!Gate::allows('view', $mascota))
+                return redirect()->back();
+        }
+        
         return view('mascotas.show', compact('mascota'));
     }
+
+
+    public function myPets(){
+        $mascotas = Auth::user()->persona->mascotas;
+
+        
+        return view('mascotas.myPets', compact('mascotas'));
+    }
+
+
 }
