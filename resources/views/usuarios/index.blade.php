@@ -39,13 +39,6 @@
                         <td>{{ $usuario->enable }}</td>
                         <td>
                           <div class="d-flex justify-content-center">
-                        @can('usuarios.edit')
-                              <a href=" {{ route('usuarios.edit', $usuario) }}" class="button-edit">
-                                  <span class="material-icons-sharp">
-                                      edit
-                                  </span>
-                              </a>
-                        @endcan
                               <a href="{{ route('usuarios.show', $usuario) }}" class="button-edit" id="ver">
                                 <span class="material-icons-sharp">
                                     visibility
