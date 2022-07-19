@@ -15,7 +15,6 @@ class EnfermedadController extends Controller
         $this->middleware('can:enfermedades.index')->only('index');
         $this->middleware('can:enfermedades.create')->only('create', 'store');
         $this->middleware('can:enfermedades.edit')->only('edit', 'update');
-        
     }
 
     public function index(Request $request)
@@ -39,7 +38,8 @@ class EnfermedadController extends Controller
         return view('enfermedades.show', compact('enfermedad'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         Enfermedad::create([
             'nombre' => $request->nombre,
             'tipo' => $request->tipo
@@ -47,17 +47,19 @@ class EnfermedadController extends Controller
         BitacoraController::registrar(
             Auth::user()->id,
             'Creación de enfermedad',
-            'Se creó la enfermedad: '.$request->nombre. ' de tipo: '.$request->tipo
+            'Se creó la enfermedad: ' . $request->nombre . ' de tipo: ' . $request->tipo
         );
         return redirect(route('enfermedades.index'));
     }
 
-    public function datas($id){
+    public function datas($id)
+    {
         $enfermedad = Enfermedad::find($id);
         return $enfermedad;
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $enfermedad = Enfermedad::findOrFail($id);
         $data = ([
             'nombre' => $request->nombre,
@@ -67,8 +69,16 @@ class EnfermedadController extends Controller
         BitacoraController::registrar(
             Auth::user()->id,
             'Edición de enfermedad',
-            'Se editó la enfermedad: '.$request->nombre. ' de tipo: '.$request->tipo
+            'Se editó la enfermedad: ' . $request->nombre . ' de tipo: ' . $request->tipo
         );
+        return redirect()->route('enfermedades.index');
+    }
+
+    public function destroy($id)
+    {
+        $enfermedad = Enfermedad::findOrFail($id);
+        $enfermedad->delete();
+
         return redirect()->route('enfermedades.index');
     }
 }

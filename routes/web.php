@@ -8,7 +8,9 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DetalleHistorialController;
 use App\Http\Controllers\EnfermedadController;
 use App\Http\Controllers\HistorialClinicoController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicioController;
@@ -17,8 +19,13 @@ use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
+
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\NotaIngresoController;
 use App\Models\DetalleHistorial;
+
 use App\Models\Veterinario;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\View\Components\Forms\MascotaInput;
@@ -64,9 +71,7 @@ Route::get('/petshop', function () {
 
 Route::middleware('auth')->group(function(){
 
-    Route::get('/home', function () {
-        return view('home');
-    });
+    Route::get('/home', [HomeController::class,'index']);
     
     Route::get('/datos', function () {
         return view('datos');
@@ -114,6 +119,8 @@ Route::get('bitacoras', [BitacoraController::class, 'index'])->name('bitacoras.i
 Route::get('servicios/datas/{id}', [ServicioController::class, 'datas']);
 Route::resource('servicios', ServicioController::class);
 
+Route::get('categorias/datas/{id}', [categoriaController::class, 'datas']);
+Route::resource('categorias', categoriaController::class);
 
 Route::get('solicitudes/datas/{id}', [SolicitudServicioController::class, 'datas']);
 Route::resource('solicitudes', SolicitudServicioController::class);
@@ -126,6 +133,19 @@ Route::resource('diagnosticos', DetalleHistorialController::class);
 Route::get('proveedores/datas/{id}', [ProveedorController::class, 'datas']);
 Route::resource('proveedores', ProveedorController::class);
 
+
+Route::get('productos/datas/{id}', [ProductoController::class, 'datas']);
+Route::post('productos/comprar', [ProductoController::class, 'comprar'])->name('productos.comprar');
+Route::post('productos/vender', [ProductoController::class, 'vender'])->name('productos.vender');
+Route::resource('productos', ProductoController::class);
+
+Route::resource('roles',RoleController::class);
+
+Route::get('solicitudes/pdf/{id}', [SolicitudServicioController::class,'pdf'])->name('solicitudes.pdf');
+Route::get('historiales/pdf/{id}', [HistorialClinicoController::class,'pdf'])->name('historiales.pdf');
+
+Route::get('ingresos/datas/{id}', [NotaIngresoController::class, 'datas']);
+Route::resource('ingresos', NotaIngresoController::class);
 
 
 });

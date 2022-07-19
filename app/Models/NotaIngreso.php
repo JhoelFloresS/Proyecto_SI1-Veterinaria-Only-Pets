@@ -19,4 +19,16 @@ class NotaIngreso extends Model
         'hora',
         'monto_total',
     ];
+
+    public function proveedor() {
+        return $this->belongsTo(Proveedor::class, 'id_proveedor');
+    }
+
+    public function producto() {
+        return $this->belongsTo(Producto::class, 'id_producto');
+    }
+
+    public function administrativo() {
+        return $this->belongsTo(Administrativo::class, 'id_administrativo');
+    }
 }

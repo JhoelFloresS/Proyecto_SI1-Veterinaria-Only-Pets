@@ -67,4 +67,12 @@ class ProveedorController extends Controller
         return view('proveedores.show', compact('proveedore'));
     }
 
+    public function destroy($id)
+    {
+        $proveedor = Proveedor::findOrFail($id);
+        $proveedor->delete();
+
+        return redirect()->route('proveedores.index');
+    }
+
 }

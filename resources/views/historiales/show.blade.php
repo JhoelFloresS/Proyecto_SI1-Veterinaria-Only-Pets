@@ -11,6 +11,13 @@
 
 @section('contenido')
 
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="tabla" style="padding: 3rem;">
+
+                <h1 style="text-align: center;">Historial Clinico</h1>
 @if(!Auth::user()->hasRole('cliente'))
     <div class="registrar">
         <button href="#" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#diagnosticosFormInput"
@@ -19,11 +26,31 @@
         </button>
     </div>
 @endif
-    <div class="container-fluid">
-        <div class="row">
-            <div class="tabla" style="padding: 3rem;">
 
-                <h1 style="text-align: center;">Historial Clinico</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="tabla" style="padding: 3rem;">
+
+            <h1 style="text-align: center;">Historial Clinico</h1>
+
+            <h1>{{$historiale->mascota->nombre}}</h1>
+            <h3>{{$historiale->mascota->raza}} | {{$historiale->mascota->descripcion}}</h3>
+            <p>
+                <strong>Peso</strong>: @if($historiale->peso)
+                {{$historiale->peso}}
+                @else
+                ---
+                @endif <br>
+                <strong>Talla</strong>: @if($historiale->talla)
+                {{$historiale->talla}}
+                @else
+                ---
+                @endif
+            </p>
+
+            <hr>
+            <div style="display: flex;">
+
 
                 <h1>{{ $historiale->mascota->nombre }}</h1>
                 <h3>{{ $historiale->mascota->raza }} | {{ $historiale->mascota->descripcion }}</h3>
@@ -139,10 +166,15 @@
                     </div>
                     </p>
                 </div>
-                <hr>
-            
-                    <div class="col">
-                        <a     @if (!Auth::user()->hasRole('cliente'))
+
+                
+           
+            </div>
+            <hr>
+
+            <div class="col">
+                <a href="{{route('historiales.pdf',$historiale)}}" class="buttonRegistrame">Exportar PDF</a>
+                       <a     @if (!Auth::user()->hasRole('cliente'))
                               href="{{ route('historiales.index') }}"
                               @else
                                 href="{{route('mascotas.my')}}"
@@ -150,8 +182,7 @@
                              class="buttonRegistrame">Volver Atras
              
                         </a>
-                    </div>
-            
+
             </div>
         </div>
     </div>
@@ -159,108 +190,113 @@
 @endsection
 
 @section('body-final')
-    <x-diagnosticos-input id="diagnosticosFormInput" />0
+
+<x-diagnosticos-input id="diagnosticosFormInput" />0
+
 @endsection
 
 
 @section('js-home')
-    <script>
-        const createSelector = (type) => {
+<script>
+    const createSelector = (type) => {
 
-            $('#formDiagnosticosInput' + ' #enfermedades').select2({
-                theme: 'bootstrap-5',
-                placeholder: 'Seleccione las enfermedades',
-                width: '100%'
-            })
-            $('#formDiagnosticosInput' + ' #vacunas').select2({
-                theme: 'bootstrap-5',
-                placeholder: 'Seleccione las vacunas',
-                width: '100%'
-            })
-            $('#formDiagnosticosInput' + ' #cirugias').select2({
-                theme: 'bootstrap-5',
-                placeholder: 'Seleccione las cirugias',
-                width: '100%'
-            })
-            $("#formDiagnosticosInput #id_historial").attr("value", {{ $historiale->id }})
-            $('#formDiagnosticosInput' + ' #fechas').select2({
-                theme: 'bootstrap-5',
-                tags: true,
-                placeholder: 'Inserte las fechas Day-Month-Year',
-                maximumSelectionLength: 3,
-                maximumInputLength: 10,
+        $('#formDiagnosticosInput' + ' #enfermedades').select2({
+            theme: 'bootstrap-5',
+            placeholder: 'Seleccione las enfermedades',
+            width: '100%'
+        })
+        $('#formDiagnosticosInput' + ' #vacunas').select2({
+            theme: 'bootstrap-5',
+            placeholder: 'Seleccione las vacunas',
+            width: '100%'
+        })
+        $('#formDiagnosticosInput' + ' #cirugias').select2({
+            theme: 'bootstrap-5',
+            placeholder: 'Seleccione las cirugias',
+            width: '100%'
+        })
+        $("#formDiagnosticosInput #id_historial").attr("value", {
+            {
+                $historiale - > id
+            }
+        })
+        $('#formDiagnosticosInput' + ' #fechas').select2({
+            theme: 'bootstrap-5',
+            tags: true,
+            placeholder: 'Inserte las fechas Day-Month-Year',
+            maximumSelectionLength: 3,
+            maximumInputLength: 10,
 
-                tokenSeparators: [',', ' '],
-                width: '100%',
-            })
+            tokenSeparators: [',', ' '],
+            width: '100%',
+        })
 
+    }
+
+    function desplegarForm(id) {
+        var admin = new XMLHttpRequest()
+        admin.open("GET", "/solicitudes/datas/" + id.toString(), true)
+        admin.addEventListener("load", cargarDatos)
+        admin.send()
+    }
+
+    function cargarDatos(e) {
+        const datos = JSON.parse(this.responseText)
+
+        createSelector('Update')
+        //PARA EL CLIENTE
+        $("#solicitudesFormUpdate #id_cliente option")[0].selected = "true"
+        if (datos.id_cliente) {
+            const id_cliente = datos.id_cliente ?? null
+            const id_clienteSelected = "#solicitudesFormUpdate #id_cliente " + "option[value=" + String(id_cliente) + "]"
+            $("#solicitudesFormUpdate #id_cliente option").each((i, e) => {
+                $(e).attr("selected", false)
+                // console.log(e)
+            })
+            $(id_clienteSelected).attr("selected", true)
         }
 
-        function desplegarForm(id) {
-            var admin = new XMLHttpRequest()
-            admin.open("GET", "/solicitudes/datas/" + id.toString(), true)
-            admin.addEventListener("load", cargarDatos)
-            admin.send()
+        //PARA LA MASCOTA
+        $("#solicitudesFormUpdate #id_mascota option")[0].selected = "true"
+        if (datos.id_mascota) {
+            const id_mascota = datos.id_mascota ?? null
+            const id_mascotaSelected = "#solicitudesFormUpdate #id_mascota " + "option[value=" + String(id_mascota) + "]"
+            $("#solicitudesFormUpdate #id_mascota option").each((i, e) => {
+                $(e).attr("selected", false)
+                // console.log(e)
+            })
+            $(id_mascotaSelected).attr("selected", true)
         }
 
-        function cargarDatos(e) {
-            const datos = JSON.parse(this.responseText)
-
-            createSelector('Update')
-            //PARA EL CLIENTE
-            $("#solicitudesFormUpdate #id_cliente option")[0].selected = "true"
-            if (datos.id_cliente) {
-                const id_cliente = datos.id_cliente ?? null
-                const id_clienteSelected = "#solicitudesFormUpdate #id_cliente " + "option[value=" + String(id_cliente) +
-                    "]"
-                $("#solicitudesFormUpdate #id_cliente option").each((i, e) => {
-                    $(e).attr("selected", false)
-                    // console.log(e)
-                })
-                $(id_clienteSelected).attr("selected", true)
-            }
-
-            //PARA LA MASCOTA
-            $("#solicitudesFormUpdate #id_mascota option")[0].selected = "true"
-            if (datos.id_mascota) {
-                const id_mascota = datos.id_mascota ?? null
-                const id_mascotaSelected = "#solicitudesFormUpdate #id_mascota " + "option[value=" + String(id_mascota) +
-                    "]"
-                $("#solicitudesFormUpdate #id_mascota option").each((i, e) => {
-                    $(e).attr("selected", false)
-                    // console.log(e)
-                })
-                $(id_mascotaSelected).attr("selected", true)
-            }
-
-            //PARA EL RECIBO
-            $("#solicitudesFormUpdate #id_recibo option")[0].selected = "true"
-            if (datos.id_recibo) {
-                const id_recibo = datos.id_recibo ?? null
-                const id_reciboSelected = "#solicitudesFormUpdate #id_recibo " + "option[value=" + String(id_recibo) + "]"
-                $("#solicitudesFormUpdate #id_recibo option").each((i, e) => {
-                    $(e).attr("selected", false)
-                })
-                $(id_reciboSelected).attr("selected", true)
-            }
-
-            //PARA LOS SERVICIOS
-            $("#solicitudesFormUpdate #servicios option")[0].selected = "true"
-            if (datos.id_servicio) {
-                const servicios = datos.id_servicio ?? null
-                const serviciosSelected = "#solicitudesFormUpdate #servicios " + "option[value=" + String(servicios) + "]"
-                $("#solicitudesFormUpdate #servicios option").each((i, e) => {
-                    $(e).attr("selected", false)
-                })
-                $(serviciosSelected).attr("selected", true)
-            }
-
-            let action = "/solicitudes/" + datos.id
-
-            $('#solicitudesFormUpdate form').attr('action', action)
-
-
+        //PARA EL RECIBO
+        $("#solicitudesFormUpdate #id_recibo option")[0].selected = "true"
+        if (datos.id_recibo) {
+            const id_recibo = datos.id_recibo ?? null
+            const id_reciboSelected = "#solicitudesFormUpdate #id_recibo " + "option[value=" + String(id_recibo) + "]"
+            $("#solicitudesFormUpdate #id_recibo option").each((i, e) => {
+                $(e).attr("selected", false)
+            })
+            $(id_reciboSelected).attr("selected", true)
         }
-    </script>
+
+        //PARA LOS SERVICIOS
+        $("#solicitudesFormUpdate #servicios option")[0].selected = "true"
+        if (datos.id_servicio) {
+            const servicios = datos.id_servicio ?? null
+            const serviciosSelected = "#solicitudesFormUpdate #servicios " + "option[value=" + String(servicios) + "]"
+            $("#solicitudesFormUpdate #servicios option").each((i, e) => {
+                $(e).attr("selected", false)
+            })
+            $(serviciosSelected).attr("selected", true)
+        }
+
+        let action = "/solicitudes/" + datos.id
+
+        $('#solicitudesFormUpdate form').attr('action', action)
+
+
+    }
+</script>
+
 
 @endsection
