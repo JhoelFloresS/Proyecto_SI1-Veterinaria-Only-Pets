@@ -12,8 +12,7 @@ class TurnoController extends Controller
     {
         $this->middleware('can:turnos.index')->only('index');
         $this->middleware('can:turnos.create')->only('create', 'store');
-        $this->middleware('can:turnos.edit')->only('edit', 'update','datas');
-
+        $this->middleware('can:turnos.edit')->only('edit', 'update', 'datas');
     }
     public function index(Request $request)
     {
@@ -29,7 +28,7 @@ class TurnoController extends Controller
         return view('turnos.index', compact('turnos'));
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         Turno::create([
             'horario_entrada' => $request->horario_entrada,
@@ -38,13 +37,15 @@ class TurnoController extends Controller
         return redirect(route('turnos.index'));
     }
 
-    public function datas($id){
+    public function datas($id)
+    {
         $turno = Turno::find($id);
         return $turno;
     }
 
-    
-    public function update(Request $request, $id) {
+
+    public function update(Request $request, $id)
+    {
         $turno = Turno::find($id);
         $data = [
             'horario_entrada' => $request->horario_entrada,
@@ -52,5 +53,13 @@ class TurnoController extends Controller
         ];
         $turno->update($data);
         return redirect(route('turnos.index'));
+    }
+
+    public function destroy($id)
+    {
+        $turno = Turno::findOrFail($id);
+        $turno->delete();
+
+        return redirect()->route('turnos.index');
     }
 }
