@@ -57,9 +57,8 @@ class ClienteController extends Controller
             'nombre_usuario'=>$request->email,
             'password'=>bcrypt($request->ci),
             'enable'=>'1',
-            'id_rol'=>'4',
             'id_persona'     => $persona->id,
-        ]);
+        ])->assignRole('cliente');
 
         BitacoraController::registrar(
             Auth::user()->id,
