@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="{{ asset('css/table-information.css') }}">
 
 <style>
-    #ingresosFormUpdate .form-control,
-    #ingresosFormUpdate .form-select,
-    #ingresosFormUpdate .select2-selection {
+    #comprasFormUpdate .form-control,
+    #comprasFormUpdate .form-select,
+    #comprasFormUpdate .select2-selection {
         background-color: khaki !important;
     }
 </style>
@@ -21,14 +21,14 @@
 
 
     <div class="d-md-flex justify-content-md-between" style="margin-bottom: 1rem;">
-        @can('proveedores.create')
+        @can('productos.create')
         <div class="registrar">
-            <button href="#" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#proveedoresFormInput" onclick="createSelector('Input')">
-                Registrar Ingresos
+            <button href="#" class="buttonRegistrame" data-bs-toggle="modal" data-bs-target="#comprasFormInput" onclick="createSelector('Input')">
+                Registrar <br> Compra
             </button>
         </div>
         @endcan
-        <form action="{{ route('ingresos.index') }}" method="GET">
+        <form action="{{ route('compras.index') }}" method="GET">
             <div class="btn-group">
                 <input type=" text" name="busqueda" class="form-control">
                 <input type="submit" value="Buscar" class="btn btn-primary" style="background-color: var(--color-danger);">
@@ -48,15 +48,15 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                @foreach ($ingresos as $ingreso)
+                @foreach ($compras as $compra)
                 <tr>
-                    <td>{{ $ingreso->id }}</td>
-                    <td>{{ $ingreso->proveedor->nombre}}</td>
-                    <td>{{ $ingreso->producto->nombre }}</td>
-                    <td>{{ $ingreso->cantidad}}</td>
-                    <td>{{ $ingreso->monto_total}}</td>
+                    <td>{{ $compra->id }}</td>
+                    <td>{{ $compra->proveedor->nombre}}</td>
+                    <td>{{ $compra->producto->nombre }}</td>
+                    <td>{{ $compra->cantidad}}</td>
+                    <td>{{ $compra->monto_total}}</td>
                     <td>
-                        <a href="{{ route('ingresos.show', $ingreso->id) }}" class="button-edit" id="ver">
+                        <a href="{{ route('compras.show', $compra->id) }}" class="button-edit" id="ver">
                             <span class="material-icons-sharp">
                                 visibility
                             </span>
@@ -68,17 +68,14 @@
         </table>
     </div>
     <div class="pagination" style="margin-top: 1rem;">
-        {{ $ingresos->appends('busqueda=>$busqueda') }}
+        {{ $compras->appends('busqueda=>$busqueda') }}
     </div>
 </div>
 @endsection
 
 @section('body-final')
-@can('proveedores.create')
-<x-forms.proveedores-input id="proveedoresFormInput" />
-@endcan
-@can('proveedores.edit')
-<x-forms.proveedores-update id="proveedoresFormUpdate" />
+@can('productos.create')
+<x-forms.compras-input id="comprasFormInput" />
 @endcan
 @endsection
 

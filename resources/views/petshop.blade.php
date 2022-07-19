@@ -88,16 +88,15 @@
             <img src="{{ asset('images/petshop/compras.jpg') }}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
                 <h5 class="card-title fs-4">Compras</h5>
-                <a href="#">
+                <a href="{{ route('compras.index') }}">
                     <button type="button" class="btn btn-primary mb-3">Ver lista
                     </button>
                 </a>
-                {{-- @can('turnos.create')
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#CategoriaFormInput" onclick="createSelector('Input')">
-                        Registrar Categoria
-                    </button>
-                @endcan --}}
+                @can('productos.create')
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ProductoFormInput" onclick="createSelector('producto','input')">
+                    Registrar Compra
+                </button>
+                @endcan
             </div>
         </div>
 
@@ -108,16 +107,15 @@
             <img src="{{ asset('images/petshop/ventas.jpg') }}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
                 <h5 class="card-title fs-4">Ventas</h5>
-                <a href="#">
+                <a href="{{ route('ventas.index') }}">
                     <button type="button" class="btn btn-primary mb-3">Ver lista
                     </button>
                 </a>
-                {{-- @can('turnos.create')
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#CategoriaFormInput" onclick="createSelector('Input')">
-                        Registrar Categoria
-                    </button>
-                @endcan --}}
+                @can('productos.create')
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ProductoFormInput" onclick="createSelector('producto','input')">
+                    Registrar Venta
+                </button>
+                @endcan
             </div>
         </div>
 

@@ -21,9 +21,10 @@ use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\VeterinarioController;
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DetalleVentaController;
 use App\Http\Controllers\NotaIngresoController;
 use App\Models\DetalleHistorial;
-
+use App\Models\DetalleVenta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\View\Components\Forms\MascotaInput;
@@ -143,8 +144,12 @@ Route::resource('roles',RoleController::class);
 Route::get('solicitudes/pdf/{id}', [SolicitudServicioController::class,'pdf'])->name('solicitudes.pdf');
 Route::get('historiales/pdf/{id}', [HistorialClinicoController::class,'pdf'])->name('historiales.pdf');
 
-Route::get('ingresos/datas/{id}', [NotaIngresoController::class, 'datas']);
-Route::resource('ingresos', NotaIngresoController::class);
+Route::get('compras/datas/{id}', [NotaIngresoController::class, 'datas']);
+Route::resource('compras', NotaIngresoController::class);
+
+Route::get('ventas/datas/{id}', [DetalleVentaController::class, 'datas']);
+Route::resource('ventas', DetalleVentaController::class);
+Route::get('ventas/pdf/{id}', [DetalleVentaController::class,'pdf'])->name('ventas.pdf');
 
 });
 
