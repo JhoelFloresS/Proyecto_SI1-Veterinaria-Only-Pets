@@ -24,7 +24,7 @@ class StoreVentaRequest extends FormRequest
     public function rules()
     {
         return [
-            'concepto' => 'string|required|max:20|min:3',
+            'concepto' => 'string|required|min:3',
             'cantidad' => 'required',
             'monto_total' => 'required', 
         ];
